@@ -4,11 +4,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
+import isNil from 'lodash/isNil';
+import { Spinner } from 'evergreen-ui';
 
 import api from './redux/api';
 import * as authActions from './redux/modules/auth/actions';
+import { INIT } from './redux/modules/auth/types';
 
+import Page from './components/Page';
 import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
 
 class Routes extends React.Component {
   constructor(props, context) {
@@ -24,9 +29,23 @@ class Routes extends React.Component {
 
   render() {
 
-    return (
-      <Login />
-    );
+    const isInitializing = this.props.loading[INIT];
+    const isUserLoggedIn = !isNil(get(this.props, 'auth.user'))
+
+    if (isInitializing) {
+      return (
+        <Page
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Spinner />
+        </Page>
+      )
+    }
+
+    if (!isUserLoggedIn) return <Login />;
+    return <Home />;
   }
 }
 
@@ -34,6 +53,7 @@ Routes.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
+  loading: state.loading,
   requests: state.requests,
   auth: state.auth,
 });

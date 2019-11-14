@@ -2,36 +2,130 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import styled from 'styled-components/macro';
+import Page from '../../components/Page';
+import {
+  Heading,
+  Button,
+  Pane,
+  TextInput,
+  Card,
+  majorScale,
+  minorScale
+} from 'evergreen-ui';
 
-const Wrapper = styled.div``;
+import { LOGIN } from '../../redux/modules/auth/types';
+import * as authActions from '../../redux/modules/auth/actions';
 
 class Login extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+      email: '',
+      password: '',
     };
   }
 
   render() {
+
+    const loggingIn = this.props.loading[LOGIN];
+
     return (
-      <Wrapper>
-        Hello world
-      </Wrapper>
+      <Page
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+
+        <Card
+          width={320}
+          display="flex"
+          flexFlow="column"
+          background="tint1"
+          border
+          padding={minorScale(3)}
+        >
+          <Pane
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Heading
+              size="600"
+              marginBottom={minorScale(4)}
+            >
+              こんにちは！
+            </Heading>
+          </Pane>
+
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.props.authActions.login({
+                email: this.state.email,
+                password: this.state.password
+              })
+            }}
+          >
+
+            <TextInput
+              width="100%"
+              type="email"
+              placeholder="Email"
+              marginBottom={minorScale(2)}
+              height={majorScale(4)}
+              value={this.state.email}
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+
+            <TextInput
+              width="100%"
+              type="password"
+              placeholder="Password"
+              marginBottom={minorScale(4)}
+              height={majorScale(4)}
+              value={this.state.password}
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+
+            <Button
+              type="submit"
+              width="100%"
+              appearance="primary"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              height={majorScale(4)}
+              isLoading={loggingIn}
+              disabled={(
+                loggingIn ||
+                !this.state.email ||
+                !this.state.password
+              )}
+            >
+              {loggingIn && "Logging in..."}
+              {!loggingIn && "Login"}
+            </Button>
+
+          </form>
+
+        </Card>
+      </Page>
     );
   }
 }
 
 Login.propTypes = {
+  loading: PropTypes.object,
+  authActions: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  // authors: state.authors,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  // actions: bindActionCreators(actions, dispatch),
+  authActions: bindActionCreators(authActions, dispatch),
 });
 
 export default connect(
