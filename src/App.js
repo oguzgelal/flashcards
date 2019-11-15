@@ -6,16 +6,19 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { Spinner } from 'evergreen-ui';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import api from './redux/api';
 import * as authActions from './redux/modules/auth/actions';
 import { INIT } from './redux/modules/auth/types';
 
+
 import Page from './components/Page';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
+import Study from './pages/Study/Study';
 
-class Routes extends React.Component {
+class App extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -34,22 +37,28 @@ class Routes extends React.Component {
 
     if (isInitializing) {
       return (
-        <Page
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Page full center>
           <Spinner />
         </Page>
       )
     }
 
-    if (!isUserLoggedIn) return <Login />;
-    return <Home />;
+    if (!isUserLoggedIn) {
+      return (
+        <Login />
+      );
+    }
+
+    return (
+      <Router>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/study" component={Study} />
+      </Router>
+    )
   }
 }
 
-Routes.propTypes = {
+App.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -65,4 +74,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Routes);
+)(App);

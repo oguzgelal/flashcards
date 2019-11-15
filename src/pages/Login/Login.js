@@ -31,14 +31,10 @@ class Login extends React.Component {
     const loggingIn = this.props.loading[LOGIN];
 
     return (
-      <Page
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
+      <Page frame center>
 
         <Card
-          width={320}
+          width="100%"
           display="flex"
           flexFlow="column"
           background="tint1"

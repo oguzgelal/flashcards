@@ -23,7 +23,7 @@ class Login extends React.Component {
     const isLoggingOut = this.props.loading[LOGOUT];
 
     return (
-      <Page>
+      <Page frame>
         <Button
           isLoading={isLoggingOut}
           disabled={isLoggingOut}
