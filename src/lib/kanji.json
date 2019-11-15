@@ -1,0 +1,24 @@
+{
+  "data": [
+    { "K": "一", "OY": "いち, いつ", "KY": "ひと", "M": "one", "MM": "" }
+  ],
+  "descriptions": {
+    "K": "Kanji",
+    "OY": "On'Yomi Reading" ,
+    "KY": "Kun'Yomi Reading",
+    "M": "Meaning",
+    "MM": "Mnemonic"
+  },
+  "sets": [
+    { "front": "K", "back": "OY", "hint": "MM" },
+    { "front": "K", "back": "KY", "hint": "MM" },
+    { "front": "K", "back": "M", "hint": "MM" },
+    { "front": "OY", "back": "K", "hint": "MM" },
+    { "front": "OY", "back": "M", "hint": "MM" },
+    { "front": "KY", "back": "K", "hint": "MM" },
+    { "front": "KY", "back": "M", "hint": "MM" },
+    { "front": "M", "back": "K", "hint": "MM" },
+    { "front": "M", "back": "OY", "hint": "MM" },
+    { "front": "M", "back": "KY", "hint": "MM" },
+  ]
+}

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Page from '../../components/Page';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
 import {
   Heading,
-  Button,
   Pane,
-  TextInput,
   Card,
   majorScale,
   minorScale
@@ -51,7 +51,7 @@ class Login extends React.Component {
             justifyContent="center"
           >
             <Heading
-              size="600"
+              size="700"
               marginBottom={minorScale(4)}
             >
               こんにちは！
