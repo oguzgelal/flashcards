@@ -31,7 +31,7 @@ class Login extends React.Component {
     const loggingIn = this.props.loading[LOGIN];
 
     return (
-      <Page frame center>
+      <Page hasHeader={false} frame center>
 
         <Card
           width="100%"

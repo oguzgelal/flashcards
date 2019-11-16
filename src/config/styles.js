@@ -15,11 +15,12 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 const theme = {
-  bodyPadding: minorScale(4),
+  bodyPadding: 22,
   mobile: `(max-width: 485px)`,
   tablet: `(max-width: 768px)`,
   laptop: `(max-width: 1440px)`,
-  desktop: `(max-width: 2560px`,
+  desktop: `(max-width: 2560px)`,
+  headerHeight: 52,
   ...defaultTheme,
 };
 

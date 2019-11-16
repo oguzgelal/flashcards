@@ -37,7 +37,7 @@ class App extends React.Component {
 
     if (isInitializing) {
       return (
-        <Page full center>
+        <Page full center hasHeader={false}>
           <Spinner />
         </Page>
       )

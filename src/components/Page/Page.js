@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pane, majorScale } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import styled from 'styled-components/macro';
 
 export const ResponsivePage = styled(Pane)`
@@ -10,11 +10,23 @@ export const ResponsivePage = styled(Pane)`
   padding: ${p => p.theme.bodyPadding}px;
   padding-left: 0;
   padding-right: 0;
+
   @media ${p => p.theme.mobile} {
     width: 100%;
     padding-left: ${p => p.theme.bodyPadding}px;
     padding-right: ${p => p.theme.bodyPadding}px;
   }
+`;
+
+const Wrapper = styled(Pane)`
+  height: 100%;
+  ${p => p.hasHeader && `
+    height: calc(100% - ${p.theme.headerHeight}px);
+  `}
+
+  ${p => p.scroll && `
+    overflow: auto;
+  `}
 `;
 
 const Page = ({ children, full, center, ...props } = {}) => {
@@ -32,7 +44,7 @@ const Page = ({ children, full, center, ...props } = {}) => {
   );
 
   return (
-    <Pane
+    <Wrapper
       width="100%"
       height="100%"
       background="tint2"
@@ -40,7 +52,7 @@ const Page = ({ children, full, center, ...props } = {}) => {
       {...props}
     >
       {renderChildren}
-    </Pane>
+    </Wrapper>
   )
 };
 
@@ -52,11 +64,19 @@ Page.propTypes = {
 
   // align items right in the center
   center: PropTypes.bool,
+
+  // reduce the height of the header
+  hasHeader: PropTypes.bool,
+
+  // should scroll
+  scroll: PropTypes.bool,
 };
 
 Page.defaultProps = {
   full: false,
   center: false,
+  hasHeader: true,
+  scroll: true,
 }
 
 export default Page;

@@ -5,14 +5,12 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
 import { ResponsivePage } from '../../components/Page';
-import Button, { IconButton } from '../../components/Button';
 import UserAvatar from '../UserAvatar';
 import { Pane, Heading } from 'evergreen-ui';
 
-import { LOGOUT } from '../../redux/modules/auth/types';
-import * as authActions from '../../redux/modules/auth/actions';
-
-const headerHeight = 52;
+const Wrapper = styled(Pane)`
+  height: ${p => p.theme.headerHeight}px;
+`;
 
 const Separator = styled(Pane)`
   width: 1px;
@@ -36,11 +34,8 @@ class Header extends React.Component {
   }
 
   render() {
-    const isLoggingOut = this.props.loading[LOGOUT];
-
     return (
-      <Pane
-        height={`${headerHeight}px`}
+      <Wrapper
         display="flex"
         alignItems="center"
         borderBottom
@@ -54,36 +49,21 @@ class Header extends React.Component {
           <Separator />
           <Grow />
           <UserAvatar />
-          {/*
-            <Button
-              appearance="minimal"
-              intent="default"
-              isLoading={isLoggingOut}
-              disabled={isLoggingOut}
-              onClick={() => {
-                this.props.authActions.logout();
-              }}
-            >
-              Log out
-            </Button>
-          */}
-
         </ResponsivePage>
-      </Pane>
+      </Wrapper>
     );
   }
 }
 
 Header.propTypes = {
-  authActions: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  loading: state.loading,
+  // loading: state.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  authActions: bindActionCreators(authActions, dispatch),
+  // authActions: bindActionCreators(authActions, dispatch),
 });
 
 export default connect(

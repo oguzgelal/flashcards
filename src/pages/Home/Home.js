@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Page from '../../components/Page';
-import Button from '../../components/Button'
 
-import { LOGOUT } from '../../redux/modules/auth/types';
-import * as authActions from '../../redux/modules/auth/actions';
+import StudySet, { StudySetGrid } from '../../components/StudySet';
 
 class Login extends React.Component {
   constructor(props, context) {
@@ -19,6 +17,44 @@ class Login extends React.Component {
   render() {
     return (
       <Page frame>
+        <StudySetGrid>
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+          <StudySet title="Lorem" />
+          <StudySet title="Ipsum" />
+          <StudySet title="Dolor sit" />
+          <StudySet title="Amet" />
+        </StudySetGrid>
       </Page>
     );
   }
@@ -26,16 +62,14 @@ class Login extends React.Component {
 
 Login.propTypes = {
   loading: PropTypes.object,
-  authActions: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  auth: state.auth,
-  loading: state.loading,
+  // auth: state.auth,
 });
 
 const mapDispatchToProps = dispatch => ({
-  authActions: bindActionCreators(authActions, dispatch),
+  // authActions: bindActionCreators(authActions, dispatch),
 });
 
 export default connect(
