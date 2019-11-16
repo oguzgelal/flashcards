@@ -39,6 +39,8 @@ class Header extends React.Component {
         display="flex"
         alignItems="center"
         borderBottom
+        borderLeft
+        borderRight
       >
         <ResponsivePage
           display="flex"

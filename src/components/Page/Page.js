@@ -48,6 +48,8 @@ const Page = ({ children, full, center, ...props } = {}) => {
       width="100%"
       height="100%"
       background="tint2"
+      borderLeft
+      borderRight
       {...(center ? centerProps : {})}
       {...props}
     >
