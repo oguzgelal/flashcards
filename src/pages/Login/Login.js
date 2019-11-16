@@ -35,6 +35,8 @@ class Login extends React.Component {
 
         <Card
           width="100%"
+          maxWidth="420px"
+          margin="auto"
           display="flex"
           flexFlow="column"
           background="tint1"

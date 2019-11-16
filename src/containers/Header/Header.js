@@ -5,11 +5,27 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
 import { ResponsivePage } from '../../components/Page';
-import {
-  Pane,
-  Text,
-  Heading,
-} from 'evergreen-ui';
+import Button, { IconButton } from '../../components/Button';
+import UserAvatar from '../UserAvatar';
+import { Pane, Heading } from 'evergreen-ui';
+
+import { LOGOUT } from '../../redux/modules/auth/types';
+import * as authActions from '../../redux/modules/auth/actions';
+
+const headerHeight = 52;
+
+const Separator = styled(Pane)`
+  width: 1px;
+  height: 18px;
+  margin-left: 32px;
+  margin-right: 32px;
+  background-color: ${p => p.theme.colors.border.default};
+  @media ${p => p.theme.mobile} {
+    display: none;
+  }
+`;
+
+const Grow = styled(Pane)`flex-grow: 1;`;
 
 class Header extends React.Component {
   constructor(props, context) {
@@ -20,15 +36,38 @@ class Header extends React.Component {
   }
 
   render() {
+    const isLoggingOut = this.props.loading[LOGOUT];
+
     return (
       <Pane
-        height="52px"
+        height={`${headerHeight}px`}
         display="flex"
         alignItems="center"
         borderBottom
       >
-        <ResponsivePage>
-          <Heading>Header</Heading>
+        <ResponsivePage
+          display="flex"
+          alignItems="center"
+          style={{ paddingTop: 0, paddingBottom: 0 }}
+        >
+          <Heading>Flashcards</Heading>
+          <Separator />
+          <Grow />
+          <UserAvatar />
+          {/*
+            <Button
+              appearance="minimal"
+              intent="default"
+              isLoading={isLoggingOut}
+              disabled={isLoggingOut}
+              onClick={() => {
+                this.props.authActions.logout();
+              }}
+            >
+              Log out
+            </Button>
+          */}
+
         </ResponsivePage>
       </Pane>
     );
@@ -36,14 +75,15 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+  authActions: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  // authors: state.authors,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  // actions: bindActionCreators(actions, dispatch),
+  authActions: bindActionCreators(authActions, dispatch),
 });
 
 export default connect(

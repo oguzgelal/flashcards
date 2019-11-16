@@ -17,20 +17,8 @@ class Login extends React.Component {
   }
 
   render() {
-
-    const isLoggingOut = this.props.loading[LOGOUT];
-
     return (
       <Page frame>
-        <Button
-          isLoading={isLoggingOut}
-          disabled={isLoggingOut}
-          onClick={() => {
-            this.props.authActions.logout()
-          }}
-        >
-          Log Out
-        </Button>
       </Page>
     );
   }

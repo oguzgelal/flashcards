@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { minorScale } from 'evergreen-ui';
-
+import { defaultTheme, minorScale } from 'evergreen-ui';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -15,10 +14,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default {
+const theme = {
   bodyPadding: minorScale(4),
   mobile: `(max-width: 485px)`,
   tablet: `(max-width: 768px)`,
   laptop: `(max-width: 1440px)`,
   desktop: `(max-width: 2560px`,
-}
+  ...defaultTheme,
+};
+
+export default theme;
