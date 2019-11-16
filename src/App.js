@@ -12,7 +12,7 @@ import api from './redux/api';
 import * as authActions from './redux/modules/auth/actions';
 import { INIT } from './redux/modules/auth/types';
 
-
+import Header from './containers/Header';
 import Page from './components/Page';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
@@ -50,10 +50,13 @@ class App extends React.Component {
     }
 
     return (
-      <Router>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/study" component={Study} />
-      </Router>
+      <>
+        <Header />
+        <Router>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/study" component={Study} />
+        </Router>
+      </>
     )
   }
 }

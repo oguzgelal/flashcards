@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { Pane, majorScale } from 'evergreen-ui'
 import styled from 'styled-components/macro';
 
-const ResponsivePage = styled(Pane)`
+export const ResponsivePage = styled(Pane)`
   width: 80%;
-  max-width: 580px;
+  max-width: 820px;
   margin: auto;
-  ${p => p.theme.mobile`
+  padding: ${p => p.theme.bodyPadding}px;
+  padding-left: 0;
+  padding-right: 0;
+  @media ${p => p.theme.mobile} {
     width: 100%;
-  `}
+    padding-left: ${p => p.theme.bodyPadding}px;
+    padding-right: ${p => p.theme.bodyPadding}px;
+  }
 `;
 
 const Page = ({ children, full, center, ...props } = {}) => {
@@ -31,7 +36,6 @@ const Page = ({ children, full, center, ...props } = {}) => {
       width="100%"
       height="100%"
       background="tint2"
-      padding={majorScale(2)}
       {...(center ? centerProps : {})}
       {...props}
     >

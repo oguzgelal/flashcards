@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Page from '../../components/Page';
-import {
-  Button
-} from 'evergreen-ui';
+import Button from '../../components/Button'
 
 import { LOGOUT } from '../../redux/modules/auth/types';
 import * as authActions from '../../redux/modules/auth/actions';
