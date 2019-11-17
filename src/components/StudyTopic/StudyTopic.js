@@ -7,7 +7,6 @@ import { Heading, Paragraph, Pane, Card } from 'evergreen-ui';
 
 const Wrapper = styled(Card)`
   padding: 22px;
-  padding-bottom: 32px;
   width: 100%;
   height: auto;
   background-color: white;
