@@ -6,7 +6,6 @@ import styled from 'styled-components/macro';
 
 import { ResponsivePage } from '../../components/Page';
 import UserAvatar from '../UserAvatar';
-import { SearchInput } from '../../components/TextInput';
 import { Pane, Heading, Icon } from 'evergreen-ui';
 
 const Wrapper = styled(Pane)`
@@ -30,13 +29,6 @@ const HeadingIcon = styled(Icon)`
 
 const Grow = styled(Pane)`
   flex-grow: 1;
-`;
-
-const SearchInputWrapper = styled(Pane)`
-  @media ${p => p.theme.mobile} {
-    width: 120px;
-    margin-left: 18px;
-  }
 `;
 
 class Header extends React.Component {
@@ -66,13 +58,6 @@ class Header extends React.Component {
             Flashcards
           </Heading>
           <Separator />
-          <SearchInputWrapper>
-            <SearchInput
-              fixedHeight
-              width="100%"
-              placeholder="Search..."
-            />
-          </SearchInputWrapper>
           <Grow />
           <UserAvatar style={{ marginLeft: 12 }} />
         </ResponsivePage>
