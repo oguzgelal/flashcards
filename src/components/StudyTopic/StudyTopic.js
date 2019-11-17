@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
+import get from 'lodash/get';
 
 import { Heading, Paragraph, Pane, Card } from 'evergreen-ui';
 import Badge, { Badges } from '../Badge';
@@ -18,40 +19,50 @@ const Title = styled(Heading)``;
 const Description = styled(Paragraph)``;
 const ContentsWrapper = styled(Pane)``;
 
-const StudyTopic = ({ title, description, children, ...props } = {}) => (
-  <Wrapper border {...props}>
-    <TitleWrapper>
+const StudyTopic = ({ topic, children, ...props } = {}) => {
 
-      {/* title */}
-      <Title size={700}>{title}</Title>
+  const topicId = get(topic, 'id');
+  const topicTitle = get(topic, 'title');
+  const topicDesc = get(topic, 'description');
+  const topicSets = get(topic, 'sets') || [];
+  const topicSetsCount = topicSets.length;
 
-      {/* description */}
-      {!!description && (
-        <Description marginTop={4}>
-          {description}
-        </Description>
-      )}
+  return (
+    <Wrapper border {...props}>
+      <TitleWrapper>
 
-      {/* badge */}
-      <Badges marginTop={8}>
-        <Badge color={!props.setCount ? 'yellow' : 'blue'}>
-          {!props.setCount ? 'No' : props.setCount} Set{props.setCount === 1 ? '' : 's'}
-        </Badge>
-      </Badges>
+        {/* title */}
+        <Title size={700}>{topicTitle}</Title>
 
-      {/* contents */}
-      <ContentsWrapper marginTop={22}>
-        {children}
-      </ContentsWrapper>
-    </TitleWrapper>
-  </Wrapper>
-);
+        {/* description */}
+        {!!topicDesc && (
+          <Description marginTop={4}>
+            {topicDesc}
+          </Description>
+        )}
+
+        {/* badge */}
+        <Badges marginTop={8}>
+          <Badge color={!topicSetsCount ? 'yellow' : 'blue'}>
+            {!topicSetsCount ? 'No' : topicSetsCount} Set{topicSetsCount === 1 ? '' : 's'}
+          </Badge>
+        </Badges>
+
+        {/* contents */}
+        <ContentsWrapper marginTop={22}>
+          {children}
+        </ContentsWrapper>
+      </TitleWrapper>
+    </Wrapper>
+  )
+};
 
 StudyTopic.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
   children: PropTypes.any,
-  setCount: PropTypes.number,
+  topic: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
 };
 
 export default StudyTopic;

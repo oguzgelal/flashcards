@@ -10,6 +10,7 @@ import { Link as LinkRR } from 'react-router-dom';
 import Button from '../../components/Button';
 import Page from '../../components/Page';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import StudySet, { StudySetGrid } from '../../components/StudySet';
 import { STUDY } from '../../config/routes';
 
 import data from '../../lib/tmpdata';
@@ -51,12 +52,12 @@ class Study extends React.Component {
     const topicMissing = isNil(topic);
     const hasTopic = !topicNil && !topicMissing;
 
+    const topicSets = get(topic, 'sets');
+
     const set = get(data, `sets['${setId}']`);
     const setNil = isNil(setId);
     const setMissing = isNil(set);
     const hasSet = !setNil && !setMissing;
-
-    const allSet = !isNil(topic) && !isNil(set);
 
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
@@ -72,23 +73,32 @@ class Study extends React.Component {
           <>
             {/* breadcrumb */}
             <Breadcrumbs
+              marginBottom={8}
               items={[
                 <Link is={LinkRR} to="/">Home</Link>,
-                <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
-              ]}
+                setNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
+              ].filter(i => !!i)}
             />
 
-            {/* set found, render set page */}
-            {hasSet && (
-              <>
-                <Heading size={900} marginTop={4}>
-                  {setTitle}
-                </Heading>
-              </>
-            )}
+            <Heading size={900} marginBottom={22}>
+              {hasSet && setTitle}
+              {!hasSet && topicTitle}
+            </Heading>
 
             {/* no set provided - render sets of the topic */}
-            {!hasSet && setNil && "Sets"}
+            {!hasSet && setNil && (
+              <StudySetGrid>
+                {topicSets.map(topicSetId => {
+                  const setData = get(data, `sets['${topicSetId}']`);
+                  return (
+                    <StudySet
+                      key={`study_set_${topicId}_${topicSetId}`}
+                      set={setData}
+                    />
+                  )
+                })}
+              </StudySetGrid>
+            )}
 
             {/* set provided but not found - 404 */}
             {!hasSet && !setNil && setMissing && this.render404()}

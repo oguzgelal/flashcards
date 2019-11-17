@@ -34,34 +34,23 @@ class Login extends React.Component {
       <Page frame>
         {Object.values(topics).map((topic, i) => {
           const topicId = get(topic, 'id');
-          const topicTitle = get(topic, 'title');
-          const topicDesc = get(topic, 'description');
           const topicSets = get(topic, 'sets') || [];
 
           return (
             <StudyTopicStyled
               key={`study_topic_${topicId}`}
-              title={topicTitle}
-              description={topicDesc}
-              setCount={topicSets.length}
+              topic={topic}
               marginTop={22}
             >
               <StudySetGrid>
                 {topicSets.map(topicSetId => {
                   const setData = get(sets, topicSetId);
                   const setId = get(setData, 'id');
-                  const setTitle = get(setData, 'title');
-                  const setDesc = get(setData, 'description');
-                  const setItems = get(setData, 'data') || [];
 
                   return (
                     <StudySet
                       key={`study_set_${topicId}_${setId}`}
-                      id={setId}
-                      topicId={topicId}
-                      title={setTitle}
-                      description={setDesc}
-                      itemCount={setItems.length}
+                      set={setData}
                     />
                   )
                 })}

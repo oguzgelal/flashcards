@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { defaultTheme, minorScale } from 'evergreen-ui';
 
-
 export const GlobalStyle = createGlobalStyle`
   html,
   body,

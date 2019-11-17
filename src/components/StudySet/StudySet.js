@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
+import get from 'lodash/get';
 import Dotdotdot from 'react-dotdotdot';
 import { Link } from 'react-router-dom';
 import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
@@ -58,6 +59,14 @@ const Grow = styled(Pane)`
 `;
 
 const StudySet = props => {
+
+  const setId = get(props, 'set.id');
+  const setTopicId = get(props, 'set.topic');
+  const setTitle = get(props, 'set.title');
+  const setDesc = get(props, 'set.description');
+  const setItems = get(props, 'set.data') || [];
+  const setItemsCount = setItems.length;
+
   return (
     <Wrapper border>
 
@@ -67,23 +76,23 @@ const StudySet = props => {
         {/* title */}
         <Title>
           <Dotdotdot clamp={3}>
-            {props.title}
+            {setTitle}
           </Dotdotdot>
         </Title>
 
         {/* description */}
-        {!!props.description && (
+        {!!setDesc && (
           <Description color="muted" size={400}>
             <Dotdotdot clamp={2}>
-              {props.description}
+              {setDesc}
             </Dotdotdot>
           </Description>
         )}
 
         {/* badges */}
         <Badges marginTop={8}>
-          <Badge color={!props.itemCount ? 'yellow' : 'blue'}>
-            {!props.itemCount ? 'No' : props.itemCount} Item{props.itemCount === 1 ? '' : 's'}
+          <Badge color={!setItemsCount ? 'yellow' : 'blue'}>
+            {!setItemsCount ? 'No' : setItemsCount} Item{setItemsCount === 1 ? '' : 's'}
           </Badge>
         </Badges>
 
@@ -94,13 +103,13 @@ const StudySet = props => {
       {/* study button */}
       <Button
         is={Link}
-        to={`/${STUDY}/${props.topicId}/${props.id}`}
+        to={`/${STUDY}/${setTopicId}/${setId}`}
         intent="primary"
         display="flex"
         alignItems="center"
         justifyContent="center"
         appearance="primary"
-        disabled={props.itemCount === 0}
+        disabled={setItemsCount === 0}
       >
         Study
       </Button>
@@ -109,11 +118,12 @@ const StudySet = props => {
 };
 
 StudySet.propTypes = {
-  id: PropTypes.string.isRequired,
-  topicId: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  itemCount: PropTypes.number.isRequired,
+  set: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    topic: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })
 };
 
 export default StudySet;
