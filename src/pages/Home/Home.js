@@ -27,12 +27,12 @@ class Login extends React.Component {
 
   render() {
 
-    const topics = get(data, 'topics') || [];
+    const topics = get(data, 'topics') || {};
     const sets = get(data, 'sets') || {};
 
     return (
       <Page frame>
-        {topics.map((topic, i) => {
+        {Object.values(topics).map((topic, i) => {
           const topicId = get(topic, 'id');
           const topicTitle = get(topic, 'title');
           const topicDesc = get(topic, 'description');
@@ -57,6 +57,8 @@ class Login extends React.Component {
                   return (
                     <StudySet
                       key={`study_set_${topicId}_${setId}`}
+                      id={setId}
+                      topicId={topicId}
                       title={setTitle}
                       description={setDesc}
                       itemCount={setItems.length}

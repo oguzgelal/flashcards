@@ -18,6 +18,11 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Study from './pages/Study/Study';
 
+import {
+  STUDY,
+  SESSION_FLASHCARDS,
+} from './config/routes';
+
 class App extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -54,7 +59,11 @@ class App extends React.Component {
         <Header />
         <Router>
           <Route exact path="/" component={Home} />
-          <Route exact path="/study" component={Study} />
+          <Route exact path={`/${STUDY}`} component={Study} />
+          <Route exact path={`/${STUDY}/:topicId`} component={Study} />
+          <Route exact path={`/${STUDY}/:topicId/:setId`} component={Study} />
+          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}`} component={Study} />
+          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}/:sessionId`} component={Study} />
         </Router>
       </>
     )

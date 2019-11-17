@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 import Dotdotdot from 'react-dotdotdot';
-
+import { Link } from 'react-router-dom';
 import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
 import Badge, { Badges } from '../Badge';
 import Button from '../Button';
+import { STUDY } from '../../config/routes';
 
 const gap = 16;
 
@@ -92,6 +93,8 @@ const StudySet = props => {
 
       {/* study button */}
       <Button
+        is={Link}
+        to={`/${STUDY}/${props.topicId}/${props.id}`}
         intent="primary"
         display="flex"
         alignItems="center"
@@ -106,6 +109,8 @@ const StudySet = props => {
 };
 
 StudySet.propTypes = {
+  id: PropTypes.string.isRequired,
+  topicId: PropTypes.string.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   itemCount: PropTypes.number.isRequired,

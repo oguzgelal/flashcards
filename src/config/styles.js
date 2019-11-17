@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow: hidden;
   }
+
+  a {
+    text-decoration: none !important;
+  }
 `;
 
 const theme = {

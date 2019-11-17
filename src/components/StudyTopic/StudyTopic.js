@@ -16,7 +16,6 @@ const Wrapper = styled(Card)`
 const TitleWrapper = styled(Pane)``;
 const Title = styled(Heading)``;
 const Description = styled(Paragraph)``;
-
 const ContentsWrapper = styled(Pane)``;
 
 const StudyTopic = ({ title, description, children, ...props } = {}) => (

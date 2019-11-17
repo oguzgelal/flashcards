@@ -8,15 +8,15 @@ import kanji from './sets/kanji.json';
 
 
 export default {
-  topics: [
+  topics: {
     japanese,
     test1,
-  ],
+  },
   sets: {
     kanji,
     test1set1,
     test1set2,
     test1set3,
     test1set4,
-  }
+  },
 }
