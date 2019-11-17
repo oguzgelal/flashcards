@@ -25,19 +25,19 @@ class Study extends React.Component {
     this.render404 = this.render404.bind(this);
   }
 
-  render404() {
+  render404(cta, ctaLink) {
     return (
       <Alert
         intent="warning"
         title="What you're looking for isn't here 😓"
       >
         <Button
-          to="/"
+          to={ctaLink}
           is={LinkRR}
           appearance="primary"
           marginTop={8}
         >
-          Go Back
+          {cta}
         </Button>
       </Alert>
     )
@@ -66,7 +66,7 @@ class Study extends React.Component {
       <Page frame>
 
         {/* topic either unset or not found. fail here */}
-        {!hasTopic && this.render404()}
+        {!hasTopic && this.render404('Home', '/')}
 
         {/* topic found */}
         {hasTopic && (
@@ -82,7 +82,7 @@ class Study extends React.Component {
 
             <Heading size={900} marginBottom={22}>
               {hasSet && setTitle}
-              {!hasSet && topicTitle}
+              {!hasSet && setNil && topicTitle}
             </Heading>
 
             {/* no set provided - render sets of the topic */}
@@ -101,7 +101,9 @@ class Study extends React.Component {
             )}
 
             {/* set provided but not found - 404 */}
-            {!hasSet && !setNil && setMissing && this.render404()}
+            {!hasSet && !setNil && setMissing && (
+              this.render404(`Back to ${topicTitle}`, `/${STUDY}/${topicId}`)
+            )}
 
           </>
         )}
