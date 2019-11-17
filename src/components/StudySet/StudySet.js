@@ -21,9 +21,7 @@ const Wrapper = styled(Card)`
   background-color: white;
 
   /* normal - 3 columns */
-  @media ${p => p.theme.laptop} {
-    width: calc(33% - ${(gap * 2) / 3}px);
-  }
+  width: calc(33% - ${(gap * 2) / 3}px);
 
   /* small-ish screens - 2 columns */
   @media ${p => p.theme.tablet} {

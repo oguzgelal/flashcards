@@ -1,0 +1,36 @@
+{
+  "id": "kanji",
+  "title": "Kanji",
+  "description": "Study set that includes cards to / from kanji characters, their on'yomi and kun'yomi readings, and meanings. Mnemonics for some of them are also  included as hints.",
+  "topic": "japanese",
+  "keys": {
+    "K": "Kanji",
+    "OY": "On'Yomi Reading" ,
+    "KY": "Kun'Yomi Reading",
+    "M": "Meaning",
+    "MM": "Mnemonic",
+    "T_HARD": "Hard",
+    "T_LEARNED": "Learned",
+    "T_NEW": "New"
+  },
+  "tags": [
+    "T_HARD",
+    "T_LEARNED",
+    "T_NEW"
+  ],
+  "flashcards": [
+    { "id": "k_oy", "front": "K", "back": "OY", "hint": "MM" },
+    { "id": "k_ky", "front": "K", "back": "KY", "hint": "MM" },
+    { "id": "k_m", "front": "K", "back": "M", "hint": "MM" },
+    { "id": "oy_k", "front": "OY", "back": "K", "hint": "MM" },
+    { "id": "oy_m", "front": "OY", "back": "M", "hint": "MM" },
+    { "id": "ky_k", "front": "KY", "back": "K", "hint": "MM" },
+    { "id": "ky_m", "front": "KY", "back": "M", "hint": "MM" },
+    { "id": "m_k", "front": "M", "back": "K", "hint": "MM" },
+    { "id": "m_oy", "front": "M", "back": "OY", "hint": "MM" },
+    { "id": "m_ky", "front": "M", "back": "KY", "hint": "MM" },
+  ],
+  "data": [
+    { "id": "1", "K": "一", "OY": "いち, いつ", "KY": "ひと", "M": "one", "MM": "" }
+  ]
+}
