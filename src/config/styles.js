@@ -16,8 +16,8 @@ export const GlobalStyle = createGlobalStyle`
 
 const theme = {
   bodyPadding: 22,
-  mobile: `(max-width: 485px)`,
-  tablet: `(max-width: 768px)`,
+  mobile: `(max-width: 700px)`,
+  tablet: `(max-width: 1100px)`,
   laptop: `(max-width: 1440px)`,
   desktop: `(max-width: 2560px)`,
   headerHeight: 52,

@@ -41,7 +41,7 @@ class UserAvatar extends React.Component {
           </Menu>
         }
       >
-        <HeaderButton iconAfter="caret-down">
+        <HeaderButton style={this.props.style} iconAfter="caret-down">
           <Icon icon="user" />
         </HeaderButton>
       </Popover>
@@ -52,6 +52,7 @@ class UserAvatar extends React.Component {
 UserAvatar.propTypes = {
   loading: PropTypes.bool,
   authActions: PropTypes.object,
+  style: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({

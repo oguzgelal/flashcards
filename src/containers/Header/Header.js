@@ -6,7 +6,8 @@ import styled from 'styled-components/macro';
 
 import { ResponsivePage } from '../../components/Page';
 import UserAvatar from '../UserAvatar';
-import { Pane, Heading } from 'evergreen-ui';
+import { SearchInput } from '../../components/TextInput';
+import { Pane, Heading, Icon } from 'evergreen-ui';
 
 const Wrapper = styled(Pane)`
   height: ${p => p.theme.headerHeight}px;
@@ -23,7 +24,20 @@ const Separator = styled(Pane)`
   }
 `;
 
-const Grow = styled(Pane)`flex-grow: 1;`;
+const HeadingIcon = styled(Icon)`
+  color: ${p => p.theme.colors.text.dark};
+`;
+
+const Grow = styled(Pane)`
+  flex-grow: 1;
+`;
+
+const SearchInputWrapper = styled(Pane)`
+  @media ${p => p.theme.mobile} {
+    width: 120px;
+    margin-left: 18px;
+  }
+`;
 
 class Header extends React.Component {
   constructor(props, context) {
@@ -47,10 +61,20 @@ class Header extends React.Component {
           alignItems="center"
           style={{ paddingTop: 0, paddingBottom: 0 }}
         >
-          <Heading>Flashcards</Heading>
+          <HeadingIcon icon="grid-view" marginRight={12} />
+          <Heading size={600}>
+            Flashcards
+          </Heading>
           <Separator />
+          <SearchInputWrapper>
+            <SearchInput
+              fixedHeight
+              width="100%"
+              placeholder="Search..."
+            />
+          </SearchInputWrapper>
           <Grow />
-          <UserAvatar />
+          <UserAvatar style={{ marginLeft: 12 }} />
         </ResponsivePage>
       </Wrapper>
     );

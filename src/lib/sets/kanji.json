@@ -1,6 +1,6 @@
 {
   "id": "kanji",
-  "title": "Kanji",
+  "title": "Kanji 漢字",
   "description": "Study set that includes cards to / from kanji characters, their on'yomi and kun'yomi readings, and meanings. Mnemonics for some of them are also  included as hints.",
   "topic": "japanese",
   "keys": {
@@ -28,7 +28,7 @@
     { "id": "ky_m", "front": "KY", "back": "M", "hint": "MM" },
     { "id": "m_k", "front": "M", "back": "K", "hint": "MM" },
     { "id": "m_oy", "front": "M", "back": "OY", "hint": "MM" },
-    { "id": "m_ky", "front": "M", "back": "KY", "hint": "MM" },
+    { "id": "m_ky", "front": "M", "back": "KY", "hint": "MM" }
   ],
   "data": [
     { "id": "1", "K": "一", "OY": "いち, いつ", "KY": "ひと", "M": "one", "MM": "" }
