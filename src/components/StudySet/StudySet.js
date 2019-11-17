@@ -4,7 +4,8 @@ import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 import Dotdotdot from 'react-dotdotdot';
 
-import { Pane, Card, Heading, Paragraph, Badge } from 'evergreen-ui';
+import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
+import Badge, { Badges } from '../Badge';
 import Button from '../Button';
 
 const gap = 16;
@@ -51,20 +52,6 @@ const Description = styled(Paragraph)`
   line-height: 16px;
 `;
 
-const Badges = styled(Pane)`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 4px;
-`;
-
-const BadgeStyled = styled(Badge)`
-  flex-shrink: 0;
-  margin: 0;
-  margin-top: 6px;
-  margin-right: 6px;
-  &:last-of-type { margin-right: 0; }
-`;
-
 const Grow = styled(Pane)`
   flex-grow: 1;
 `;
@@ -72,26 +59,38 @@ const Grow = styled(Pane)`
 const StudySet = props => {
   return (
     <Wrapper border>
+
+      {/* heading */}
       <HeadingWrapper>
+
+        {/* title */}
         <Title>
           <Dotdotdot clamp={3}>
             {props.title}
           </Dotdotdot>
         </Title>
-        <Badges>
-          <BadgeStyled color="blue">
-            {!props.itemCount ? 'No' : props.itemCount} Item{props.itemCount === 1 ? '' : 's'}
-          </BadgeStyled>
-        </Badges>
-        {!isNil(props.description) && (
+
+        {/* description */}
+        {!!props.description && (
           <Description color="muted" size={400}>
             <Dotdotdot clamp={2}>
               {props.description}
             </Dotdotdot>
           </Description>
         )}
+
+        {/* badges */}
+        <Badges marginTop={8}>
+          <Badge color={!props.itemCount ? 'yellow' : 'blue'}>
+            {!props.itemCount ? 'No' : props.itemCount} Item{props.itemCount === 1 ? '' : 's'}
+          </Badge>
+        </Badges>
+
       </HeadingWrapper>
+
       <Grow />
+
+      {/* study button */}
       <Button
         intent="primary"
         display="flex"

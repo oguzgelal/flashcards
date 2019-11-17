@@ -43,6 +43,7 @@ class Login extends React.Component {
               key={`study_topic_${topicId}`}
               title={topicTitle}
               description={topicDesc}
+              setCount={topicSets.length}
               marginTop={22}
             >
               <StudySetGrid>

@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 
 import { Heading, Paragraph, Pane, Card } from 'evergreen-ui';
+import Badge, { Badges } from '../Badge';
 
 const Wrapper = styled(Card)`
   padding: 22px;
@@ -14,22 +15,33 @@ const Wrapper = styled(Card)`
 
 const TitleWrapper = styled(Pane)``;
 const Title = styled(Heading)``;
-const Description = styled(Paragraph)`
-  margin-top: 4px;
-`;
+const Description = styled(Paragraph)``;
 
-const ContentsWrapper = styled(Pane)`
-  margin-top: 22px;
-`;
+const ContentsWrapper = styled(Pane)``;
 
 const StudyTopic = ({ title, description, children, ...props } = {}) => (
   <Wrapper border {...props}>
     <TitleWrapper>
+
+      {/* title */}
       <Title size={700}>{title}</Title>
-      {!isNil(description) && (
-        <Description>{description}</Description>
+
+      {/* description */}
+      {!!description && (
+        <Description marginTop={4}>
+          {description}
+        </Description>
       )}
-      <ContentsWrapper>
+
+      {/* badge */}
+      <Badges marginTop={8}>
+        <Badge color={!props.setCount ? 'yellow' : 'blue'}>
+          {!props.setCount ? 'No' : props.setCount} Set{props.setCount === 1 ? '' : 's'}
+        </Badge>
+      </Badges>
+
+      {/* contents */}
+      <ContentsWrapper marginTop={22}>
         {children}
       </ContentsWrapper>
     </TitleWrapper>
@@ -40,6 +52,7 @@ StudyTopic.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   children: PropTypes.any,
+  setCount: PropTypes.number,
 };
 
 export default StudyTopic;
