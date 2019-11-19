@@ -1,7 +1,7 @@
 {
   "id": "test1set1",
-  "title": "Test set 1",
-  "description": "Test set lorem ipsum.",
+  "title": "Test set 1 with a very very long title lorem ipsum dolor sit amet, lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.",
+  "description": "Test set with a very very long title lorem ipsum dolor sit amet, lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.",
   "topic": "test1",
   "keys": {
     "K": "Key",

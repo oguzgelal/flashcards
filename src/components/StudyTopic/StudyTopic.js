@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 import get from 'lodash/get';
-
+import Dotdotdot from 'react-dotdotdot';
 import { Heading, Paragraph, Pane, Card } from 'evergreen-ui';
 import Badge, { Badges } from '../Badge';
 
@@ -32,12 +32,18 @@ const StudyTopic = ({ topic, children, ...props } = {}) => {
       <TitleWrapper>
 
         {/* title */}
-        <Title size={700}>{topicTitle}</Title>
+        <Title size={700}>
+          <Dotdotdot clamp={1}>
+            {topicTitle}
+          </Dotdotdot>
+        </Title>
 
         {/* description */}
         {!!topicDesc && (
           <Description marginTop={4}>
-            {topicDesc}
+            <Dotdotdot clamp={2}>
+              {topicDesc}
+            </Dotdotdot>
           </Description>
         )}
 

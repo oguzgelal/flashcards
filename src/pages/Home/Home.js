@@ -6,8 +6,9 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
 import Page from '../../components/Page';
-import StudySet, { StudySetGrid } from '../../components/StudySet';
+import StudySet from '../../components/StudySet';
 import StudyTopic from '../../components/StudyTopic';
+import Grid from '../../components/Grid';
 
 import data from '../../lib/tmpdata';
 
@@ -42,19 +43,14 @@ class Login extends React.Component {
               topic={topic}
               marginTop={22}
             >
-              <StudySetGrid>
-                {topicSets.map(topicSetId => {
-                  const setData = get(sets, topicSetId);
-                  const setId = get(setData, 'id');
-
-                  return (
-                    <StudySet
-                      key={`study_set_${topicId}_${setId}`}
-                      set={setData}
-                    />
-                  )
-                })}
-              </StudySetGrid>
+              <Grid>
+                {topicSets.map(topicSetId => (
+                  <StudySet
+                    key={`study_set_${topicId}_${topicSetId}`}
+                    set={get(data, `sets['${topicSetId}']`)}
+                  />
+                ))}
+              </Grid>
             </StudyTopicStyled>
           )
         })}

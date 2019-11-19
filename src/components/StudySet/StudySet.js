@@ -10,36 +10,14 @@ import Badge, { Badges } from '../Badge';
 import Button from '../Button';
 import { STUDY } from '../../config/routes';
 
-const gap = 16;
-
-export const StudySetGrid = styled(Pane)`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: ${-1 * gap}px;
-`;
-
 const Wrapper = styled(Card)`
   flex-shrink: 0;
+  width: 100%;
+  height: 100%;
   padding: 22px;
-  height: 200px;
-  margin-top: ${gap}px;
   background-color: ${p => p.theme.colors.background.tint1};
   display: flex;
   flex-flow: column;
-
-  /* normal - 3 columns */
-  width: calc(33% - ${(gap * 2) / 3}px);
-
-  /* small-ish screens - 2 columns */
-  @media ${p => p.theme.tablet} {
-    width: calc(50% - ${gap / 2}px);
-  }
-
-  /* small screens - 1 column */
-  @media ${p => p.theme.mobile} {
-    width: 100%;
-  }
 `;
 
 const HeadingWrapper = styled(Pane)`
@@ -75,7 +53,7 @@ const StudySet = props => {
 
         {/* title */}
         <Title>
-          <Dotdotdot clamp={3}>
+          <Dotdotdot clamp={1}>
             {setTitle}
           </Dotdotdot>
         </Title>

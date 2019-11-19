@@ -5,12 +5,14 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { Alert, Text, Heading, Link } from 'evergreen-ui';
+import { Alert, Text, Heading, Link, Icon } from 'evergreen-ui';
 import { Link as LinkRR } from 'react-router-dom';
 import Button from '../../components/Button';
 import Page from '../../components/Page';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import StudySet, { StudySetGrid } from '../../components/StudySet';
+import StudySet from '../../components/StudySet';
+import Grid from '../../components/Grid';
+import StudyDeck from '../../components/StudyDeck';
 import { STUDY } from '../../config/routes';
 
 import data from '../../lib/tmpdata';
@@ -48,16 +50,16 @@ class Study extends React.Component {
     const setId = get(this.props, 'match.params.setId');
 
     const topic = get(data, `topics['${topicId}']`);
-    const topicNil = isNil(topicId);
-    const topicMissing = isNil(topic);
-    const hasTopic = !topicNil && !topicMissing;
+    const isTopicNil = isNil(topicId);
+    const isTopicMissing = isNil(topic);
+    const hasTopic = !isTopicNil && !isTopicMissing;
 
     const topicSets = get(topic, 'sets');
 
     const set = get(data, `sets['${setId}']`);
-    const setNil = isNil(setId);
-    const setMissing = isNil(set);
-    const hasSet = !setNil && !setMissing;
+    const isSetNil = isNil(setId);
+    const isSetMissing = isNil(set);
+    const hasSet = !isSetNil && !isSetMissing;
 
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
@@ -76,32 +78,35 @@ class Study extends React.Component {
               marginBottom={8}
               items={[
                 <Link is={LinkRR} to="/">Home</Link>,
-                setNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
+                <Text>Study</Text>,
+                isSetNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
               ].filter(i => !!i)}
             />
 
             <Heading size={900} marginBottom={22}>
               {hasSet && setTitle}
-              {!hasSet && setNil && topicTitle}
+              {!hasSet && isSetNil && topicTitle}
             </Heading>
 
+            {/* set present, render set */}
+            <Grid>
+              <StudyDeck />
+            </Grid>
+
             {/* no set provided - render sets of the topic */}
-            {!hasSet && setNil && (
-              <StudySetGrid>
-                {topicSets.map(topicSetId => {
-                  const setData = get(data, `sets['${topicSetId}']`);
-                  return (
-                    <StudySet
-                      key={`study_set_${topicId}_${topicSetId}`}
-                      set={setData}
-                    />
-                  )
-                })}
-              </StudySetGrid>
+            {!hasSet && isSetNil && (
+              <Grid>
+                {topicSets.map(topicSetId => (
+                  <StudySet
+                    key={`study_set_${topicId}_${topicSetId}`}
+                    set={get(data, `sets['${topicSetId}']`)}
+                  />
+                ))}
+              </Grid>
             )}
 
             {/* set provided but not found - 404 */}
-            {!hasSet && !setNil && setMissing && (
+            {!hasSet && !isSetNil && isSetMissing && (
               this.render404(`Back to ${topicTitle}`, `/${STUDY}/${topicId}`)
             )}
 

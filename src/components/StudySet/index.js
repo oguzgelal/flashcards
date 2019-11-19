@@ -1,1 +1,1 @@
-export { default, StudySetGrid } from './StudySet';
+export { default } from './StudySet';

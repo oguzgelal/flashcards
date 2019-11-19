@@ -31,7 +31,7 @@ const Breadcrumbs = props => {
       {items.map((item, i) => (
         <ItemWrapper key={`${props.id ? `${props.id}_` : ''}crumb-${i}`}>
           {item}
-          {(i !== items.length - 1) && (
+          {((i !== items.length - 1) || props.showLastArrow) && (
             <IconWrapper>
               <Icon size={12} color="muted" icon="chevron-right" />
             </IconWrapper>
@@ -47,6 +47,7 @@ Breadcrumbs.propTypes = {
   // used in a page, an id should be given to each
   id: PropTypes.string,
   items: PropTypes.array,
+  showLastArrow: PropTypes.bool,
 };
 
 export default Breadcrumbs;
