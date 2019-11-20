@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
+import Dotdotdot from 'react-dotdotdot';
 import { Alert, Text, Heading, Link, Icon } from 'evergreen-ui';
 import { Link as LinkRR } from 'react-router-dom';
 import Button from '../../components/Button';
@@ -12,7 +13,7 @@ import Page from '../../components/Page';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import StudySet from '../../components/StudySet';
 import Grid from '../../components/Grid';
-import StudyDeck from '../../components/StudyDeck';
+import Flashcard, { FlashcardItem } from '../../components/Flashcard';
 import { STUDY } from '../../config/routes';
 
 import data from '../../lib/tmpdata';
@@ -64,6 +65,9 @@ class Study extends React.Component {
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
 
+    const setFlashcards = get(set, 'flashcards') || [];
+    const setKeys = get(set, 'keys') || {};
+
     return (
       <Page frame>
 
@@ -89,9 +93,25 @@ class Study extends React.Component {
             </Heading>
 
             {/* set present, render set */}
-            <Grid>
-              <StudyDeck />
-            </Grid>
+            {hasSet && (
+              <Grid>
+                {setFlashcards.map(flashcard => {
+                  const flashcardId = get(flashcard, 'id');
+                  const flashcardFrontKey = get(flashcard, 'front');
+                  const flashcardBackKey = get(flashcard, 'back');
+                  const flashcardFront = get(setKeys, flashcardFrontKey);
+                  const flashcardBack = get(setKeys, flashcardBackKey);
+                  return (
+                    <Flashcard
+                      key={`${setId}_${flashcardId}`}
+                      revealed
+                      frontItem={<FlashcardItem title="Front" value={flashcardFront} />}
+                      backItem={<FlashcardItem title="Back" value={flashcardBack} />}
+                    />
+                  )
+                })}
+              </Grid>
+            )}
 
             {/* no set provided - render sets of the topic */}
             {!hasSet && isSetNil && (

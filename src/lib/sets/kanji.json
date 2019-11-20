@@ -5,8 +5,8 @@
   "topic": "japanese",
   "keys": {
     "K": "Kanji",
-    "OY": "On'Yomi Reading" ,
-    "KY": "Kun'Yomi Reading",
+    "OY": "On'Yomi" ,
+    "KY": "Kun'Yomi",
     "M": "Meaning",
     "MM": "Mnemonic",
     "T_HARD": "Hard",
