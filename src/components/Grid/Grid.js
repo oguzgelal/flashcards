@@ -6,7 +6,7 @@ import { Pane } from 'evergreen-ui';
 const Wrapper = styled(Pane)`
   display: grid;
   grid-gap: ${p => p.gap}px;
-  grid-auto-rows: ${p => p.itemHeight}px;
+  grid-auto-rows: ${p => p.autoHeight ? 'auto' : `${p.itemHeight}px`};
   grid-template-columns: repeat(${p => p.colsDesktop}, 1fr);
   @media ${p => p.theme.tablet} {
     grid-template-columns: repeat(${p => p.colsTablet}, 1fr);
@@ -22,6 +22,7 @@ const Grid = props => {
     <Wrapper
       gap={props.gap}
       itemHeight={props.itemHeight}
+      autoHeight={props.autoHeight}
       colsDesktop={columns[0]}
       colsTablet={columns[1]}
       colsMobile={columns[2]}
@@ -35,6 +36,7 @@ Grid.propTypes = {
   gap: PropTypes.number,
   columns: PropTypes.array, // [<desktop>, <tablet>, <mobile>]
   itemHeight: PropTypes.number,
+  autoHeight: PropTypes.bool,
 };
 
 Grid.defaultProps = {

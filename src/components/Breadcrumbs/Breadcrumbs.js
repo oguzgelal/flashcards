@@ -23,24 +23,20 @@ const IconWrapper = styled(Pane)`
   justify-content: center;
 `;
 
-const Breadcrumbs = props => {
-  const items = get(props, 'items') || [];
-
-  return (
-    <Wrapper>
-      {items.map((item, i) => (
-        <ItemWrapper key={`${props.id ? `${props.id}_` : ''}crumb-${i}`}>
-          {item}
-          {((i !== items.length - 1) || props.showLastArrow) && (
-            <IconWrapper>
-              <Icon size={12} color="muted" icon="chevron-right" />
-            </IconWrapper>
-          )}
-        </ItemWrapper>
-      ))}
-    </Wrapper>
-  )
-};
+const Breadcrumbs = ({ id, items, showLastArrow, ...props } = {}) => (
+  <Wrapper {...props}>
+    {(items || []).map((item, i) => (
+      <ItemWrapper key={`${id ? `${id}_` : ''}crumb-${i}`}>
+        {item}
+        {((i !== items.length - 1) || showLastArrow) && (
+          <IconWrapper>
+            <Icon size={12} color="muted" icon="chevron-right" />
+          </IconWrapper>
+        )}
+      </ItemWrapper>
+    ))}
+  </Wrapper>
+);
 
 Breadcrumbs.propTypes = {
   // if more than one breadcrumb component will be

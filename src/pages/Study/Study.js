@@ -5,16 +5,16 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import Dotdotdot from 'react-dotdotdot';
 import { Alert, Text, Heading, Link, Icon } from 'evergreen-ui';
 import { Link as LinkRR } from 'react-router-dom';
 import Button from '../../components/Button';
 import Page from '../../components/Page';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import StudySet from '../../components/StudySet';
-import Grid from '../../components/Grid';
-import Flashcard, { FlashcardItem } from '../../components/Flashcard';
+
 import { STUDY } from '../../config/routes';
+
+import ScreenStudySet from './ScreenStudySet';
+import ScreenStudyTopic from './ScreenStudyTopic';
 
 import data from '../../lib/tmpdata';
 
@@ -55,8 +55,6 @@ class Study extends React.Component {
     const isTopicMissing = isNil(topic);
     const hasTopic = !isTopicNil && !isTopicMissing;
 
-    const topicSets = get(topic, 'sets');
-
     const set = get(data, `sets['${setId}']`);
     const isSetNil = isNil(setId);
     const isSetMissing = isNil(set);
@@ -65,9 +63,6 @@ class Study extends React.Component {
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
 
-    const setFlashcards = get(set, 'flashcards') || [];
-    const setKeys = get(set, 'keys') || {};
-
     return (
       <Page frame>
 
@@ -75,64 +70,36 @@ class Study extends React.Component {
         {!hasTopic && this.render404('Home', '/')}
 
         {/* topic found */}
-        {hasTopic && (
-          <>
-            {/* breadcrumb */}
-            <Breadcrumbs
-              marginBottom={8}
-              items={[
-                <Link is={LinkRR} to="/">Home</Link>,
-                <Text>Study</Text>,
-                isSetNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
-              ].filter(i => !!i)}
-            />
+        {hasTopic && (<>
 
-            <Heading size={900} marginBottom={22}>
-              {hasSet && setTitle}
-              {!hasSet && isSetNil && topicTitle}
-            </Heading>
+          {/* breadcrumbs */}
+          <Breadcrumbs
+            marginBottom={8}
+            items={[
+              <Link is={LinkRR} to="/">Home</Link>,
+              <Text>Study</Text>,
+              isSetNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
+            ].filter(i => !!i)}
+          />
 
-            {/* set present, render set */}
-            {hasSet && (
-              <Grid>
-                {setFlashcards.map(flashcard => {
-                  const flashcardId = get(flashcard, 'id');
-                  const flashcardFrontKey = get(flashcard, 'front');
-                  const flashcardBackKey = get(flashcard, 'back');
-                  const flashcardFront = get(setKeys, flashcardFrontKey);
-                  const flashcardBack = get(setKeys, flashcardBackKey);
-                  return (
-                    <Flashcard
-                      key={`${setId}_${flashcardId}`}
-                      revealed
-                      frontItem={<FlashcardItem title="Front" value={flashcardFront} />}
-                      backItem={<FlashcardItem title="Back" value={flashcardBack} />}
-                    />
-                  )
-                })}
-              </Grid>
-            )}
+          {/* heading */}
+          <Heading size={900} marginBottom={22}>
+            {hasSet && setTitle}
+            {!hasSet && isSetNil && topicTitle}
+          </Heading>
 
-            {/* no set provided - render sets of the topic */}
-            {!hasSet && isSetNil && (
-              <Grid>
-                {topicSets.map(topicSetId => (
-                  <StudySet
-                    key={`study_set_${topicId}_${topicSetId}`}
-                    set={get(data, `sets['${topicSetId}']`)}
-                  />
-                ))}
-              </Grid>
-            )}
+          {/* set present, render set */}
+          {hasSet && <ScreenStudySet set={set} />}
 
-            {/* set provided but not found - 404 */}
-            {!hasSet && !isSetNil && isSetMissing && (
-              this.render404(`Back to ${topicTitle}`, `/${STUDY}/${topicId}`)
-            )}
+          {/* no set provided - render sets of the topic */}
+          {!hasSet && isSetNil && <ScreenStudyTopic topic={topic} />}
 
-          </>
-        )}
+          {/* set provided but not found - 404 */}
+          {!hasSet && !isSetNil && isSetMissing && (
+            this.render404(`Back to ${topicTitle}`, `/${STUDY}/${topicId}`)
+          )}
 
+        </>)}
       </Page>
     );
   }
