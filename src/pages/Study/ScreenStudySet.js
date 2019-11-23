@@ -6,7 +6,6 @@ import get from 'lodash/get';
 import setPropTypes from '../../common/setPropTypes';
 import Grid from '../../components/Grid';
 import { FlashcardItem, FlashcardPreview } from '../../components/Flashcard';
-import { ButtonGroup } from '../../components/Button';
 
 const ScreenStudySet = props => {
   const setId = get(props, 'set.id');
@@ -15,8 +14,10 @@ const ScreenStudySet = props => {
 
   return (
     <Grid
+      gap={32}
       autoHeight
       columns={[2, 2, 1]}
+      style={{ marginTop: 32 }}
     >
       {setFlashcards.map(flashcard => {
         const flashcardId = get(flashcard, 'id');
@@ -41,9 +42,9 @@ const ScreenStudySet = props => {
                 value={flashcardBack}
               />
             )}
-            buttons={[
-              { label: 'Start' },
-            ]}
+            buttons={[{
+              label: 'Start'
+            }]}
           />
         )
       })}

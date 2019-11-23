@@ -17,6 +17,7 @@ import Page from './components/Page';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Study from './pages/Study/Study';
+import Session from './pages/Sessions/Session';
 
 import {
   STUDY,
@@ -63,7 +64,7 @@ class App extends React.Component {
           <Route exact path={`/${STUDY}/:topicId`} component={Study} />
           <Route exact path={`/${STUDY}/:topicId/:setId`} component={Study} />
           <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}`} component={Study} />
-          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}/:sessionId`} component={Study} />
+          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}/:sessionId`} component={Session} />
         </Router>
       </>
     )

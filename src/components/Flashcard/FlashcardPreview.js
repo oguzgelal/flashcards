@@ -7,12 +7,11 @@ import isNil from 'lodash/isNil';
 import { Pane, Card } from 'evergreen-ui';
 import { ButtonGroup, buttonsPropType } from '../Button';
 
-const Wrapper = styled(Card)`
+const Wrapper = styled(Pane)`
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-flow: column;
-  background-color: ${p => p.theme.flashcardTextColor};
+  background-color: transparent;
 `;
 
 const CardWrapper = styled(Pane)`
@@ -24,6 +23,11 @@ const CardWrapper = styled(Pane)`
 
 const FrontWrapper = styled(Card)`
   width: 50%;
+  min-height: 140px;
+  padding-bottom: 22px;
+  transform: rotate(-3deg);
+  z-index: 3;
+
   background-color: ${p => p.theme.flashcardBackground};
   * { color: ${p => p.theme.flashcardTextColor}; }
 
@@ -35,6 +39,10 @@ const FrontWrapper = styled(Card)`
 
 const BackWrapper = styled(Card)`
   width: 50%;
+  min-height: 140px;
+  padding-bottom: 22px;
+  transform: rotate(5deg);
+
   background-color: ${p => p.theme.flashcardTextColor};
   * { color: ${p => p.theme.flashcardBackground}; }
 
@@ -44,9 +52,10 @@ const BackWrapper = styled(Card)`
 `;
 
 const FooterWrapper = styled(Card)`
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  background-color: ${p => p.theme.flashcardTextColor};
   * { color: ${p => p.theme.flashcardBackground}; }
+  margin-top: -12px;
+  z-index: 9;
 `;
 
 const FlashcardPreview = props => {
@@ -58,11 +67,11 @@ const FlashcardPreview = props => {
   return (
     <Wrapper>
 
-      <CardWrapper border hasButtons={!isNil(buttons)}>
+      <CardWrapper hasButtons={!isNil(buttons)}>
         <FrontWrapper hasButtons={!isNil(buttons)}>
           {frontItem}
         </FrontWrapper>
-        <BackWrapper hasButtons={!isNil(buttons)}>
+        <BackWrapper border hasButtons={!isNil(buttons)}>
           {backItem}
         </BackWrapper>
       </CardWrapper>

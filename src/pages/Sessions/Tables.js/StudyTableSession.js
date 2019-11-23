@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 
 const Wrapper = styled.div``;
 
-class Flashcards extends React.Component {
+class StudyTableSession extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -23,7 +23,7 @@ class Flashcards extends React.Component {
   }
 }
 
-Flashcards.propTypes = {
+StudyTableSession.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Flashcards);
+)(StudyTableSession);

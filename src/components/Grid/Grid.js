@@ -20,6 +20,7 @@ const Grid = props => {
   const columns = props.columns || [];
   return (
     <Wrapper
+      style={props.style}
       gap={props.gap}
       itemHeight={props.itemHeight}
       autoHeight={props.autoHeight}
@@ -33,6 +34,7 @@ const Grid = props => {
 };
 
 Grid.propTypes = {
+  style: PropTypes.object,
   gap: PropTypes.number,
   columns: PropTypes.array, // [<desktop>, <tablet>, <mobile>]
   itemHeight: PropTypes.number,
