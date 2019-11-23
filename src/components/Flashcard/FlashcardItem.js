@@ -21,6 +21,7 @@ const CardItemTitleWrapper = styled(Pane)`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${p => p.isAlignedLeft && `justify-content: flex-start;`}
   opacity: 0.5;
 `;
 
@@ -30,22 +31,28 @@ const CardItemValueWrapper = styled(Pane)`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 4px;
+  ${p => p.isAlignedLeft && `justify-content: flex-start;`}
+  padding-top: 2px;
 `;
 
 const FlashcardItem = props => {
   const title = get(props, 'title');
   const value = get(props, 'value');
+  const isAlignedLeft = get(props, 'alignLeft');
+
   return (
     <Wrapper>
       {title && (
-        <CardItemTitleWrapper>
+        <CardItemTitleWrapper
+          isAlignedLeft={isAlignedLeft}
+        >
           <CardItemTitle>{title}</CardItemTitle>
         </CardItemTitleWrapper>
       )}
       {value && (
-        <CardItemValueWrapper>
+        <CardItemValueWrapper
+          isAlignedLeft={isAlignedLeft}
+        >
           <CardItemValue>{value}</CardItemValue>
         </CardItemValueWrapper>
       )}
@@ -56,6 +63,7 @@ const FlashcardItem = props => {
 FlashcardItem.propTypes = {
   title: PropTypes.any,
   value: PropTypes.any,
+  alignLeft: PropTypes.bool,
 };
 
 export default FlashcardItem;

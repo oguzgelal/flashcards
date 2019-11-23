@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
+import setPropTypes from '../../common/setPropTypes';
 import Grid from '../../components/Grid';
-import Flashcard, { FlashcardItem } from '../../components/Flashcard';
+import { FlashcardItem, FlashcardPreview } from '../../components/Flashcard';
+import { ButtonGroup } from '../../components/Button';
 
 const ScreenStudySet = props => {
   const setId = get(props, 'set.id');
@@ -12,7 +14,10 @@ const ScreenStudySet = props => {
   const setKeys = get(props, 'set.keys') || {};
 
   return (
-    <Grid autoHeight>
+    <Grid
+      autoHeight
+      columns={[2, 2, 1]}
+    >
       {setFlashcards.map(flashcard => {
         const flashcardId = get(flashcard, 'id');
         const flashcardFrontKey = get(flashcard, 'front');
@@ -20,11 +25,25 @@ const ScreenStudySet = props => {
         const flashcardFront = get(setKeys, flashcardFrontKey);
         const flashcardBack = get(setKeys, flashcardBackKey);
         return (
-          <Flashcard
+          <FlashcardPreview
             key={`${setId}_${flashcardId}`}
-            revealed
-            frontItem={<FlashcardItem title="Front" value={flashcardFront} />}
-            backItem={<FlashcardItem title="Back" value={flashcardBack} />}
+            frontItem={(
+              <FlashcardItem
+                alignLeft
+                title="Front"
+                value={flashcardFront}
+              />
+            )}
+            backItem={(
+              <FlashcardItem
+                alignLeft
+                title="Back"
+                value={flashcardBack}
+              />
+            )}
+            buttons={[
+              { label: 'Start' },
+            ]}
           />
         )
       })}
@@ -33,7 +52,7 @@ const ScreenStudySet = props => {
 };
 
 ScreenStudySet.propTypes = {
-  set: PropTypes.object,
+  set: setPropTypes,
 };
 
 ScreenStudySet.defaultProps = {

@@ -5,6 +5,7 @@ import get from 'lodash/get';
 
 import Grid from '../../components/Grid';
 import StudySet from '../../components/StudySet';
+import topicPropTypes from '../../common/topicPropTypes';
 
 import data from '../../lib/tmpdata';
 
@@ -25,7 +26,7 @@ const ScreenStudyTopic = props => {
 };
 
 ScreenStudyTopic.propTypes = {
-  topic: PropTypes.object,
+  topic: topicPropTypes,
 };
 
 ScreenStudyTopic.defaultProps = {

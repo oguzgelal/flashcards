@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { defaultTheme, minorScale } from 'evergreen-ui';
+import get from 'lodash/get';
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -25,6 +26,13 @@ const theme = {
   desktop: `(max-width: 2560px)`,
   headerHeight: 52,
   ...defaultTheme,
+
+  flashcardBackground: get(defaultTheme, 'palette.neutral.dark'),
+  flashcardTextColor: get(defaultTheme, 'palette.neutral.lightest'),
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  window.theme = theme;
+}
 
 export default theme;

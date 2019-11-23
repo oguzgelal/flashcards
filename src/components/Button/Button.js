@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
-import { Button, IconButton as IconButtonEvergreen } from 'evergreen-ui';
+import {
+  Button,
+  IconButton as IconButtonEvergreen
+} from 'evergreen-ui';
 
 export const HeaderButton = styled(Button).attrs({ appearance: 'minimal' })`
   background-color: ${p => p.theme.colors.background.tint1};
