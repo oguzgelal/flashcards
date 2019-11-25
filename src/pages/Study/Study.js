@@ -77,7 +77,6 @@ class Study extends React.Component {
             marginBottom={8}
             items={[
               <Link is={LinkRR} to="/">Home</Link>,
-              <Text>Study</Text>,
               isSetNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
             ].filter(i => !!i)}
           />

@@ -32,7 +32,7 @@ class Login extends React.Component {
     const sets = get(data, 'sets') || {};
 
     return (
-      <Page frame>
+      <Page>
         {Object.values(topics).map((topic, i) => {
           const topicId = get(topic, 'id');
           const topicSets = get(topic, 'sets') || [];

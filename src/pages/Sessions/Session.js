@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-const Wrapper = styled.div``;
+import ScreenTakeover from '../../components/ScreenTakeover';
+import Page from '../../components/Page';
+
+import { Text } from 'evergreen-ui';
 
 class Session extends React.Component {
   constructor(props, context) {
@@ -16,9 +19,11 @@ class Session extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        Hello world
-      </Wrapper>
+      <ScreenTakeover>
+        <Page>
+          <Text>Hello world</Text>
+        </Page>
+      </ScreenTakeover>
     );
   }
 }
