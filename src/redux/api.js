@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import app from 'firebase/app';
 import 'firebase/auth';
 
@@ -23,6 +24,10 @@ class Api {
     // initialize auth
     this.auth = app.auth();
     this.authPersistence = app.auth.Auth.Persistence.LOCAL;
+
+    // initialize the database
+    this.database = firebase.database(app);
+    this.TIMESTAMP = firebase.database.ServerValue.TIMESTAMP;
 
     // set api on window for easy debug
     if (process.env.NODE_ENV !== 'production') {
