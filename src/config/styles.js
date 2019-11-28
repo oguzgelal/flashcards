@@ -18,12 +18,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const sizeMobile = 700;
+export const sizeTablet = 1100;
+export const sizeLaptop = 1440;
+export const sizeDesktop = 1440;
+
 const theme = {
   bodyPadding: 22,
-  mobile: `(max-width: 700px)`,
-  tablet: `(max-width: 1100px)`,
-  laptop: `(max-width: 1440px)`,
-  desktop: `(max-width: 2560px)`,
+  mobile: `(max-width: ${sizeMobile}px)`,
+  tablet: `(max-width: ${sizeTablet}px)`,
+  laptop: `(max-width: ${sizeLaptop}px)`,
+  desktop: `(max-width: ${sizeDesktop}px)`,
   headerHeight: 52,
   ...defaultTheme,
 

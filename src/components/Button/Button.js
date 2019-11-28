@@ -7,7 +7,9 @@ import {
 } from 'evergreen-ui';
 
 export const HeaderButton = styled(Button).attrs({ appearance: 'minimal' })`
-  background-color: ${p => p.theme.colors.background.tint1};
+  position: relative;
+  background-color: white;
+  border: 1px solid ${p => p.theme.colors.border.muted};
   color: ${p => p.theme.colors.text.dark};
   padding: 8px 12px;
 `;

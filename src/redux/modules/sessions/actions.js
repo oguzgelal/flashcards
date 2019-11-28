@@ -11,6 +11,11 @@ import {
   getUserSessionsRef,
 } from '../../../config/db';
 
+const saveUserSessionsToState = sessions => ({
+  type: types.SAVE_USER_SESSIONS_TO_STATE,
+  sessions,
+});
+
 export const sessionStart = ({
   kind, // flashcard, reveal_table etc.
   origin, // describes what resource the session was initiated from
@@ -51,7 +56,7 @@ export const sessionStart = ({
   }
 
   startLoading();
-  userSessionRef.set(true).then(() => {
+  userSessionRef.set({ kind, origin }).then(() => {
     sessionRef.set({
       id: sessionId,
       kind,
@@ -78,8 +83,8 @@ export const setSessionObserver = () => (dispatch, getState) => {
 
   // start observer
   userSessionRef.on('value', dataSnapshot => {
-    const sessionData = dataSnapshot.val();
-    console.log('session data changed', sessionData);
+    const userSessions = dataSnapshot.val();
+    dispatch(saveUserSessionsToState(userSessions))
   })
 
 };
