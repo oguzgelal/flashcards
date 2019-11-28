@@ -3,35 +3,13 @@ import * as types from './types';
 import api from '../../api';
 import { toaster } from 'evergreen-ui';
 import { loadingStart, loadingStop } from '../loading/actions';
-import { SESSION_KEY } from '../../../config/dbKeys';
 import generateId from '../../../utils/generateId';
-import { getSessionRefs } from '../../../utils/sessionUtils';
-
-/*
-export const sessionStart = ({
-  kind, // flashcard, reveal_table etc.
-  origin, // describes what resource the session was initiated from
-}) => ({
-  type: types.SESSION_START,
-  id: `session_${Math.round(Math.random() * 1000000)}`,
-  kind,
-  origin,
-  startedAt: Date.now(),
-  updatedAt: Date.now(),
-});
-
-export const sessionUpdate = (id, data) => ({
-  type: types.SESSION_UPDATE,
-  id,
-  data,
-  updatedAt: Date.now(),
-});
-
-export const sessionStop = id => ({
-  type: types.SESSION_STOP,
-  id,
-});
-*/
+import {
+  S_ID,
+  getSessionRef,
+  getUserSessionRef,
+  getUserSessionsRef,
+} from '../../../config/db';
 
 export const sessionStart = ({
   kind, // flashcard, reveal_table etc.
@@ -47,8 +25,9 @@ export const sessionStart = ({
   if (!userId) return;
 
   // generate session id and get refs
-  const sessionId = generateId({ key: SESSION_KEY[1], uniq: userId, random: true });
-  const refs = getSessionRefs(userId, sessionId);
+  const sessionId = generateId({ key: S_ID, uniq: userId, random: true });
+  const userSessionRef = getUserSessionRef(userId, sessionId);
+  const sessionRef = getSessionRef(userId, sessionId);
 
   // start loading and update
   const startLoading = () => {
@@ -72,8 +51,8 @@ export const sessionStart = ({
   }
 
   startLoading();
-  refs.userSession.set(true).then(() => {
-    refs.session.set({
+  userSessionRef.set(true).then(() => {
+    sessionRef.set({
       id: sessionId,
       kind,
       origin,
@@ -86,4 +65,21 @@ export const sessionStart = ({
 
 export const sessionStop = () => {};
 export const sessionUpdate = () => {};
-export const setSessionObserver = () => {};
+
+export const setSessionObserver = () => (dispatch, getState) => {
+
+  // get current user id
+  const state = getState();
+  const userId = get(state, 'auth.user.uid');
+  if (!userId) return;
+
+  // get refs
+  const userSessionRef = getUserSessionsRef(userId);
+
+  // start observer
+  userSessionRef.on('value', dataSnapshot => {
+    const sessionData = dataSnapshot.val();
+    console.log('session data changed', sessionData);
+  })
+
+};
