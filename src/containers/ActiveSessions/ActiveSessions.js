@@ -30,8 +30,6 @@ class ActiveSessions extends React.Component {
     const sessions = get(this.props, 'sessions') || {};
     const sessionCount = Object.keys(sessions).length;
 
-    if (sessionCount === 0) return null;
-
     return (
       <>
         <Tooltip content={`${sessionCount} active session${sessionCount > 1 ? 's' : ''}`}>
@@ -40,7 +38,9 @@ class ActiveSessions extends React.Component {
             onClick={() => this.setState({ sessionsOpen: true })}
           >
             <Icon icon="application" />
-            <SessionCount color="red" isSolid>{sessionCount}</SessionCount>
+            {sessionCount > 0 && (
+              <SessionCount color="red" isSolid>{sessionCount}</SessionCount>
+            )}
           </HeaderButton>
         </Tooltip>
         <ActiveSessionsSidesheet
