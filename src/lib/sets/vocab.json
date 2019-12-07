@@ -22,7 +22,6 @@
     { "id": "m_r", "front": "M", "back": "R" }
   ],
   "data": [
-
     { "id": "1", "V": "今", "M": "Now", "R": "いま", "MM": "'Imma' do it NOW!" },
     { "id": "2", "V": "今日", "M": "Today", "R": "きょう", "MM": "Today in toKYO (きょう)", "tags": ["EX"] },
     { "id": "3", "V": "今月", "M": "This month", "R": "こんがつ", "MM": "" },
@@ -33,6 +32,26 @@
     { "id": "8", "V": "半", "M": "Half", "R": "はん", "MM": "" },
     { "id": "9", "V": "古い", "M": "Old", "R": "ふるい", "MM": "When you get old, you had a 'full run' (ふる)" },
     { "id": "10", "V": "中古", "M": "Second Hand", "R": "ちゅうこ", "MM": "" },
+    { "id": "11", "V": "一台", "M": "One Machine", "R": "いちだい", "MM": "" },
+    { "id": "12", "V": "二台", "M": "Two Machines", "R": "にだい", "MM": "" },
+    { "id": "13", "V": "五台", "M": "Five Machines", "R": "ごだい", "MM": "" },
+    { "id": "14", "V": "十台", "M": "Ten Machines", "R": "じゅうだい", "MM": "" },
+    { "id": "15", "V": "外", "M": "Outside", "R": "そと", "MM": "" },
+    { "id": "16", "V": "外人", "M": "Foreigner", "R": "がいじん", "MM": "" },
+    { "id": "17", "V": "外れ", "M": "Extremity, Furthest point, End, Edge, Limit", "R": "はずれ", "MM": "RE: outside, meaning it's edge. If you spawn from there, you'd be (hazıra konmak - はず)" },
+    { "id": "18", "V": "外れる", "M": "To be disconnected, to be out", "R": "はずれる", "MM": "RE: (reply) outside indicates your compoter disconnected so you can't reply the email" },
+    { "id": "19", "V": "市", "M": "City", "R": "し", "MM": "" },
+    { "id": "20", "V": "市立", "M": "Municipal", "R": "しりつ", "MM": "" },
+    { "id": "21", "V": "シアトル市", "M": "Seattle", "R": "しあとるし", "MM": "" },
+    { "id": "22", "V": "広い", "M": "Wide, Spacious", "R": "ひろい", "MM": "" },
+    { "id": "23", "V": "用いる", "M": "To Utilize, To Use", "R": "もちいる", "MM": "What do you need to utilize something? More cheese of course (もち)" },
+    { "id": "24", "V": "公用", "M": "Government (Official) Business", "R": "こうよう", "MM": "Public task is a government business." },
+    { "id": "25", "V": "矢", "M": "Arrow", "R": "や", "MM": "" },
+    { "id": "26", "V": "人生", "M": "One's Life, Human Life", "R": "じんせい", "MM": "" },
+    { "id": "27", "V": "〜台", "M": "Big Machine, Number of Machines", "R": "だい", "MM": "" },
+    { "id": "28", "V": "今日は", "M": "Hello, Good Day", "R": "こんにちは", "MM": "" },
+    { "id": "29", "V": "用", "M": "Task, Business, Purpose, Function", "R": "よう", "MM": "" },
+    { "id": "30", "V": "戸", "M": "Japanese Style Door", "R": "と", "MM": "" },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }

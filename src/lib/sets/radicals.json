@@ -1,0 +1,39 @@
+{
+  "id": "radicals",
+  "title": "Radicals 部首",
+  "description": "Study set that includes cards to / from radicals.",
+  "topic": "japanese",
+  "keys": {
+    "R": "Radical",
+    "M": "Meaning" ,
+    "MM": "Mnemonics"
+  },
+  "tags": [],
+  "flashcards": [
+    { "id": "r_m", "front": "R", "back": "M" },
+    { "id": "m_r", "front": "M", "back": "R" }
+  ],
+  "data": [
+    { "id": "1", "R": "寸", "M": "Measurement" },
+    { "id": "2", "R": "ｲ", "M": "Leader" },
+    { "id": "3", "R": "冖", "M": "Forehead" },
+    { "id": "4", "R": "也", "M": "Alligator" },
+    { "id": "5", "R": "宀", "M": "Roof" },
+    { "id": "6", "R": "弋", "M": "Ceremony", "MM": "This looks like a person with a long dress running behind them, just like the bride in a wedding ceremony." },
+    { "id": "7", "R": "ネ", "M": "Sprint", "MM": "Kinda looks like the sprint logo ?" },
+    { "id": "8", "R": "支", "M": "Branch", "MM": "A cross is branching off of a stool" },
+    { "id": "9", "R": "气", "M": "Energy" },
+    { "id": "10", "R": "世", "M": "World" },
+    { "id": "11", "R": "皿", "M": "Plate", "MM": "Looks like plates drying on a rack" },
+    { "id": "12", "R": "竹", "M": "Bamboo", "MM": "Looks like a bamboo tree" },
+    { "id": "13", "R": "糸", "M": "Thread", "MM": "Looks messy, just like a thread (ie. computer science)" },
+    { "id": "14", "R": "耳", "M": "Ear", "MM": "This looks like eye (目). If you go blind, your ear become your new sense of sight. Thus, it's a modified version of eye." },
+    { "id": "15", "R": "虫", "M": "Insect", "MM": "Looks like a snail" },
+    { "id": "16", "R": "艹", "M": "Flowers", "MM": "What sticks from the ground like in this radical? Flowers." },
+    { "id": "17", "R": "見", "M": "See", "MM": "This is literally eye (目) that has legs (儿)" },
+    { "id": "18", "R": "赤", "M": "Red", "MM": "This looks like that guy from X-men that shoots lasers from the eye. What color is that laser? Red." },
+    { "id": "19", "R": "車", "M": "Car", "MM": "Looks like a top-down view of a car" },
+    { "id": "20", "R": "貝", "M": "Shellfish", "MM": "ie. Midye. The legs are the shell, the middle part is eye of the clam." },
+    { "id": "", "R": "", "M": "" }
+  ]
+}
