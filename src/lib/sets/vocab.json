@@ -14,12 +14,12 @@
     "EX"
   ],
   "flashcards": [
-    { "id": "v_r", "front": "V", "back": "R" },
-    { "id": "v_m", "front": "V", "back": "M" },
-    { "id": "r_v", "front": "R", "back": "V" },
-    { "id": "r_m", "front": "R", "back": "M" },
-    { "id": "m_v", "front": "M", "back": "V" },
-    { "id": "m_r", "front": "M", "back": "R" }
+    { "id": "3UNJQV1ZhNMhiodJHR9RUzcJrIYKAg==", "front": "V", "back": "R" },
+    { "id": "JWaBtSN/LhH2FY9OtNEUGhtzlrbSkg==", "front": "V", "back": "M" },
+    { "id": "XgJBDHSMuPmtu3cIccMGTNLHQ+1YiQ==", "front": "R", "back": "V" },
+    { "id": "aHaaBZn7/QudfhNPOIh4HpWXpMsmqw==", "front": "R", "back": "M" },
+    { "id": "Rrh0lq/wRfXLXR2N6TvrFH8b2ZKCYA==", "front": "M", "back": "V" },
+    { "id": "ay0jJE81SFepPQHvlTavSmYTnP4MrQ==", "front": "M", "back": "R" }
   ],
   "data": [
     { "id": "UcMbHoTfSs/ZGHYCZUZXr2zSvK2SjQ==", "V": "今", "M": "Now", "R": "いま", "MM": "'Imma' do it NOW!" },
