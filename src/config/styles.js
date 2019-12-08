@@ -18,10 +18,10 @@ export const GlobalStyle = createGlobalStyle`
       * {
         &:focus {
           box-shadow: none !important;
+          background-color: inherit !important;
         }
       }
     `}
-
   }
 
   a {

@@ -13,14 +13,14 @@
   "tags": [
     "EX"
   ],
-  "flashcards": [
-    { "id": "3UNJQV1ZhNMhiodJHR9RUzcJrIYKAg==", "front": "V", "back": "R" },
-    { "id": "JWaBtSN/LhH2FY9OtNEUGhtzlrbSkg==", "front": "V", "back": "M" },
-    { "id": "XgJBDHSMuPmtu3cIccMGTNLHQ+1YiQ==", "front": "R", "back": "V" },
-    { "id": "aHaaBZn7/QudfhNPOIh4HpWXpMsmqw==", "front": "R", "back": "M" },
-    { "id": "Rrh0lq/wRfXLXR2N6TvrFH8b2ZKCYA==", "front": "M", "back": "V" },
-    { "id": "ay0jJE81SFepPQHvlTavSmYTnP4MrQ==", "front": "M", "back": "R" }
-  ],
+  "flashcards": {
+    "3UNJQV1ZhNMhiodJHR9RUzcJrIYKAg==": { "id": "3UNJQV1ZhNMhiodJHR9RUzcJrIYKAg==", "front": "V", "back": "R" },
+    "JWaBtSN/LhH2FY9OtNEUGhtzlrbSkg==": { "id": "JWaBtSN/LhH2FY9OtNEUGhtzlrbSkg==", "front": "V", "back": "M" },
+    "XgJBDHSMuPmtu3cIccMGTNLHQ+1YiQ==": { "id": "XgJBDHSMuPmtu3cIccMGTNLHQ+1YiQ==", "front": "R", "back": "V" },
+    "aHaaBZn7/QudfhNPOIh4HpWXpMsmqw==": { "id": "aHaaBZn7/QudfhNPOIh4HpWXpMsmqw==", "front": "R", "back": "M" },
+    "Rrh0lq/wRfXLXR2N6TvrFH8b2ZKCYA==": { "id": "Rrh0lq/wRfXLXR2N6TvrFH8b2ZKCYA==", "front": "M", "back": "V" },
+    "ay0jJE81SFepPQHvlTavSmYTnP4MrQ==": { "id": "ay0jJE81SFepPQHvlTavSmYTnP4MrQ==", "front": "M", "back": "R" }
+  },
   "data": [
     { "id": "UcMbHoTfSs/ZGHYCZUZXr2zSvK2SjQ==", "V": "今", "M": "Now", "R": "いま", "MM": "'Imma' do it NOW!" },
     { "id": "3572AoKodDb2Ocsc+fRum/WA/uX/DQ==", "V": "今日", "M": "Today", "R": "きょう", "MM": "Today in toKYO (きょう)", "tags": ["EX"] },

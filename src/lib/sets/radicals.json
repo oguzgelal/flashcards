@@ -9,10 +9,10 @@
     "MM": "Mnemonics"
   },
   "tags": [],
-  "flashcards": [
-    { "id": "+xuV0JqxtKCxeVJMQT4f/w4vCbO/5Q==", "front": "R", "back": "M" },
-    { "id": "KWM2Kt8EjnwN3jeJGdWfQ/iIIhvBBQ==", "front": "M", "back": "R" }
-  ],
+  "flashcards": {
+    "+xuV0JqxtKCxeVJMQT4f/w4vCbO/5Q==": { "id": "+xuV0JqxtKCxeVJMQT4f/w4vCbO/5Q==", "front": "R", "back": "M" },
+    "KWM2Kt8EjnwN3jeJGdWfQ/iIIhvBBQ==": { "id": "KWM2Kt8EjnwN3jeJGdWfQ/iIIhvBBQ==", "front": "M", "back": "R" }
+  },
   "data": [
     { "id": "KJagVNu0eody3mXunaHoYxp7HAq7Bw==", "M": "一", "R": "Ground" },
     { "id": "uBSBtUzD5T7PhnZ4mhcY3gjbOFTumQ==", "M": "ハ", "R": "Fins" },

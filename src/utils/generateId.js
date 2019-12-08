@@ -1,6 +1,6 @@
 import isNil from 'lodash/isNil';
 
-const DEL = '_';
+export const DEL = '_';
 
 export default ({ key, uniq, random } = {}) => {
 

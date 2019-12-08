@@ -7,11 +7,10 @@ import get from 'lodash/get';
 
 import Grid from '../../components/Grid';
 import { FlashcardItem, FlashcardPreview } from '../../components/Flashcard';
-import { SESSION_FLASHCARD } from '../../config/sessionKinds';
 import setPropTypes from '../../common/setPropTypes';
 import * as sessionTypes from '../../redux/modules/sessions/types';
 import * as sessionActions from '../../redux/modules/sessions/actions';
-import { generateOrigin } from '../../utils/flashcardUtils';
+import flashcards, { SESSION_KIND_FLASHCARD } from '../../models/Flashcards';
 
 class ScreenStudySet extends React.Component {
   constructor(props, context) {
@@ -24,7 +23,7 @@ class ScreenStudySet extends React.Component {
   render() {
     const setId = get(this.props, 'set.id');
     const topicId = get(this.props, 'set.topic');
-    const setFlashcards = get(this.props, 'set.flashcards') || [];
+    const setFlashcards = get(this.props, 'set.flashcards') || {};
     const setKeys = get(this.props, 'set.keys') || {};
 
     return (
@@ -34,7 +33,7 @@ class ScreenStudySet extends React.Component {
         columns={[2, 2, 1]}
         style={{ marginTop: 32 }}
       >
-        {setFlashcards.map(flashcard => {
+        {Object.values(setFlashcards).map(flashcard => {
           const flashcardId = get(flashcard, 'id');
           const flashcardFrontKey = get(flashcard, 'front');
           const flashcardBackKey = get(flashcard, 'back');
@@ -42,8 +41,9 @@ class ScreenStudySet extends React.Component {
           const flashcardBack = get(setKeys, flashcardBackKey);
 
           // session
-          const kind = SESSION_FLASHCARD;
-          const origin = generateOrigin({ setId, topicId, flashcardId })
+          const kind = SESSION_KIND_FLASHCARD;
+          const origin = flashcards.generateOrigin({ setId, topicId, flashcardId })
+          const title = `Flashcards: ${flashcardFront} to ${flashcardBack}`;
           const flashcardSessionStarting = get(this.props, `loading['${sessionTypes.SESSION_START}_${origin}']`)
           return (
             <FlashcardPreview
@@ -69,6 +69,7 @@ class ScreenStudySet extends React.Component {
                   this.props.sessionActions.sessionStart({
                     kind,
                     origin,
+                    title,
                   });
                 },
               }]}

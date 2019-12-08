@@ -59,14 +59,19 @@ export const sessionStart = ({
 
   startLoading();
   userSessionRef.set({
+    id: sessionId,
     kind,
     origin,
-    updatedAt: api.TIMESTAMP
+    title,
+    description: description || '',
+    updatedAt: api.TIMESTAMP,
   }).then(() => {
     sessionRef.set({
       id: sessionId,
       kind,
       origin,
+      title,
+      description: description || '',
       user: userId,
       startedAt: api.TIMESTAMP,
       updatedAt: api.TIMESTAMP,
