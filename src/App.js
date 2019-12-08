@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import api from './redux/api';
 import * as authActions from './redux/modules/auth/actions';
+import * as miscActions from './redux/modules/misc/actions';
 import { INIT } from './redux/modules/auth/types';
 
 import Header from './containers/Header';
@@ -34,6 +35,7 @@ class App extends React.Component {
   componentDidMount() {
     api.init();
     this.props.authActions.setAuthObserver();
+    this.props.miscActions.setAccessibilityListener();
   }
 
   render() {
@@ -72,6 +74,11 @@ class App extends React.Component {
 }
 
 App.propTypes = {
+  loading: PropTypes.object,
+  requests: PropTypes.object,
+  auth: PropTypes.object,
+  authActions: PropTypes.object,
+  miscActions: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -82,6 +89,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   authActions: bindActionCreators(authActions, dispatch),
+  miscActions: bindActionCreators(miscActions, dispatch),
 });
 
 export default connect(

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { defaultTheme, minorScale } from 'evergreen-ui';
+import { defaultTheme } from 'evergreen-ui';
 import get from 'lodash/get';
 
 export const GlobalStyle = createGlobalStyle`
@@ -12,6 +12,16 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow: hidden;
     background-color: white;
+
+    // disable accessibility mode until tab press
+    ${p => !p.accessibility && `
+      * {
+        &:focus {
+          box-shadow: none !important;
+        }
+      }
+    `}
+
   }
 
   a {

@@ -4,7 +4,7 @@ import { toaster } from 'evergreen-ui';
 import api from '../../api';
 import * as types from './types';
 import { loadingStart, loadingStop } from '../loading/actions';
-import { setSessionObserver } from '../sessions/actions';
+import { setUserSessionsObserver } from '../sessions/actions';
 
 export const saveUserToState = ({ user }) => ({
   type: types.SAVE_USER_TO_STATE,
@@ -68,7 +68,7 @@ export const setAuthObserver = () => dispatch => {
 
       // start session observer
       dispatch(
-        setSessionObserver()
+        setUserSessionsObserver()
       );
 
     } else {

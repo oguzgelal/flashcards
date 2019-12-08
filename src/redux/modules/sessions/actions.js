@@ -11,10 +11,12 @@ import {
   getUserSessionsRef,
 } from '../../../config/db';
 
+
 const saveUserSessionsToState = sessions => ({
   type: types.SAVE_USER_SESSIONS_TO_STATE,
   sessions,
 });
+
 
 export const sessionStart = ({
   kind, // flashcard, reveal_table etc.
@@ -56,7 +58,11 @@ export const sessionStart = ({
   }
 
   startLoading();
-  userSessionRef.set({ kind, origin }).then(() => {
+  userSessionRef.set({
+    kind,
+    origin,
+    updatedAt: api.TIMESTAMP
+  }).then(() => {
     sessionRef.set({
       id: sessionId,
       kind,
@@ -68,10 +74,47 @@ export const sessionStart = ({
   }).catch(fail)
 }
 
+
 export const sessionStop = () => {};
+
+
 export const sessionUpdate = () => {};
 
-export const setSessionObserver = () => (dispatch, getState) => {
+
+// get session data
+export const getSessionData = (sessionId, callback) => (dispatch, getState) => {
+
+  // get current user id
+  const state = getState();
+  const userId = get(state, 'auth.user.uid');
+  if (!userId) return;
+
+  // get ref
+  const sessionRef = getSessionRef(userId, sessionId);
+  sessionRef.once('value', callback);
+}
+
+
+// set an observer that listens for a single session
+export const toggleSessionObserver = (sessionId, status, callback) => (dispatch, getState) => {
+
+  // get current user id
+  const state = getState();
+  const userId = get(state, 'auth.user.uid');
+  if (!userId) return;
+
+  // get ref
+  const sessionRef = getSessionRef(userId, sessionId);
+
+  // toggle observer
+  const fn = status ? sessionRef.on : sessionRef.off;
+  fn('value', callback);
+}
+
+
+// set an observer that listens to changes in the session keys
+// stored under /user/<id>/sessions
+export const setUserSessionsObserver = () => (dispatch, getState) => {
 
   // get current user id
   const state = getState();
@@ -86,5 +129,4 @@ export const setSessionObserver = () => (dispatch, getState) => {
     const userSessions = dataSnapshot.val();
     dispatch(saveUserSessionsToState(userSessions))
   })
-
 };

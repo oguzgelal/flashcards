@@ -1,0 +1,1 @@
+export const ENABLE_ACCESSIBILITY = 'fc/misc/ENABLE_ACCESSIBILITY';

@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import { Heading } from 'evergreen-ui';
-import SideSheet from '../../components/SideSheet';
+import ScreenTakeover from '../../components/ScreenTakeover';
+import Page from '../../components/Page';
 
-class ActiveSessionsSidesheet extends React.Component {
+import { Text } from 'evergreen-ui';
+
+class SessionContainer extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -17,21 +19,16 @@ class ActiveSessionsSidesheet extends React.Component {
 
   render() {
     return (
-      <SideSheet
-        isOpen={this.props.isOpen}
-        close={this.props.close}
-        title="Active Sessions"
-        // desc="Lorem ipsum dolor sit amet"
-      >
-        <Heading>Yo!</Heading>
-      </SideSheet>
+      <ScreenTakeover>
+        <Page>
+          <Text>Hello world</Text>
+        </Page>
+      </ScreenTakeover>
     );
   }
 }
 
-ActiveSessionsSidesheet.propTypes = {
-  isOpen: PropTypes.bool,
-  close: PropTypes.func,
+SessionContainer.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -45,4 +42,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ActiveSessionsSidesheet);
+)(SessionContainer);
