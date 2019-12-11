@@ -38,7 +38,17 @@
     { "id": "p83JR6NDiK85n5RmICZy1egSh7oiEA==", "K": "打", "M": "Hit", "OY": "! だ", "KY": "う, ぶ", "MM": "Left part is fingers radical, right part looks like child radical. Think of this as HITting a child, a typical case of dayak (だ)" },
     { "id": "Imfcp7dT5Yg71uvb+SHdhMZQgurN0Q==", "K": "氷", "M": "Ice", "OY": "ひょう", "KY": "! こおり", "MM": "In the core (こお) of ice, there is a ring (り). Marriage proposals are getting creative." },
     { "id": "QgqXjj5FZZ4CQh2tay5hmt+bMcELFQ==", "K": "申", "M": "Say Humbly", "OY": "しん", "KY": "! もう",  "MM": "This consists of a cross and a mouth. Something like controlling your mouth to speak humbly instead of sounding like an asshole. As for the reading, remember from the involvement of the mouth (もう) radical. This kanji is also used for saying 'hello' on the phone: '申し申し' so remember もう from there." },
-    { "id": "f2yzBOhp50oyMkWNAPdmJUmGQj6T3w==", "K": "先", "M": "Previous, Ahead, Past, Former", "OY": "! せん", "KY": "さき, まず", "MM": "There's a 'pi' in this kanji, (pi)revious. Remember from your mom telling you a story about the past: (sen - せん)eler evvel (sen - せん) doğmadan önce, ..." },
-    { "id": "", "K": "", "OY": "", "KY": "", "M": "", "MM": "" }
+    { "id": "f2yzBOhp50oyMkWNAPdmJUmGQj6T3w==", "K": "先", "M": "Previous, Ahead, Past, Former", "OY": "! せん", "KY": "さき, まず", "MM": "There's a 'pi' in this kanji, (pi)revious. Geçen (SE)fer / Geçen (SEN)e -> せん. Remember from your mom telling you a story about the past: (sen - せん)eler evvel (sen - せん) doğmadan önce, ..." },
+    { "id": "UAh26ZSJYxtN1gQJVGAU+AbaSA7qZg==", "K": "名", "M": "Name, Famous", "OY": "! めい, みょう", "KY": "な", "MM": "My (めい) name is..." },
+    { "id": "M/7YX7kZB1Yj1QuZxvAhC6LLyL1i4g==", "K": "年", "M": "Year", "OY": "! ねん", "KY": "とし", "MM": "NinEteeN - ねん" },
+    { "id": "5V9AEFSKKNrzaUSLhACxCQO0ZuBBpg==", "K": "早", "M": "Early, Fast, Quick", "OY": "! そう", "KY": "はや, さ", "MM": "When your alarm goes off, it's soo (そう) damn EARLY. To make it on time, you gotta be FAST and QUICK." },
+    { "id": "HReVs4EZqHElrf58JLSB6Y6xqUUsug==", "K": "百", "M": "Hundred", "OY": "! ひゃく", "KY": "もも", "MM": "Hundred sun-leaf eating ducks would go ひゃく!" },
+    { "id": "uWyeHuzyEF/3blwCJF2RVwPpQdgsPw==", "K": "男", "M": "Man", "OY": "! だん, なん", "KY": "おとこ", "MM": "Remember Danna's (だん, なん) from Memoirs of a Geisha" },
+    { "id": "lOLpYBgUEAQT1Cln9clDVEDI9OOD1Q==", "K": "世", "M": "World, Generation", "OY": "! せ, せい", "KY": "よ", "MM": "" },
+    { "id": "BtjNR/RqTZnJTfJaveMgPBNHp0Isbg==", "K": "他", "M": "Other", "OY": "! た", "KY": "ほか", "MM": "You can't pick an alligator leader, you have to pick anOTHER animal. You need to be able to TAme (た) it." },
+    { "id": "ARv4Yy+9qh8KlO4r0S3zJrT7S7Yarg==", "K": "代", "M": "Substitute, Replace, Period, Age", "OY": "! だい", "KY": "か, かわ, しろ", "MM": "The leader can't come to the ceremony, you have to find a SUBSTITUDE to REPLACE. Becuase of his old AGE, he forgot the time PERIOD of the ceremony. His age is so old, he is about to DIE (だい)" },
+    { "id": "a+CpbcOKYeSUdMKjJe80R+Fr/GBRZA==", "K": "皿", "M": "Plate", "OY": "-", "KY": "! さら", "MM": "Sarah is washing the dishes." },
+    { "id": "8kyXlmj2FLPLR9t6W9EyHa5ozC33xw==", "K": "休", "M": "Rest", "OY": "! きゅう", "KY": "やす", "MM": "The leader is RESTing by the CUCUMBER (きゅう) tree." },
+    { "id": "", "K": "", "M": "", "OY": "", "KY": "", "MM": "" }
   ]
 }
