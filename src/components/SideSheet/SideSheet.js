@@ -44,7 +44,7 @@ const Body = styled(Pane)`
 `;
 
 const SideSheetComponent = props => {
-  
+
   const mobile = useIsDevice(isMobile);
 
   const closeButton = (
@@ -64,6 +64,7 @@ const SideSheetComponent = props => {
           display: 'flex',
           flex: '1',
           flexDirection: 'column',
+          zIndex: 999
         }}
       >
 

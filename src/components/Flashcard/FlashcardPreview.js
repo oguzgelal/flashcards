@@ -43,7 +43,7 @@ const BackWrapper = styled(Card)`
   padding-bottom: 22px;
   transform: rotate(5deg);
 
-  background-color: ${p => p.theme.flashcardTextColor};
+  background-color: white;
   * { color: ${p => p.theme.flashcardBackground}; }
 
   ${p => p.hasButtons && `
@@ -52,7 +52,7 @@ const BackWrapper = styled(Card)`
 `;
 
 const FooterWrapper = styled(Card)`
-  background-color: ${p => p.theme.flashcardTextColor};
+  background-color: white;
   * { color: ${p => p.theme.flashcardBackground}; }
   margin-top: -12px;
   z-index: 9;

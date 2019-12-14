@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import flashcardsPropTypes from './flashcardsPropTypes';
 
-export default {
+
+export default PropTypes.objectOf({
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -12,12 +14,5 @@ export default {
       id: PropTypes.string.isRequired,
     })
   ),
-  flashcards: PropTypes.objectOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      front: PropTypes.string.isRequired,
-      back: PropTypes.string.isRequired,
-      hint: PropTypes.string,
-    })
-  ),
-}
+  flashcards: flashcardsPropTypes,
+})
