@@ -52,6 +52,20 @@
     { "id": "xIcAhOzfNthxQQ2Tp5j9IhWnXixWwA==", "V": "今日は", "M": "Hello, Good Day", "R": "こんにちは", "MM": "" },
     { "id": "EtSBwfHtd1IUZljkK+GWUCDGa0kHeA==", "V": "用", "M": "Task, Business, Purpose, Function", "R": "よう", "MM": "" },
     { "id": "vt+QsQWcGasbWWZd7cHPAXYSR7oWfg==", "V": "戸", "M": "Japanese Style Door", "R": "と", "MM": "" },
+    { "id": "Id6iTEhOw6mLIgR57HX+FC2esHemgg==", "V": "号", "M": "Number, Edition, Model", "R": "ごう", "MM": "" },
+    { "id": "4kpSu82L58D4Oro4mhcSLhv1G5dcMA==", "V": "中央", "M": "Center, Central", "R": "ちゅうおう", "MM": "" },
+    { "id": "jz6hUKY2USGS1BOW5TdZ8cHVmIuTzw==", "V": "打つ", "M": "To Hit, To Pound, To Type", "R": "うつ", "MM": "After a kid gets hit, they'll use the word 'UF' (う) as an adjective" },
+    { "id": "GM0BzlwteXjSGo7xlsE3+ede/X/CNw==", "V": "一打", "M": "Strike, Stroke, Blow", "R": "いちだ", "MM": "" },
+    { "id": "/ATD0gKoh3YLxUYSup2QbQiPOZQWUg==", "V": "氷", "M": "Ice", "R": "こおり", "MM": "" },
+    { "id": "N+cYN+42wYF+zToVowASu81kDHRXzQ==", "V": "かき氷", "M": "Shaved Ice", "R": "かきごおり", "MM": "" },
+    { "id": "EHbjdlkSQGavdeLgyyoFHjNAZXkQdg==", "V": "申す", "M": "To Say Humbly", "R": "もうす", "MM": "" },
+    { "id": "ntUyP3r5b0qDWmqVLjEc1GHuYua2HQ==", "V": "申し申し", "M": "Hello (telephone)", "R": "もうしもうし - もしもし", "MM": "" },
+    { "id": "zryLpqA47BDGkfk2LoColXahGxnqMA==", "V": "子牛", "M": "Calf, Baby Cow", "R": "こうし", "MM": "" },
+    { "id": "9cNdVPYfqDgZFOs3Rxb3xBQ882wGYQ==", "V": "切手", "M": "Postage Stamp, Stamp", "R": "きって", "MM": "Post kit - stamp (きって)" },
+    { "id": "qvCrqFKPbI/Uv6ghwoGl7cIMeGdHOQ==", "V": "引き分け", "M": "Tie, Draw", "R": "ひきわけ", "MM": "Berabere. When you PULL something to SEPERATE them, you're making them even. Hence, Tie / Draw." },
+    { "id": "PKWpwqMWmmESMdN8rJ97qcPSzy9ugg==", "V": "白い", "M": "White", "R": "しろい", "MM": "" },
+    { "id": "qSqvTHvUeVlcmVTAC4pGWZwJ3ys6dA==", "V": "二十日", "M": "Twentieth Day", "R": "はつか", "MM": "Twenty hats for the twentieth day" },
+    { "id": "k7+5EqR7YUsTWeYsDkChpqHi5tkyvA==", "V": "丸ごと", "M": "In Its Entirety, Entirely, Wholly", "R": "まるごと", "MM": "If you go to (ごと) a circle (まる), you need the ENTIRE circle." },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }
