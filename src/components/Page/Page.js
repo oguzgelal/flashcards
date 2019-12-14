@@ -10,6 +10,7 @@ export const ResponsivePage = styled(Pane)`
   padding: ${p => p.theme.bodyPadding}px;
   padding-left: 0;
   padding-right: 0;
+  background-color: inherit;
 
   @media ${p => p.theme.mobile} {
     width: 100%;
