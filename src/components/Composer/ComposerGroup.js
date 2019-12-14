@@ -7,30 +7,10 @@ import { Icon, Heading, Pane, Card } from 'evergreen-ui';
 import Clickable from '../Clickable';
 
 const Wrapper = styled(Card)`
-  background-color: ${p => p.theme.colors.background.tint2};
   border-top: none;
 `;
 
 const gap = 8;
-
-const ComposerHeader = styled(Clickable).attrs({ useCard: true })`
-  display: flex;
-  align-items: center;
-  padding: 22px 42px;
-  background-color: white;
-  position: sticky;
-  top: -5px;
-  z-index: 11;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  ${p => !p.open && `
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-  `}
-
-  position: sticky;
-  top: ${gap}px;
-`;
 
 const Cover = styled.div`
   position: sticky;
@@ -39,6 +19,37 @@ const Cover = styled.div`
   height: ${gap + 6}px;
   background-color: inherit;
   z-index: 10;
+
+  @media ${p => p.theme.mobile} {
+    display: none;
+  }
+`;
+
+const ComposerHeader = styled(Clickable).attrs({ useCard: true })`
+  position: sticky;
+  top: ${gap}px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 22px 42px;
+  background-color: white;
+  position: sticky;
+  z-index: 11;
+
+  ${p => !p.open && `
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  `}
+
+  @media ${p => p.theme.mobile} {
+    padding-left: 22px;
+    padding-right: 22px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    top: -1px;
+    ${p => p.theme.bodyPaddingCover}
+  }
 `;
 
 const ComposerBody = styled(Card)`
@@ -47,6 +58,14 @@ const ComposerBody = styled(Card)`
   border-top: none;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+  margin-top: -4px;
+
+  @media ${p => p.theme.mobile} {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    border: none;
+  }
 `;
 
 const ComposerGroup = props => {
@@ -54,26 +73,26 @@ const ComposerGroup = props => {
 
   return (
     <>
-    <Cover />
-    <Wrapper>
-      <ComposerHeader
-        border
-        open={open}
-        onClick={() => setOpen(!open)}
-      >
-        <Heading>{props.title}</Heading>
-        <div style={{ flexGrow: 1 }} />
-        {open && <Icon icon="caret-down" />}
-        {!open && <Icon icon="caret-right" />}
-      </ComposerHeader>
-      {open && (
-        <ComposerBody
+      <Cover />
+      <Wrapper>
+        <ComposerHeader
           border
+          open={open}
+          onClick={() => setOpen(!open)}
         >
-          {props.children}
-        </ComposerBody>
-      )}
-    </Wrapper>
+          <Heading>{props.title}</Heading>
+          <div style={{ flexGrow: 1 }} />
+          {open && <Icon icon="caret-down" />}
+          {!open && <Icon icon="caret-right" />}
+        </ComposerHeader>
+        {open && (
+          <ComposerBody
+            border
+          >
+            {props.children}
+          </ComposerBody>
+        )}
+      </Wrapper>
     </>
   )
 };

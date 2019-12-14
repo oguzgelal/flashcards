@@ -35,6 +35,10 @@ export const sizeDesktop = 1440;
 
 const theme = {
   bodyPadding: 22,
+  bodyPaddingCover: `
+    margin-left: -22px;
+    width: calc(100% + 44px);
+  `,
   mobile: `(max-width: ${sizeMobile}px)`,
   tablet: `(max-width: ${sizeTablet}px)`,
   laptop: `(max-width: ${sizeLaptop}px)`,
