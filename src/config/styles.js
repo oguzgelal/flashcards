@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     `}
   }
 
+  .fc--tooltip {
+    z-index: 999 !important;
+  }
+
   a {
     text-decoration: none !important;
   }

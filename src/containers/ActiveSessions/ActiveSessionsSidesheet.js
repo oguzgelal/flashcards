@@ -7,7 +7,6 @@ import get from 'lodash/get';
 
 import { Heading, Table } from 'evergreen-ui';
 import SideSheet from '../../components/SideSheet';
-import sessionKinds from '../../models/SessionKinds';
 
 class ActiveSessionsSidesheet extends React.Component {
   constructor(props, context) {

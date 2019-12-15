@@ -39,11 +39,11 @@ export const sessionStart = ({
   // start loading and update
   const startLoading = () => {
     dispatch(loadingStart(types.SESSION_START));
-    dispatch(loadingStart(`${types.SESSION_START}_${origin}`));
+    dispatch(loadingStart(`${types.SESSION_START}_${get(origin, 'id')}`));
   }
   const stopLoading = () => {
     dispatch(loadingStop(types.SESSION_START));
-    dispatch(loadingStop(`${types.SESSION_START}_${origin}`));
+    dispatch(loadingStop(`${types.SESSION_START}_${get(origin, 'id')}`));
   }
   const success = () => {
     stopLoading();
@@ -58,6 +58,7 @@ export const sessionStart = ({
   }
 
   startLoading();
+
   userSessionRef.set({
     id: sessionId,
     kind,
@@ -118,7 +119,7 @@ export const toggleSessionObserver = (sessionId, status, callback) => (dispatch,
 
 
 // set an observer that listens to changes in the session keys
-// stored under /user/<id>/sessions
+// stored under /user/<user_id>/sessions
 export const setUserSessionsObserver = () => (dispatch, getState) => {
 
   // get current user id

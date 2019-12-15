@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
+import { Icon, Pill } from 'evergreen-ui';
 
 import { HeaderButton } from '../../components/Button'
-import { Tooltip, Icon, Pill } from 'evergreen-ui';
+import Tooltip from '../../components/Tooltip';
+
 
 import ActiveSessionsSidesheet from './ActiveSessionsSidesheet';
 

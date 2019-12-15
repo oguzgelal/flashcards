@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import setPropTypes from '../../common/setPropTypes';
 import { flashcardPropTypes } from '../../common/flashcardsPropTypes';
-import flashcards, { SESSION_KIND_FLASHCARD } from '../../models/Flashcards';
+import sessionFlashcards, { SESSION_KIND_FLASHCARD } from '../../models/SessionFlashcards';
 import * as sessionTypes from '../../redux/modules/sessions/types';
 import * as sessionActions from '../../redux/modules/sessions/actions';
 import {
@@ -39,9 +39,9 @@ class FlashcardComposer extends React.Component {
 
     // session
     const kind = SESSION_KIND_FLASHCARD;
-    const origin = flashcards.generateOrigin({ set: setId, topic: topicId, id: flashcardId })
+    const origin = sessionFlashcards.generateOrigin({ set: setId, topic: topicId, id: flashcardId })
     const title = `Flashcards: ${flashcardFront} to ${flashcardBack}`;
-    const flashcardSessionStarting = get(this.props, `loading['${sessionTypes.SESSION_START}_${origin}']`);
+    const flashcardSessionStarting = get(this.props, `loading['${sessionTypes.SESSION_START}_${flashcardId}']`);
 
     return (
       <FlashcardPreview
@@ -65,9 +65,9 @@ class FlashcardComposer extends React.Component {
           disabled: flashcardSessionStarting,
           onClick: () => {
             this.props.sessionActions.sessionStart({
-              origin: { setId, topicId, flashcardId },
               kind,
               title,
+              origin,
             });
           },
         }]}
