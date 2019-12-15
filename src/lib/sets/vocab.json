@@ -66,6 +66,10 @@
     { "id": "PKWpwqMWmmESMdN8rJ97qcPSzy9ugg==", "V": "白い", "M": "White", "R": "しろい", "MM": "" },
     { "id": "qSqvTHvUeVlcmVTAC4pGWZwJ3ys6dA==", "V": "二十日", "M": "Twentieth Day", "R": "はつか", "MM": "Twenty hats for the twentieth day" },
     { "id": "k7+5EqR7YUsTWeYsDkChpqHi5tkyvA==", "V": "丸ごと", "M": "In Its Entirety, Entirely, Wholly", "R": "まるごと", "MM": "If you go to (ごと) a circle (まる), you need the ENTIRE circle." },
+    { "id": "e+ry3JzR5C0Kq9ZaheDVXM3ub6MTOQ==", "V": "先ず", "M": "First of all, To start with", "R": "まず", "MM": "First of all, you need to go through the maze (まず)" },
+    { "id": "6pHlpQ87jmhUpICzMvc+6zCCiMeGkw==", "V": "先", "M": "Previous, Ahead, Past, Former", "R": "さき", "MM": "I was previously a quite (sakin - さき) kid, but then I opened up." },
+    { "id": "t+buISwwBFFlWS3sbrYmOyGiq6wyRA==", "V": "先々月", "M": "Month before last", "R": "せんせんげつ", "MM": "" },
+    { "id": "2Jp7jyKSaucC2qjTL0cEhtM/KX2cLQ==", "V": "先月", "M": "Last month", "R": "せんげつ", "MM": "" },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }
