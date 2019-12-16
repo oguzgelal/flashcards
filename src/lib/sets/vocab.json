@@ -70,6 +70,11 @@
     { "id": "6pHlpQ87jmhUpICzMvc+6zCCiMeGkw==", "V": "先", "M": "Previous, Ahead, Past, Former", "R": "さき", "MM": "I was previously a quite (sakin - さき) kid, but then I opened up." },
     { "id": "t+buISwwBFFlWS3sbrYmOyGiq6wyRA==", "V": "先々月", "M": "Month before last", "R": "せんせんげつ", "MM": "" },
     { "id": "2Jp7jyKSaucC2qjTL0cEhtM/KX2cLQ==", "V": "先月", "M": "Last month", "R": "せんげつ", "MM": "" },
+    { "id": "faDarTV1eieCtZY5/DuyKNInbPsD+w==", "V": "先日", "M": "The other day, A few days ago", "R": "せんじつ", "MM": "The other day, fuJITSU (じつ) was popular." },
+    { "id": "/cEq7YFqfN41OBrnJDhgA7nqBqBC7Q==", "V": "先生", "M": "Teacher, Master, Doctor", "R": "せんせい", "MM": "" },
+    { "id": "7vOWCEWEBTnttQFO8+WwUuCd9yUsmQ==", "V": "出かける", "M": "To go out", "R": "でかける", "MM": "Going out, because there is a DEad (で) body here." },
+    { "id": "o/RkfBw4F44lS0PfeUAlWdw15ojQ9g==", "V": "右手", "M": "Right Hand", "R": "みぎて", "MM": "" },
+    { "id": "4NMTgWNau7ZiCFnbET/vaqrhHIbUCg==", "V": "四日", "M": "Forth Day", "R": "よっか", "MM": "" },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }
