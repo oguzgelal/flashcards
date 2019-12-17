@@ -75,6 +75,16 @@
     { "id": "7vOWCEWEBTnttQFO8+WwUuCd9yUsmQ==", "V": "出かける", "M": "To go out", "R": "でかける", "MM": "Going out, because there is a DEad (で) body here." },
     { "id": "o/RkfBw4F44lS0PfeUAlWdw15ojQ9g==", "V": "右手", "M": "Right Hand", "R": "みぎて", "MM": "" },
     { "id": "4NMTgWNau7ZiCFnbET/vaqrhHIbUCg==", "V": "四日", "M": "Forth Day", "R": "よっか", "MM": "" },
+    { "id": "VQyU3R0ITogXaCeIUUf8THpUJMNQkA==", "V": "休み", "M": "Rest, Break, Vacation, Holiday", "R": "やすみ", "MM": "You'd say 'YASS!! if asked to go on a holiday." },
+    { "id": "zx6cVCLyrzm5Q4Uc3guUAQnXoqLDJA==", "V": "休む", "M": "To Rest", "R": "やすむ", "MM": "" },
+    { "id": "JgVXy5cbNHalOlkGM9BUDTc64Pfvuw==", "V": "休止", "M": "Pause, Rest, Break", "R": "きゅうし", "MM": "" },
+    { "id": "TogiE8kxkmadehrnSEq+KVtVONLjeA==", "V": "休日", "M": "Holiday", "R": "きゅうじつ", "MM": "" },
+    { "id": "SC+KB7dd2NmrwN1dBYYq8JR20qfv6w==", "V": "名人", "M": "Master, Expert", "R": "めいじん", "MM": "" },
+    { "id": "6iQXsP/GvgDxE2escUGpG74lEcmlPA==", "V": "名字", "M": "Surname, Last Name, Family Name", "R": "みょうじ", "MM": "MY (みょう) last name is..." },
+    { "id": "rQ3QVqJAgslof+0XxENJwCR0BHi+lA==", "V": "字", "M": "Character, Letter, Symbol", "R": "じ", "MM": "" },
+    { "id": "DBzBLMds/FtvpuNnBEq/WrXJWrLGrQ==", "V": "太字", "M": "Bold Letter", "R": "ふとじ", "MM": "" },
+    { "id": "8P/1ff+ASvmFY3Vi1wW6IWerq4DLdA==", "V": "文字", "M": "Letter (of the alphabet)", "R": "もじ", "MM": "Think of eMOJI" },
+    { "id": "OUOy13pTSQmpMZ53fWyIR15D2BoSdw==", "V": "一文字", "M": "Straight Line", "R": "いちもんじ", "MM": "In もじ reading of もう is shortened. This phrase is obviously longer so you use the longer version, もん." },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }
