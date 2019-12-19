@@ -85,6 +85,11 @@
     { "id": "DBzBLMds/FtvpuNnBEq/WrXJWrLGrQ==", "V": "太字", "M": "Bold Letter", "R": "ふとじ", "MM": "" },
     { "id": "8P/1ff+ASvmFY3Vi1wW6IWerq4DLdA==", "V": "文字", "M": "Letter (of the alphabet)", "R": "もじ", "MM": "Think of eMOJI" },
     { "id": "OUOy13pTSQmpMZ53fWyIR15D2BoSdw==", "V": "一文字", "M": "Straight Line", "R": "いちもんじ", "MM": "In もじ reading of もう is shortened. This phrase is obviously longer so you use the longer version, もん." },
+    { "id": "0aAPwE0z8DbtGNJW8wgB0BI3IVLUiQ==", "V": "２０１１年", "M": "Year 2011", "R": "にせんじゅういちねん", "MM": "" },
+    { "id": "XpbbYC8F/qL14R4HTWKTN/uqt2ECEg==", "V": "年内", "M": "Within a year, Within the year", "R": "ねんない", "MM": "" },
+    { "id": "0OJ5jrBpSz+ac+SgQ3Wkf5p8vfT8iQ==", "V": "年中", "M": "Year Round, All Year, Whole Year, Throughout the year", "R": "ねんじゅう", "MM": "" },
+    { "id": "gWft58GIDvWW5iEBba2saV5cOFTUPA==", "V": "一年生", "M": "First year student", "R": "いちねんせい", "MM": "" },
+    { "id": "8seTdBV90i9Cx0T562tNXHBM6IIpaQ==", "V": "少年", "M": "Boy, Young Boy", "R": "しょうねん", "MM": "" },
     { "id": "", "V": "", "M": "", "R": "", "MM": "" }
   ]
 }
