@@ -59,7 +59,6 @@ const FlashcardPreview = props => {
   const frontItem = get(props, 'frontItem');
   const backItem = get(props, 'backItem');
   const buttons = get(props, 'buttons');
-  const sessionActive = get(props, 'sessionActive');
 
   return (
     <Wrapper>
@@ -78,8 +77,6 @@ const FlashcardPreview = props => {
           <ButtonGroup
             buttons={buttons}
             buttonStyles={{
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -95,7 +92,6 @@ const FlashcardPreview = props => {
 FlashcardPreview.propTypes = {
   frontItem: PropTypes.any,
   backItem: PropTypes.any,
-  sessionActive: PropTypes.bool,
   buttons: buttonsPropType,
 };
 

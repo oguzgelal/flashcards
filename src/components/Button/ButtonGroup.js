@@ -17,8 +17,14 @@ const Wrapper = styled(Pane)`
 const ButtonStyled = styled(Button)`
   flex-shrink: 0;
   flex-grow: 1;
-  border-radius: 0 !important;
-  &:not(:last-of-type) {
+  border-radius: 0;
+  &:last-of-type {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  &:first-of-type {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
   &:not(:first-of-type) {
     margin-left: -1px;

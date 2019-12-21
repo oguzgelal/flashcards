@@ -51,7 +51,6 @@ class FlashcardComposer extends React.Component {
     return (
       <FlashcardPreview
         key={`${setId}_${flashcardId}`}
-        sessionActive={isSessionActive}
         frontItem={(
           <FlashcardItem
             alignLeft
