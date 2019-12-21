@@ -25,10 +25,13 @@ class ScreenStudySet extends React.Component {
   }
 
   render() {
+
+    const setFlashcards = get(this.props, 'set.flashcards') || {};
+
     return (
       <Wrapper>
         <FlashcardsComposerGrid
-          set={this.props.set}
+          flashcards={setFlashcards}
         />
 
         <ComposerGroup title="Test 1">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 
-import { Icon, Heading, Pane, Card } from 'evergreen-ui';
+import { Icon, Heading, Card } from 'evergreen-ui';
 
 import Clickable from '../Clickable';
 
@@ -23,8 +23,20 @@ const Cover = styled.div`
   @media ${p => p.theme.mobile} {
     display: none;
   }
+  ${p => p.forceMobile && `
+    display: none;
+  `}
 `;
 
+
+const composerHeaderMobile = p => `
+  padding-left: 22px;
+  padding-right: 22px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  top: 0px;
+`;
 const ComposerHeader = styled(Clickable).attrs({ useCard: true })`
   position: sticky;
   top: ${gap}px;
@@ -42,18 +54,22 @@ const ComposerHeader = styled(Clickable).attrs({ useCard: true })`
   `}
 
   @media ${p => p.theme.mobile} {
-    padding-left: 22px;
-    padding-right: 22px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    top: -1px;
+    ${p => composerHeaderMobile(p)}
   }
+  ${p => p.forceMobile && `
+    ${composerHeaderMobile(p)}
+  `}
 `;
 
+const composerBodyMobile = p => `
+  padding: ${p.theme.bodyPadding}px;
+  padding-top: 0;
+  border: none;
+`;
 const ComposerBody = styled(Card)`
   padding: 22px 42px;
   padding-bottom: 32px;
+  padding-top: 12px;
   border-top: none;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -61,9 +77,11 @@ const ComposerBody = styled(Card)`
   background-color: transparent;
 
   @media ${p => p.theme.mobile} {
-    padding: ${p => p.theme.bodyPadding}px;
-    border: none;
+    ${p => composerBodyMobile(p)}
   }
+  ${p => p.forceMobile && `
+    ${composerBodyMobile(p)}
+  `}
 `;
 
 const ComposerGroup = props => {
@@ -71,12 +89,13 @@ const ComposerGroup = props => {
 
   return (
     <>
-      <Cover />
+      <Cover forceMobile={props.forceMobile} />
       <Wrapper>
         <ComposerHeader
           border
           open={open}
           onClick={() => setOpen(!open)}
+          forceMobile={props.forceMobile}
         >
           <Heading>{props.title}</Heading>
           <div style={{ flexGrow: 1 }} />
@@ -84,7 +103,7 @@ const ComposerGroup = props => {
           {!open && <Icon icon="caret-right" />}
         </ComposerHeader>
         {open && (
-          <ComposerBody>
+          <ComposerBody forceMobile={props.forceMobile}>
             {props.children}
           </ComposerBody>
         )}
@@ -97,6 +116,7 @@ ComposerGroup.propTypes = {
   icon: PropTypes.any,
   title: PropTypes.string,
   children: PropTypes.any,
+  forceMobile: PropTypes.bool,
 };
 
 export default ComposerGroup;

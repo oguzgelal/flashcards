@@ -7,12 +7,10 @@ export default PropTypes.objectOf({
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   topic: PropTypes.string.isRequired,
-  keys: PropTypes.objectOf(PropTypes.string),
-  tags: PropTypes.arrayOf(PropTypes.string),
+  flashcards: PropTypes.object,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
     })
   ),
-  flashcards: flashcardsPropTypes,
 })

@@ -5,8 +5,9 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
-import { Heading, Table } from 'evergreen-ui';
 import SideSheet from '../../components/SideSheet';
+import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
+import FlashcardsComposerGrid from '../Flashcard/FlashcardsComposerGrid';
 
 class ActiveSessionsSidesheet extends React.Component {
   constructor(props, context) {
@@ -20,26 +21,24 @@ class ActiveSessionsSidesheet extends React.Component {
 
     const sessions = Object.values(this.props.sessions || {}) || [];
     const sessionsSorted = sessions
-      .sort((a, b) => get(a, 'updatedAt') - get(b, 'updatedAt'))
+      .sort((a, b) => get(a, 'updatedAt') - get(b, 'updatedAt'));
+
+    const sessionFlashcardIds = sessionsSorted
+      .filter(s => get(s, 'origin.type') === SESSION_TYPE_FLASHCARD)
+      .reduce((acc, s) => ({ ...acc, [get(s, 'origin.id')]: true }), {});
 
     return (
       <SideSheet
         isOpen={this.props.isOpen}
         close={this.props.close}
         title="Active Sessions"
+        bodyStyle={{ padding: 0 }}
       >
-        <Table.Body>
-          {sessionsSorted.map(session => {
-            const id = get(session, 'id');
-            const title = get(session, 'title');
-            return (
-              <Table.Row key={id} isSelectable onSelect={() => alert('hello')}>
-                <Table.TextCell>{title}</Table.TextCell>
-              </Table.Row>
-            )
-          })}
-
-        </Table.Body>
+        <FlashcardsComposerGrid
+          forceMobile
+          flashcards={sessionFlashcardIds}
+          columns={[1, 1, 1]}
+        />
       </SideSheet>
     );
   }

@@ -1,7 +1,10 @@
-import japanese from './topics/japanese.json';
-import kanji from './sets/kanji.json';
-import vocab from './sets/vocab.json';
-import radicals from './sets/radicals.json';
+import japanese from './topics/japanese';
+import kanji from './sets/kanji';
+import vocab from './sets/vocab';
+import radicals from './sets/radicals';
+
+import flashcards from './common/flashcards';
+import keys from './common/keys';
 
 export default {
   topics: {
@@ -12,4 +15,8 @@ export default {
     vocab,
     radicals,
   },
+  common: {
+    flashcards,
+    keys,
+  }
 }

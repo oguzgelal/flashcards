@@ -8,13 +8,15 @@ import get from 'lodash/get';
 import { Icon } from 'evergreen-ui';
 import setPropTypes from '../../common/setPropTypes';
 import { flashcardPropTypes } from '../../common/flashcardsPropTypes';
-import sessionFlashcards, { SESSION_KIND_FLASHCARD } from '../../models/SessionFlashcards';
+import sessionFlashcards from '../../models/SessionFlashcards';
 import * as sessionTypes from '../../redux/modules/sessions/types';
 import * as sessionActions from '../../redux/modules/sessions/actions';
 import {
   FlashcardItem,
   FlashcardPreview,
 } from '../../components/Flashcard';
+
+import data from '../../lib/tmpdata';
 
 class FlashcardComposer extends React.Component {
   constructor(props, context) {
@@ -26,26 +28,18 @@ class FlashcardComposer extends React.Component {
 
   render() {
 
-    // set
-    const setId = get(this.props, 'set.id');
-    const topicId = get(this.props, 'set.topic');
-    const setKeys = get(this.props, 'set.keys') || {};
-
     // flashcard
     const flashcard = get(this.props, 'flashcard') || {};
     const flashcardId = get(flashcard, 'id');
-    const flashcardFrontKey = get(flashcard, 'front');
-    const flashcardBackKey = get(flashcard, 'back');
-    const flashcardFront = get(setKeys, flashcardFrontKey);
-    const flashcardBack = get(setKeys, flashcardBackKey);
+    const flashcardFront = get(data, `common.keys['${get(flashcard, 'front')}']`);
+    const flashcardBack = get(data, `common.keys['${get(flashcard, 'back')}']`);
+    const setId = get(flashcard, 'sid');
 
     // active session
     const isSessionActive = !isNil(this.props.activeSession);
 
     // session
-    const kind = SESSION_KIND_FLASHCARD;
-    const origin = sessionFlashcards.generateOrigin({ set: setId, topic: topicId, id: flashcardId })
-    const title = `Flashcards: ${flashcardFront} to ${flashcardBack}`;
+    const origin = sessionFlashcards.generateOrigin({ set: setId, id: flashcardId })
     const flashcardSessionStarting = get(this.props, `loading['${sessionTypes.SESSION_START}_${flashcardId}']`);
 
     return (
@@ -77,12 +71,16 @@ class FlashcardComposer extends React.Component {
                 alert('Opening session')
               } else {
                 this.props.sessionActions.sessionStart({
-                  kind,
-                  title,
-                  origin,
+                  origin
                 });
               }
             },
+          },
+          !isSessionActive ? null : {
+            appearance: 'default',
+            intent: 'danger',
+            label: <Icon icon="cross" />,
+            style: { flexGrow: 0, width: 42 }
           },
           isSessionActive ? null : {
             label: <Icon icon="cog" />,

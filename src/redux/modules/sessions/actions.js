@@ -19,7 +19,6 @@ const saveUserSessionsToState = sessions => ({
 
 
 export const sessionStart = ({
-  kind, // flashcard, reveal_table etc.
   origin, // describes what resource the session was initiated from
   title, // set a title to the session
   description, // descriptive text for the session
@@ -60,18 +59,16 @@ export const sessionStart = ({
   startLoading();
 
   userSessionRef.set({
-    id: sessionId,
-    kind,
     origin,
-    title,
+    id: sessionId,
+    title: title || '',
     description: description || '',
     updatedAt: api.TIMESTAMP,
   }).then(() => {
     sessionRef.set({
-      id: sessionId,
-      kind,
       origin,
-      title,
+      id: sessionId,
+      title: title || '',
       description: description || '',
       user: userId,
       startedAt: api.TIMESTAMP,

@@ -94,7 +94,7 @@ const SideSheetComponent = props => {
           </CloseButtonAbsoluteContainer>
         )}
 
-        <Body background="tint2">
+        <Body background="tint2" {...(props.bodyProps || {})} style={props.bodyStyle}>
           {props.children}
         </Body>
       </SideSheet>
@@ -108,6 +108,8 @@ SideSheetComponent.propTypes = {
   title: PropTypes.any,
   desc: PropTypes.any,
   children: PropTypes.any,
+  bodyProps: PropTypes.object,
+  bodyStyle: PropTypes.object,
 };
 
 export default SideSheetComponent;

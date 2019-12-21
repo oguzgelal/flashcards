@@ -52,6 +52,7 @@ const BackWrapper = styled(Card)`
 const FooterWrapper = styled(Card)`
   margin-top: -12px;
   z-index: 9;
+  background-color: white;
 `;
 
 const FlashcardPreview = props => {

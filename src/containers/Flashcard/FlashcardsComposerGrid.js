@@ -5,11 +5,14 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
-import setPropTypes from '../../common/setPropTypes';
+import flashcardsPropTypes from '../../common/flashcardsPropTypes';
+
 import Grid from '../../components/Grid';
 import ComposerGroup from '../../components/Composer/ComposerGroup';
 import FlashcardComposer from './FlashcardComposer';
-import { SESSION_KIND_FLASHCARD } from '../../models/SessionFlashcards';
+import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
+
+import data from '../../lib/tmpdata';
 
 class FlashcardsComposerGrid extends React.Component {
   constructor(props, context) {
@@ -20,28 +23,39 @@ class FlashcardsComposerGrid extends React.Component {
   }
 
   render() {
-    const setFlashcards = get(this.props, 'set.flashcards') || {};
+    const setFlashcardIds = get(this.props, 'flashcards') || {};
+
+    // grab sets
+    const sets = get(data, 'sets');
+
+    // get active flashcard sessions
     const sessions = get(this.props, 'sessions') || {};
     const flashcardSessionIds = Object.values(sessions)
-      .filter(s => get(s, 'origin.type') === SESSION_KIND_FLASHCARD)
+      .filter(s => get(s, 'origin.type') === SESSION_TYPE_FLASHCARD)
       .reduce((acc, s) => ({ ...acc, [get(s, 'origin.id')]: get(s, 'id') }), {});
 
     return (
-      <ComposerGroup title="Flashcards">
+      <ComposerGroup
+        title="Flashcards"
+        forceMobile={this.props.forceMobile}
+      >
         <Grid
           gap={32}
           autoHeight
-          columns={[2, 2, 1]}
+          columns={this.props.columns || [2, 2, 1]}
           style={{ marginTop: 32 }}
         >
-          {Object.values(setFlashcards).map(flashcard => (
-            <FlashcardComposer
-              key={flashcard.id}
-              set={this.props.set}
-              flashcard={flashcard}
-              activeSession={flashcardSessionIds[flashcard.id]}
-            />
-          ))}
+          {Object.keys(setFlashcardIds).map(flashcardId => {
+            const flashcard = get(data, `common.flashcards['${flashcardId}']`);
+            return (
+              <FlashcardComposer
+                key={flashcard.id}
+                set={get(sets, flashcard.sid)}
+                flashcard={flashcard}
+                activeSession={flashcardSessionIds[flashcard.id]}
+              />
+            )
+          })}
         </Grid>
       </ComposerGroup>
     );
@@ -49,7 +63,10 @@ class FlashcardsComposerGrid extends React.Component {
 }
 
 FlashcardsComposerGrid.propTypes = {
-  set: setPropTypes,
+  // ie. { [flashcoard_id]: flashcoard, ... }
+  flashcards: flashcardsPropTypes,
+  columns: PropTypes.array,
+  forceMobile: PropTypes.bool,
 };
 
 const mapStateToProps = (state, ownProps) => ({
