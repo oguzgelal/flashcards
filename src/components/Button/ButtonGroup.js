@@ -10,18 +10,17 @@ const Wrapper = styled(Pane)`
   display: flex;
   width: 100%;
   align-items: center;
+  border-radius: 3px;
+  overflow: hidden;
 `;
 
 const ButtonStyled = styled(Button)`
   flex-shrink: 0;
   flex-grow: 1;
+  border-radius: 0 !important;
   &:not(:last-of-type) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
   }
   &:not(:first-of-type) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
     margin-left: -1px;
   }
 `;

@@ -15,9 +15,9 @@ const Wrapper = styled(Card)`
   width: 100%;
   height: 100%;
   padding: 22px;
-  background-color: ${p => p.theme.colors.background.tint1};
   display: flex;
   flex-flow: column;
+  background-color: white;
 `;
 
 const HeadingWrapper = styled(Pane)`

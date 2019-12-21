@@ -9,6 +9,7 @@ import setPropTypes from '../../common/setPropTypes';
 import Grid from '../../components/Grid';
 import ComposerGroup from '../../components/Composer/ComposerGroup';
 import FlashcardComposer from './FlashcardComposer';
+import { SESSION_KIND_FLASHCARD } from '../../models/SessionFlashcards';
 
 class FlashcardsComposerGrid extends React.Component {
   constructor(props, context) {
@@ -20,6 +21,10 @@ class FlashcardsComposerGrid extends React.Component {
 
   render() {
     const setFlashcards = get(this.props, 'set.flashcards') || {};
+    const sessions = get(this.props, 'sessions') || {};
+    const flashcardSessionIds = Object.values(sessions)
+      .filter(s => get(s, 'origin.type') === SESSION_KIND_FLASHCARD)
+      .reduce((acc, s) => ({ ...acc, [get(s, 'origin.id')]: get(s, 'id') }), {});
 
     return (
       <ComposerGroup title="Flashcards">
@@ -34,6 +39,7 @@ class FlashcardsComposerGrid extends React.Component {
               key={flashcard.id}
               set={this.props.set}
               flashcard={flashcard}
+              activeSession={flashcardSessionIds[flashcard.id]}
             />
           ))}
         </Grid>
@@ -47,7 +53,7 @@ FlashcardsComposerGrid.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  // loading: state.loading,
+  sessions: state.sessions,
 });
 
 const mapDispatchToProps = dispatch => ({

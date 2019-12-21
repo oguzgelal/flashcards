@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
+import isNil from 'lodash/isNil';
 import get from 'lodash/get';
+import { Icon } from 'evergreen-ui';
 import setPropTypes from '../../common/setPropTypes';
 import { flashcardPropTypes } from '../../common/flashcardsPropTypes';
 import sessionFlashcards, { SESSION_KIND_FLASHCARD } from '../../models/SessionFlashcards';
@@ -37,6 +39,9 @@ class FlashcardComposer extends React.Component {
     const flashcardFront = get(setKeys, flashcardFrontKey);
     const flashcardBack = get(setKeys, flashcardBackKey);
 
+    // active session
+    const isSessionActive = !isNil(this.props.activeSession);
+
     // session
     const kind = SESSION_KIND_FLASHCARD;
     const origin = sessionFlashcards.generateOrigin({ set: setId, topic: topicId, id: flashcardId })
@@ -46,6 +51,7 @@ class FlashcardComposer extends React.Component {
     return (
       <FlashcardPreview
         key={`${setId}_${flashcardId}`}
+        sessionActive={isSessionActive}
         frontItem={(
           <FlashcardItem
             alignLeft
@@ -60,17 +66,30 @@ class FlashcardComposer extends React.Component {
             value={flashcardBack}
           />
         )}
-        buttons={[{
-          label: flashcardSessionStarting ? 'Starting...' : 'Start',
-          disabled: flashcardSessionStarting,
-          onClick: () => {
-            this.props.sessionActions.sessionStart({
-              kind,
-              title,
-              origin,
-            });
+        buttons={[
+          {
+            label: (isSessionActive ?
+              'Continue' :
+              (flashcardSessionStarting ? 'Starting...' : 'Start')
+            ),
+            disabled: flashcardSessionStarting,
+            onClick: () => {
+              if (isSessionActive) {
+                alert('Opening session')
+              } else {
+                this.props.sessionActions.sessionStart({
+                  kind,
+                  title,
+                  origin,
+                });
+              }
+            },
           },
-        }]}
+          isSessionActive ? null : {
+            label: <Icon icon="cog" />,
+            style: { flexGrow: 0, width: 42 }
+          }
+        ].filter(i => !!i)}
       />
     )
   }
@@ -81,6 +100,7 @@ FlashcardComposer.propTypes = {
   flashcard: flashcardPropTypes,
   loading: PropTypes.object,
   sessionActions: PropTypes.object,
+  activeSession: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => ({

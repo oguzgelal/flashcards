@@ -48,7 +48,6 @@ const ComposerHeader = styled(Clickable).attrs({ useCard: true })`
     border-left: none;
     border-right: none;
     top: -1px;
-    ${p => p.theme.bodyPaddingCover}
   }
 `;
 
@@ -59,11 +58,10 @@ const ComposerBody = styled(Card)`
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   margin-top: -4px;
+  background-color: transparent;
 
   @media ${p => p.theme.mobile} {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
+    padding: ${p => p.theme.bodyPadding}px;
     border: none;
   }
 `;
@@ -86,9 +84,7 @@ const ComposerGroup = props => {
           {!open && <Icon icon="caret-right" />}
         </ComposerHeader>
         {open && (
-          <ComposerBody
-            border
-          >
+          <ComposerBody>
             {props.children}
           </ComposerBody>
         )}

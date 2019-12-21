@@ -10,6 +10,12 @@ import FlashcardsComposerGrid from '../../containers/Flashcard/FlashcardsCompose
 
 import ComposerGroup from '../../components/Composer/ComposerGroup';
 
+
+const Wrapper = styled.div`
+  ${p => p.theme.bodyPaddingCover}
+  background-color: inherit;
+`;
+
 class ScreenStudySet extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -20,23 +26,23 @@ class ScreenStudySet extends React.Component {
 
   render() {
     return (
-      <>
-      <FlashcardsComposerGrid
-        set={this.props.set}
-      />
+      <Wrapper>
+        <FlashcardsComposerGrid
+          set={this.props.set}
+        />
 
-      <ComposerGroup title="Test 1">
-        <div style={{ height: 520 }} />
-      </ComposerGroup>
+        <ComposerGroup title="Test 1">
+          <div style={{ height: 520 }} />
+        </ComposerGroup>
 
-      <ComposerGroup title="Test 2">
-        <div style={{ height: 820 }} />
-      </ComposerGroup>
+        <ComposerGroup title="Test 2">
+          <div style={{ height: 820 }} />
+        </ComposerGroup>
 
-      <ComposerGroup title="Test 3">
-        <div style={{ height: 320 }} />
-      </ComposerGroup>
-      </>
+        <ComposerGroup title="Test 3">
+          <div style={{ height: 320 }} />
+        </ComposerGroup>
+      </Wrapper>
     );
   }
 }

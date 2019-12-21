@@ -27,9 +27,8 @@ const FrontWrapper = styled(Card)`
   padding-bottom: 22px;
   transform: rotate(-3deg);
   z-index: 3;
-
-  background-color: ${p => p.theme.flashcardBackground};
-  * { color: ${p => p.theme.flashcardTextColor}; }
+  background-color: ${p => p.theme.flashcardBgFront};
+  * { color: ${p => p.theme.flashcardColorFront}; }
 
   ${p => p.hasButtons && `
     border-bottom-left-radius: 0;
@@ -42,9 +41,8 @@ const BackWrapper = styled(Card)`
   min-height: 140px;
   padding-bottom: 22px;
   transform: rotate(5deg);
-
-  background-color: white;
-  * { color: ${p => p.theme.flashcardBackground}; }
+  background-color: ${p => p.theme.flashcardBgBack};
+  * { color: ${p => p.theme.flashcardColorBack}; }
 
   ${p => p.hasButtons && `
     border-bottom-right-radius: 0;
@@ -52,8 +50,6 @@ const BackWrapper = styled(Card)`
 `;
 
 const FooterWrapper = styled(Card)`
-  background-color: white;
-  * { color: ${p => p.theme.flashcardBackground}; }
   margin-top: -12px;
   z-index: 9;
 `;
@@ -63,12 +59,13 @@ const FlashcardPreview = props => {
   const frontItem = get(props, 'frontItem');
   const backItem = get(props, 'backItem');
   const buttons = get(props, 'buttons');
+  const sessionActive = get(props, 'sessionActive');
 
   return (
     <Wrapper>
 
       <CardWrapper hasButtons={!isNil(buttons)}>
-        <FrontWrapper hasButtons={!isNil(buttons)}>
+        <FrontWrapper border hasButtons={!isNil(buttons)}>
           {frontItem}
         </FrontWrapper>
         <BackWrapper border hasButtons={!isNil(buttons)}>
@@ -77,12 +74,9 @@ const FlashcardPreview = props => {
       </CardWrapper>
 
       {!isNil(buttons) && (
-        <FooterWrapper border>
+        <FooterWrapper>
           <ButtonGroup
             buttons={buttons}
-            buttonProps={{
-              appearance: 'minimal'
-            }}
             buttonStyles={{
               borderTopLeftRadius: 0,
               borderTopRightRadius: 0,
@@ -101,6 +95,7 @@ const FlashcardPreview = props => {
 FlashcardPreview.propTypes = {
   frontItem: PropTypes.any,
   backItem: PropTypes.any,
+  sessionActive: PropTypes.bool,
   buttons: buttonsPropType,
 };
 
