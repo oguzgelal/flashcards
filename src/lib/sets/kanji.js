@@ -39,7 +39,7 @@ export default {
     { id: "jjQ6LNzcbBZKdebw4MC8pfsaIodrNw==", K: "竹", M: "Bamboo", OY: "-", KY: "! たけ", MM: "There's a leaf hanging down the bamboo tree, you reach for it and TAKE (たけ) it." },
     { id: "uIh5IDIm5qqhIjtrpL371/q/fnRugw==", K: "糸", M: "Thread", OY: "し", KY: "! いと", MM: "What's a thread without a process id? An incognITO (いと) thread." },
     { id: "gqQ1osjkebSqKUg4AwRlJXP0b4HR0Q==", K: "耳", M: "Ear", OY: "じ", KY: "! みみ", MM: "" },
-    { id: "v1Ts2AFCvUjHsoxhPkePHyeTgdrq1g==", K: "主", M: "Master, Main", OY: "! しゅ", KY: "おも, ぬし", MM: "Master will shoot you (しゅ)" },
+    { id: "v1Ts2AFCvUjHsoxhPkePHyeTgdrq1g==", K: "主", M: "Master, Main", OY: "! しゅ", KY: "おも, ぬし", MM: "Master will shoot you (しゅ). It ends with an ゆ instead of an よ because this kanji looks like king (王) kanji which ends with an う - (おう)." },
     { id: "l7mnt9+4bIw1DvK71RG/MjxbebKTqw==", K: "平", M: "Flat, Peace", OY: "! へい, ひょう, びょう", KY: "たいら, ひら", MM: "Room - へや, When you enter a FLAT, you say hei (へい) to the people there and make the PEACE sign." },
     { id: "6Nc7KubXAxrrqMAa33FOlJyxWCEX2A==", K: "礼", M: "Thanks", OY: "! れい", KY: "-", MM: "When given an umbrella in the sun to protect from sun RAYS (れい), a good spirited person might say THANKS." },
     { id: "TXl9o+iBHnshMhQNW7ARW25sUK3J3w==", K: "虫", M: "Insect", OY: "ちゅう, き", KY: "! むし", MM: "むしのおんな" },
@@ -49,13 +49,13 @@ export default {
     { id: "EIPognPVi8Z3EyYT3x1Ixl3efEB84g==", K: "見", M: "See", OY: "けん", KY: "! み", MM: "Ear is みみ" },
     { id: "vFkxyAdnLmUz25/DPFJN969LJYa6Tg==", K: "貝", M: "Shellfish", OY: "-", KY: "! かい", MM: "It's hard to hold a shellfish because they are slippery (kaygan - かい)" },
     { id: "Ai7x1EVP6zecZSGVClbIrG5oH2z5uA==", K: "赤", M: "Red", OY: "せき", KY: "! あか", MM: "" },
-    { id: "IYvkfuN57oEuCeudW/KRlC+buu81hA==", K: "足", M: "Foot, Leg, Sufficient", OY: "! そく", KY: "あし, た", MM: "What do you wear on your foot? Sock (そく)" },
+    { id: "IYvkfuN57oEuCeudW/KRlC+buu81hA==", K: "足", M: "Foot, Leg, Sufficient", OY: "! そく", KY: "あし, た", MM: "What do you wear on your foot? Sock (そく). One foot of anything is usually SUFFICIENT (TAmam - た)" },
     { id: "W3qPXSZ/qEzbhH1mAvXlOlj2HBAPsg==", K: "車", M: "Car", OY: "しゃ", KY: "くるま", MM: "What do cars have? Şanzıman (しゃ)" },
     { id: "dpQdyGz4vzFjcVox+8lPeGICGN2kog==", K: "不", M: "Not", OY: "! ふ", KY: "-", MM: "If a person is NOT smart, they are a fool (ふ)" },
     { id: "IozUfklqNBxWSmhxouIQPB5utk1ZfQ==", K: "仕", M: "Doing, Do", OY: "", KY: "", MM: "Leader DOING samurai, because the samurai happens to be a she (し)." },
     { id: "7X0yJ1IFtm261f/cA+3dFfD+1c0IRA==", K: "宝", M: "Treasure", OY: "! ほう", KY: "たから", MM: "Ball under a roof is a treasure, because usually kids are not allowed to play with the ball at HOME (ほう)." },
     { id: "GP/kXtR/d3xvxiWkVZzDvSh+g7S60g==", K: "石", M: "Stone", OY: "! せき", KY: "いし", MM: "Taş (STONE - argoda: sexy - せき)" },
     { id: "Nuew7ZZt89joXHaSFQRbTSWhJ+uaKA==", K: "写", M: "Copy", OY: "! しゃ", KY: "うつ", MM: "Looks like numbers. What do you do with numbers? you COPY them to your phone. But if you COPY the answers in an exam - SHAME (しゃ) on you." },
-    { id: "", K: "", M: "", OY: "", KY: "", MM: "" }
+    { id: "", K: "", M: "", OY: "", KY: "", MM: "" },
   ]
 }

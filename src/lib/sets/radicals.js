@@ -121,6 +121,18 @@ export default {
     { id: "0GUd6gSABjYNixtKvoMOnpgt1jKbRg==", R: "乞", M: "Beggar", MM: "Looks like a man extending his arm to ask for spare change." },
     { id: "+7BjVPMNTLcqb2KWS3m8mEJSKRZmFw==", R: "丷", M: "Horns" },
     { id: "DDRhW7/TKAmTxZTuAzCV+vbkaM5jQw==", R: "业", M: "Spikes" },
-    { id: "", R: "", M: "" }
+    { id: "lvpV1J0hXMSyIaZtUZzUskrF1wlGCQ==", R: "氵", M: "Tsunami", MM: "When there are too many drops, there you have a tsunami" },
+    { id: "zPIkp5uM9PGlskQTYfOK8Xn/upCXrA==", R: "耂", M: "Coffin" },
+    { id: "1CP9Pyd7NbWtw4/10UPs1fwL+nCo0w==", R: "ヨ", M: "Wolverine" },
+    { id: "mB1uxJAUCxSBTCMUnaNYq5LXQ/7stA==", R: "廾", M: "Twenty", MM: "You have 十 plus 十, twenty" },
+    { id: "0RJ6ye/EcGoh0piT06XD8WYqUMuAxQ==", R: "毋", M: "Window" },
+    { id: "UyObmsF0W/uBoWwwoSaP8UCLgKLsXg==", R: "肉", M: "Meat" },
+    { id: "rw/ukW/rvuTh4w9ZAfz8naWrhY010A==", R: "自", M: "Self" },
+    { id: "bKpll1e5+gLB9Jeh4F14YqiyuKPR8A==", R: "色", M: "Color", MM: "The middle part looks like 3D glasses, which has two two COLOR lenses." },
+    { id: "ZFwXD5julqTNLryP8OhN+cgn1G+MRw==", R: "行", M: "Go", MM: "You have the radicals for loiter, two, and barb. Someone who uses two barbs on you while you're loitering really wants you to GO!! GO on, stop loitering outside of my convenience store, ya dang kids!" },
+    { id: "uKcyThQ8cfrCbk1WsFrdnTBi2GaIkg==", R: "西", M: "West", MM: "A pi coming out of a mouth, the mouths of scientists from the WESTern world." },
+    { id: "sSNdBB0r1HvzCwJMjjLX6MLadDDlZQ==", R: "可", M: "Lip Ring", MM: "Looks like mouth prison" },
+    { id: "ml0mAnB77kRH7Y4qpgDQRoAI+Ni+TQ==", R: "斤", M: "Axe", MM: "Looks like an axe with a weird T attached to it" },
+    { id: "", R: "", M: "" },
   ]
 }
