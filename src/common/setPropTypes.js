@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import flashcardsPropTypes from './flashcardsPropTypes';
 
 
 export default PropTypes.objectOf({
@@ -7,7 +6,7 @@ export default PropTypes.objectOf({
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   topic: PropTypes.string.isRequired,
-  flashcards: PropTypes.object,
+  flashcards: PropTypes.object, // { <id>: true, ... }
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

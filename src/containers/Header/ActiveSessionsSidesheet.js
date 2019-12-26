@@ -7,7 +7,7 @@ import get from 'lodash/get';
 
 import SideSheet from '../../components/SideSheet';
 import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
-import FlashcardsComposerGrid from '../Flashcard/FlashcardsComposerGrid';
+import FlashcardsComposerGrid from '../Composers/Flashcards/FlashcardsComposerGrid';
 
 class ActiveSessionsSidesheet extends React.Component {
   constructor(props, context) {

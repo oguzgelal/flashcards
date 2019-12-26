@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-const Wrapper = styled.div``;
+import Session from '../../../containers/Sessions/Session';
+import SessionLayout from '../../../containers/Sessions/SessionLayout';
 
 class FlashcardSession extends React.Component {
   constructor(props, context) {
@@ -16,14 +17,19 @@ class FlashcardSession extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        Hello world
-      </Wrapper>
+      <Session id={this.props.id}>
+        {({ loading, data, update }) => (
+          <SessionLayout loading={loading}>
+            Yo!
+          </SessionLayout>
+        )}
+      </Session>
     );
   }
 }
 
 FlashcardSession.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

@@ -6,9 +6,7 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
 import setPropTypes from '../../common/setPropTypes';
-import FlashcardsComposerGrid from '../../containers/Flashcard/FlashcardsComposerGrid';
-
-import ComposerGroup from '../../components/Composer/ComposerGroup';
+import FlashcardsComposerGrid from '../../containers/Composers/Flashcards/FlashcardsComposerGrid';
 
 
 const Wrapper = styled.div`
@@ -33,18 +31,6 @@ class ScreenStudySet extends React.Component {
         <FlashcardsComposerGrid
           flashcards={setFlashcards}
         />
-
-        <ComposerGroup title="Test 1">
-          <div style={{ height: 520 }} />
-        </ComposerGroup>
-
-        <ComposerGroup title="Test 2">
-          <div style={{ height: 820 }} />
-        </ComposerGroup>
-
-        <ComposerGroup title="Test 3">
-          <div style={{ height: 320 }} />
-        </ComposerGroup>
       </Wrapper>
     );
   }

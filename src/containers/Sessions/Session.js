@@ -26,13 +26,13 @@ class Session extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  componentDidMount() { this.observerStart(); }
-  componentWillUnmount() { this.observerStop(); }
+  // componentDidMount() { this.observerStart(); }
+  // componentWillUnmount() { this.observerStop(); }
 
   // start watching changes in session
   observerStart() {
     const { toggleSessionObserver } = this.props.sessionActions;
-    toggleSessionObserver(this.props.sessionId, true, dataSnapshot => {
+    toggleSessionObserver(this.props.id, true, dataSnapshot => {
       const sessionData = dataSnapshot.val();
       this.setState({
         // Every session data change captured through the observer, update `lastUpdateServer`,
@@ -49,13 +49,13 @@ class Session extends React.Component {
   // start watching changes in session
   observerStop() {
     const { toggleSessionObserver } = this.props.sessionActions;
-    toggleSessionObserver(this.props.sessionId, false);
+    toggleSessionObserver(this.props.id, false);
   }
 
   // load session and replace local state
   sync() {
     const { getSessionData } = this.props.sessionActions;
-    getSessionData(this.props.sessionId, dataSnapshot => {
+    getSessionData(this.props.id, dataSnapshot => {
       const sessionData = dataSnapshot.val();
       this.setState({
         data: sessionData,
@@ -72,14 +72,17 @@ class Session extends React.Component {
   render() {
     return (
       this.props.children({
-
+        // loading session data
+        loading: false,
+        // session data
+        data: this.state.data,
       })
     )
   }
 }
 
 Session.propTypes = {
-  sessionId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   children: PropTypes.func.isRequired,
 };
 

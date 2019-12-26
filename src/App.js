@@ -6,23 +6,26 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { Spinner } from 'evergreen-ui';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 
+import 'animate.css/animate.min.css';
+
+import history from './config/history';
 import api from './redux/api';
 import * as authActions from './redux/modules/auth/actions';
 import * as miscActions from './redux/modules/misc/actions';
 import { INIT } from './redux/modules/auth/types';
 
-import Header from './containers/Header';
+import Header from './containers/Header/Header';
 import Page from './components/Page';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Study from './pages/Study/Study';
-import Session from './pages/Sessions/Session';
+import Sessions from './pages/Sessions/Sessions';
 
 import {
   STUDY,
-  SESSION_FLASHCARDS,
+  SESSION,
 } from './config/routes';
 
 class App extends React.Component {
@@ -34,12 +37,12 @@ class App extends React.Component {
 
   componentDidMount() {
     api.init();
+    history.listen(() => this.forceUpdate());
     this.props.authActions.setAuthObserver();
     this.props.miscActions.setAccessibilityListener();
   }
 
   render() {
-
     const isInitializing = this.props.loading[INIT];
     const isUserLoggedIn = !isNil(get(this.props, 'auth.user'))
 
@@ -58,17 +61,14 @@ class App extends React.Component {
     }
 
     return (
-      <>
+      <Router history={history}>
         <Header />
-        <Router>
-          <Route exact path="/" component={Home} />
-          <Route exact path={`/${STUDY}`} component={Study} />
-          <Route exact path={`/${STUDY}/:topicId`} component={Study} />
-          <Route exact path={`/${STUDY}/:topicId/:setId`} component={Study} />
-          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}`} component={Study} />
-          <Route exact path={`/${STUDY}/:topicId/:setId/${SESSION_FLASHCARDS}/:sessionId`} component={Session} />
-        </Router>
-      </>
+        <Route exact path="/" component={Home} />
+        <Route exact path={`/${STUDY}`} component={Study} />
+        <Route exact path={`/${STUDY}/:topicId`} component={Study} />
+        <Route exact path={`/${STUDY}/:topicId/:setId`} component={Study} />
+        <Route exact path={`/${SESSION}/:sessionType/:sessionId`} component={Sessions} />
+      </Router>
     )
   }
 }

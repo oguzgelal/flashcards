@@ -6,8 +6,8 @@ import styled from 'styled-components/macro';
 import { Pane, Heading, Icon } from 'evergreen-ui';
 
 import { ResponsivePage } from '../../components/Page';
-import UserAvatar from '../UserAvatar';
-import ActiveSessions from '../ActiveSessions';
+import UserAvatar from './UserAvatar';
+import ActiveSessionsButton from './ActiveSessionsButton';
 
 const Wrapper = styled(Pane)`
   height: ${p => p.theme.headerHeight}px;
@@ -58,7 +58,7 @@ class Header extends React.Component {
           <Heading size={600}>Flashcards</Heading>
           <Separator />
           <Grow />
-          <ActiveSessions style={{ marginLeft: 12 }} />
+          <ActiveSessionsButton style={{ marginLeft: 12 }} />
           <UserAvatar style={{ marginLeft: 12 }} />
         </ResponsivePage>
       </Wrapper>

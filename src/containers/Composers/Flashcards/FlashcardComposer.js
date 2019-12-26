@@ -6,17 +6,18 @@ import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 import get from 'lodash/get';
 import { Icon } from 'evergreen-ui';
-import setPropTypes from '../../common/setPropTypes';
-import { flashcardPropTypes } from '../../common/flashcardsPropTypes';
-import sessionFlashcards from '../../models/SessionFlashcards';
-import * as sessionTypes from '../../redux/modules/sessions/types';
-import * as sessionActions from '../../redux/modules/sessions/actions';
-import {
-  FlashcardItem,
-  FlashcardPreview,
-} from '../../components/Flashcard';
+import { Link } from 'react-router-dom';
+import setPropTypes from '../../../common/setPropTypes';
+import { flashcardPropTypes } from '../../../common/flashcardsPropTypes';
+import sessionFlashcards from '../../../models/SessionFlashcards';
+import * as sessionTypes from '../../../redux/modules/sessions/types';
+import * as sessionActions from '../../../redux/modules/sessions/actions';
+import navigate from '../../../utils/navigate';
 
-import data from '../../lib/tmpdata';
+import { FlashcardItem, FlashcardPreview } from '../../../components/Flashcard';
+import { SESSION } from '../../../config/routes';
+
+import data from '../../../lib/tmpdata';
 
 class FlashcardComposer extends React.Component {
   constructor(props, context) {
@@ -68,7 +69,7 @@ class FlashcardComposer extends React.Component {
             disabled: flashcardSessionStarting,
             onClick: () => {
               if (isSessionActive) {
-                alert('Opening session')
+                navigate(`/${SESSION}/${get(origin, 'type')}/${this.props.activeSession}`)
               } else {
                 this.props.sessionActions.sessionStart({
                   origin

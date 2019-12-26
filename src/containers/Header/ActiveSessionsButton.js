@@ -18,7 +18,7 @@ const SessionCount = styled(Pill)`
   top: -6px;
 `;
 
-class ActiveSessions extends React.Component {
+class ActiveSessionsButton extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -34,6 +34,8 @@ class ActiveSessions extends React.Component {
 
     return (
       <>
+
+        {/* active sessions button */}
         <Tooltip content={`${sessionCount} active session${sessionCount > 1 ? 's' : ''}`}>
           <HeaderButton
             style={this.props.style}
@@ -45,6 +47,8 @@ class ActiveSessions extends React.Component {
             )}
           </HeaderButton>
         </Tooltip>
+
+        {/* active session sidesheet */}
         <ActiveSessionsSidesheet
           isOpen={this.state.sessionsOpen}
           close={() => this.setState({ sessionsOpen: false })}
@@ -54,7 +58,7 @@ class ActiveSessions extends React.Component {
   }
 }
 
-ActiveSessions.propTypes = {
+ActiveSessionsButton.propTypes = {
   style: PropTypes.object,
 };
 
@@ -69,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ActiveSessions);
+)(ActiveSessionsButton);

@@ -11,12 +11,14 @@ const Wrapper = styled(Pane)`
   width: 100%;
   height: 100%;
   z-index: 999;
+  background-color: white;
+  animation-duration: 0.6s;
 `;
 
-const ScreenTakeover = ({ children, ...props } = {}) => (
+const ScreenTakeover = ({ children, className, ...props } = {}) => (
   <Portal>
     <Wrapper {...props}>
-      {props.children}
+      {children}
     </Wrapper>
   </Portal>
 );

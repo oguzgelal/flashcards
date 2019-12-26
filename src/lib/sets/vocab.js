@@ -152,6 +152,8 @@ export default {
     { id: "QkAmo0dqeuZFZNTR0dEelPvuhcz1Vw==", V: "四十", M: "Fourty", RR: "よんじゅう", MM: "" },
     { id: "WQGDA+T7u6VN186sb43RXE00BCBWqw==", V: "左手", M: "Left hand", RR: "ひだりて", MM: "" },
     { id: "Qbp5X06OMKt6tj3c75NaniIiKYWEqw==", V: "石", M: "Stone", RR: "いし", MM: "Think of sexy (せき) girl, now think of the word 'delicious' (おいし), then remove the お and there you have it." },
-    { id: "", V: "", M: "", RR: "", MM: "" }
+    { id: "jW/7YU37WXIdLLH/YDEKk9VOepgKnQ==", V: "主に", M: "Mainly, Primarily", RR: "おもに", MM: "Mom: 'PRIMARILY, you have to eat your dinner before eating chocolate'. Kid: 'OMO NIyeeee? (but whyyy) - おもに'" },
+    { id: "0MvasNoQNZmIbgJaFoY3cDy5eD1ttw==", V: "主人", M: "Head Of Household, Husband, Landlord, Master", RR: "しゅじん", MM: "" },
+    // { id: "", V: "", M: "", RR: "", MM: "" },
   ]
 }

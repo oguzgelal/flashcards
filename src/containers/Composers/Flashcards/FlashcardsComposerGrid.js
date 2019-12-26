@@ -5,14 +5,14 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
-import flashcardsPropTypes from '../../common/flashcardsPropTypes';
+import flashcardsPropTypes from '../../../common/flashcardsPropTypes';
 
-import Grid from '../../components/Grid';
-import ComposerGroup from '../../components/Composer/ComposerGroup';
+import Grid from '../../../components/Grid';
+import ComposerGroup from '../../../components/Composer/ComposerGroup';
 import FlashcardComposer from './FlashcardComposer';
-import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
+import { SESSION_TYPE_FLASHCARD } from '../../../models/SessionFlashcards';
 
-import data from '../../lib/tmpdata';
+import data from '../../../lib/tmpdata';
 
 class FlashcardsComposerGrid extends React.Component {
   constructor(props, context) {
