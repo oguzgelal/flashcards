@@ -69,7 +69,7 @@ class FlashcardComposer extends React.Component {
             disabled: flashcardSessionStarting,
             onClick: () => {
               if (isSessionActive) {
-                navigate(`/${SESSION}/${get(origin, 'type')}/${this.props.activeSession}`)
+                navigate(`/${SESSION}/${this.props.activeSession}`)
               } else {
                 this.props.sessionActions.sessionStart({
                   origin

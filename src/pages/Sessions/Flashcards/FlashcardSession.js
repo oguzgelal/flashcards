@@ -4,32 +4,45 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import Session from '../../../containers/Sessions/Session';
-import SessionLayout from '../../../containers/Sessions/SessionLayout';
+import { Text } from 'evergreen-ui';
+
+import SideSheet from '../../../components/SideSheet';
+import FlashcardSettings from './FlashcardSettings';
+import { sessionProps } from '../../../containers/Sessions/Session';
+
+const Wrapper = styled.div``;
 
 class FlashcardSession extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+      showSettings: false,
     };
   }
 
   render() {
     return (
-      <Session id={this.props.id}>
-        {({ loading, data, update }) => (
-          <SessionLayout loading={loading}>
-            Yo!
-          </SessionLayout>
-        )}
-      </Session>
+      <>
+        {/* session settings sidesheet */}
+        <SideSheet
+          isOpen={this.props.showSettings}
+          close={() => this.setState({ showSettings: false })}
+        >
+          <FlashcardSettings />
+        </SideSheet>
+
+        {/* session contents */}
+        <Wrapper>
+          <Text>Flashcards!!!</Text>
+        </Wrapper>
+      </>
     );
   }
 }
 
 FlashcardSession.propTypes = {
-  id: PropTypes.string.isRequired,
+  ...sessionProps
 };
 
 const mapStateToProps = (state, ownProps) => ({

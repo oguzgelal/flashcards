@@ -9,6 +9,8 @@ import history from '../../config/history';
 
 import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
 import FlashcardSession from './Flashcards/FlashcardSession';
+import Session from '../../containers/Sessions/Session';
+import SessionLayout from '../../containers/Sessions/SessionLayout';
 
 class Sessions extends React.Component {
   constructor(props, context) {
@@ -20,11 +22,10 @@ class Sessions extends React.Component {
 
   componentDidMount() {
     const sessionId = get(this.props, 'match.params.sessionId');
-    const sessionType = get(this.props, 'match.params.sessionType');
 
     // if session not defined, try going back,
     // go home if there is no back
-    if (!sessionId || !sessionType) {
+    if (!sessionId) {
       history.goBackOrRun(() => {
         navigate('/', { replace: true });
       });
@@ -32,11 +33,21 @@ class Sessions extends React.Component {
   }
 
   render() {
-    const sessionType = get(this.props, 'match.params.sessionType');
+    const sessionId = get(this.props, 'match.params.sessionId');
 
-    if (sessionType === SESSION_TYPE_FLASHCARD) return <FlashcardSession />
-
-    return null;
+    return (
+      <Session id={sessionId}>
+        {sessionProps => {
+          const isLoading = get(sessionProps, 'loading');
+          const type = get(sessionProps, 'session.origin.type');
+          return (
+            <SessionLayout loading={isLoading}>
+              {type === SESSION_TYPE_FLASHCARD && <FlashcardSession {...sessionProps} />}
+            </SessionLayout>
+          )
+        }}
+      </Session>
+    );
   }
 }
 

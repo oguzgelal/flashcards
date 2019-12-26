@@ -99,7 +99,7 @@ export const getSessionData = (sessionId, callback) => (dispatch, getState) => {
 
 
 // set an observer that listens for a single session
-export const toggleSessionObserver = (sessionId, status, callback) => (dispatch, getState) => {
+export const toggleSessionObserver = (sessionId, callback, status) => (dispatch, getState) => {
 
   // get current user id
   const state = getState();
@@ -110,8 +110,8 @@ export const toggleSessionObserver = (sessionId, status, callback) => (dispatch,
   const sessionRef = getSessionRef(userId, sessionId);
 
   // toggle observer
-  const fn = status ? sessionRef.on : sessionRef.off;
-  fn('value', callback);
+  if (status) sessionRef.on('value', callback)
+  else sessionRef.off('value', callback)
 }
 
 

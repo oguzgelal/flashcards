@@ -67,7 +67,7 @@ class App extends React.Component {
         <Route exact path={`/${STUDY}`} component={Study} />
         <Route exact path={`/${STUDY}/:topicId`} component={Study} />
         <Route exact path={`/${STUDY}/:topicId/:setId`} component={Study} />
-        <Route exact path={`/${SESSION}/:sessionType/:sessionId`} component={Sessions} />
+        <Route exact path={`/${SESSION}/:sessionId`} component={Sessions} />
       </Router>
     )
   }

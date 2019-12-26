@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import SideSheet from '../../components/SideSheet';
 import ScreenTakeover from '../../components/ScreenTakeover';
+import Page from '../../components/Page';
 
 class SessionLayout extends React.Component {
   constructor(props, context) {
@@ -20,20 +20,11 @@ class SessionLayout extends React.Component {
 
   render() {
     return (
-      <>
-        {/* session contents */}
-        <ScreenTakeover>
+      <ScreenTakeover>
+        <Page full center hasHeader={false}>
           {this.props.children}
-        </ScreenTakeover>
-
-        {/* session settings sidesheet */}
-        <SideSheet
-          isOpen={this.props.showSettings}
-          close={() => this.setState({ showSettings: false })}
-        >
-          {this.props.settings}
-        </SideSheet>
-      </>
+        </Page>
+      </ScreenTakeover>
     );
   }
 }
