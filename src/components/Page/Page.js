@@ -5,6 +5,7 @@ import styled from 'styled-components/macro';
 
 export const ResponsivePage = styled(Pane)`
   width: 80%;
+  min-height: 100%;
   max-width: 820px;
   margin: auto;
   padding: ${p => p.theme.bodyPadding}px;
@@ -20,9 +21,11 @@ export const ResponsivePage = styled(Pane)`
 `;
 
 const Wrapper = styled(Pane)`
-  height: 100%;
+  min-height: 100vh;
+
   ${p => p.hasHeader && `
     height: calc(100% - ${p.theme.headerHeight}px);
+    min-height: calc(100% - ${p.theme.headerHeight}px);
   `}
 
   ${p => p.scroll && `
@@ -30,7 +33,7 @@ const Wrapper = styled(Pane)`
   `}
 `;
 
-const Page = ({ children, full, center, ...props } = {}) => {
+const Page = ({ children, full, center, responsiveWrapperProps, ...props } = {}) => {
 
   const centerProps = {
     display: 'flex',
@@ -39,7 +42,7 @@ const Page = ({ children, full, center, ...props } = {}) => {
   };
 
   const renderChildren = full ? children : (
-    <ResponsivePage>
+    <ResponsivePage {...(responsiveWrapperProps || {})}>
       {children}
     </ResponsivePage>
   );

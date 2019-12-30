@@ -1,7 +1,7 @@
 export {
   default,
   IconButton,
-  HeaderButton,
+  MinimalButton,
 } from './Button';
 
 export {

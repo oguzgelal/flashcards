@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import { Icon, Pill } from 'evergreen-ui';
 
-import { HeaderButton } from '../../components/Button'
+import { MinimalButton } from '../../components/Button'
 import Tooltip from '../../components/Tooltip';
 
 
@@ -37,7 +37,7 @@ class ActiveSessionsButton extends React.Component {
 
         {/* active sessions button */}
         <Tooltip content={`${sessionCount} active session${sessionCount > 1 ? 's' : ''}`}>
-          <HeaderButton
+          <MinimalButton
             style={this.props.style}
             onClick={() => this.setState({ sessionsOpen: true })}
           >
@@ -45,7 +45,7 @@ class ActiveSessionsButton extends React.Component {
             {sessionCount > 0 && (
               <SessionCount color="red" isSolid>{sessionCount}</SessionCount>
             )}
-          </HeaderButton>
+          </MinimalButton>
         </Tooltip>
 
         {/* active session sidesheet */}

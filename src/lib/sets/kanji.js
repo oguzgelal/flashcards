@@ -75,6 +75,11 @@ export default {
     { id: "y9YN9r8OpJVAuJFx9mhS+4Fgfbaxcg==", K: "空", M: "Sky", OY: "! くう", KY: "そら, あ, から, す", MM: "Sky is best when it's not raining (KUru - くう)" },
     { id: "F+ry3k/rrnUfT5R794XAIukULRgQbQ==", K: "草", M: "Grass", OY: "そう", KY: "! くさ", MM: "Grass is short (KISA - くさ)" },
     { id: "YDh3+NsbkAfHSfzOkBTmxRAqj1oVag==", K: "音", M: "Sound", OY: "! おん", KY: "おと, ね", MM: "If you were standing ON (おん) the sun, you would make a SOUND, something like a screaming sound." },
+    { id: "0m0+rlS2d3qE9yfZ4adHa+NrkV3DEw==", K: "同", M: "Same", OY: "! どう", KY: "おな", MM: "This kanji looks like a 'DOĞULU' (どう) guy. They all look the SAME." },
+    { id: "MKxmijZ4aj5rDhPZ1t+urSsu9qL7xQ==", K: "当", M: "Correct, Right, Success", OY: "! とう", KY: "あ", MM: "Kanji looks like a game show stand with a blinking button to hit when you know the answer. 'What's the capital of Japan?' * hits the button * 'TOkyo (とう)'. 'CORRECT!'" },
+    { id: "BrOlTuAMdRz3WBa2IMkWICMzgFueRA==", K: "毎", M: "Every", OY: "! まい", KY: "ごと", MM: "You're going to ambush a building. First, check EVERY window for snipers. Then approach the building slowly, but watch out for MINEs (まい)." },
+    { id: "VPLHW1T/X7HwJzRr+y9lBwlviNbF2g==", K: "考", M: "Think, Consider", OY: "! こう", KY: "かんが", MM: "You see a beggar, you should THINK and CONSIDER (こう) his well being, or he'll be in a coffin." },
+    { id: "Imb9YjZZahHHfqGBg5Mt4sVKIVb2ew==", K: "肉", M: "Meat", OY: "にく", KY: "-", MM: "" },
     // { id: "", K: "", M: "", OY: "", KY: "", MM: "" },
   ]
 }

@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import { Text } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
 
 import SideSheet from '../../../components/SideSheet';
 import FlashcardSettings from './FlashcardSettings';
 import { sessionProps } from '../../../containers/Sessions/Session';
 
-const Wrapper = styled.div``;
+import SessionHeader from '../../../components/Sessions/SessionHeader';
+
+const Wrapper = styled(Pane)``;
 
 class FlashcardSession extends React.Component {
   constructor(props, context) {
@@ -33,9 +35,14 @@ class FlashcardSession extends React.Component {
         </SideSheet>
 
         {/* session contents */}
-        <Wrapper>
-          <Text>Flashcards!!!</Text>
-        </Wrapper>
+        <>
+          <SessionHeader
+            minimize={this.props.minimize}
+            terminate={this.props.terminate}
+          />
+
+
+        </>
       </>
     );
   }

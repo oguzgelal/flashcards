@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 
 import { Icon, Portal, SideSheet, Pane, Heading, Paragraph } from 'evergreen-ui';
-import { HeaderButton } from '../Button';
+import { MinimalButton } from '../Button';
 
 import { isMobile, useIsDevice } from '../../utils/isDevice';
 
@@ -31,7 +31,7 @@ const CloseButtonAbsoluteContainer = styled(Pane)`
   right: 12px;
 `;
 
-const HeaderButtonStyled = styled(HeaderButton)`
+const MinimalButtonStyled = styled(MinimalButton)`
   padding: 8px;
   border-radius: 50%;
   height: unset;
@@ -48,9 +48,9 @@ const SideSheetComponent = props => {
   const mobile = useIsDevice(isMobile);
 
   const closeButton = (
-    <HeaderButtonStyled onClick={props.close}>
+    <MinimalButtonStyled onClick={props.close}>
       <Icon icon="cross" />
-    </HeaderButtonStyled>
+    </MinimalButtonStyled>
   );
 
   return (

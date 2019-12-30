@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
-import navigate from '../../utils/navigate';
-import history from '../../config/history';
 
 import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
 import FlashcardSession from './Flashcards/FlashcardSession';
 import Session from '../../containers/Sessions/Session';
-import SessionLayout from '../../containers/Sessions/SessionLayout';
+import SessionLayout from '../../components/Sessions/SessionLayout';
 
 class Sessions extends React.Component {
   constructor(props, context) {
@@ -22,14 +20,7 @@ class Sessions extends React.Component {
 
   componentDidMount() {
     const sessionId = get(this.props, 'match.params.sessionId');
-
-    // if session not defined, try going back,
-    // go home if there is no back
-    if (!sessionId) {
-      history.goBackOrRun(() => {
-        navigate('/', { replace: true });
-      });
-    }
+    if (!sessionId) this.back();
   }
 
   render() {

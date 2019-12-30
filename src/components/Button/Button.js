@@ -6,7 +6,7 @@ import {
   IconButton as IconButtonEvergreen
 } from 'evergreen-ui';
 
-export const HeaderButton = styled(Button).attrs({ appearance: 'minimal' })`
+export const MinimalButton = styled(Button).attrs({ appearance: 'minimal' })`
   position: relative;
   background-color: white;
   border: 1px solid ${p => p.theme.colors.border.muted};

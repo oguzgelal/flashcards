@@ -8,6 +8,9 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
+import history from '../../config/history';
+import navigate from '../../utils/navigate';
+
 import * as sessionActions from '../../redux/modules/sessions/actions';
 
 class Session extends React.Component {
@@ -22,6 +25,9 @@ class Session extends React.Component {
       lastUpdateServer: null, // last captured server update
     };
 
+    this.close = this.close.bind(this);
+    this.minimize = this.minimize.bind(this);
+    this.terminate = this.terminate.bind(this);
     this.sync = this.sync.bind(this);
     this.updateData = this.updateData.bind(this);
     this.observerCallback = this.observerCallback.bind(this);
@@ -31,6 +37,25 @@ class Session extends React.Component {
 
   componentDidMount() { this.observerStart(); }
   componentWillUnmount() { this.observerStop(); }
+
+  // try going back, go
+  // home if there is no back
+  close() {
+    history.goBackOrRun(() => {
+      navigate('/', { replace: true });
+    });
+  }
+
+  // close session without terminating it
+  minimize() {
+    this.close();
+  }
+
+  // terminate session
+  terminate() {
+    alert('ending session');
+    this.close();
+  }
 
   // load session and replace local state
   sync() {
@@ -112,6 +137,10 @@ class Session extends React.Component {
         data: this.state.data,
         // function to update session state.
         updateData: this.updateData,
+        // go back
+        minimize: this.minimize,
+        // terminate session
+        terminate: this.terminate,
       })
     )
   }
@@ -127,6 +156,8 @@ export const sessionProps = {
   data: PropTypes.object,
   session: PropTypes.object,
   updateData: PropTypes.func,
+  minimize: PropTypes.func,
+  terminate: PropTypes.func,
 }
 
 Session.propTypes = {

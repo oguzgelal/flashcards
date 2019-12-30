@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import { HeaderButton } from '../../components/Button'
+import { MinimalButton } from '../../components/Button'
 import { Icon, Popover, Position, Menu } from 'evergreen-ui';
 
 import { LOGOUT } from '../../redux/modules/auth/types';
@@ -41,9 +41,9 @@ class UserAvatar extends React.Component {
           </Menu>
         }
       >
-        <HeaderButton style={this.props.style} iconAfter="caret-down">
+        <MinimalButton style={this.props.style} iconAfter="caret-down">
           <Icon icon="user" />
-        </HeaderButton>
+        </MinimalButton>
       </Popover>
     );
   }
