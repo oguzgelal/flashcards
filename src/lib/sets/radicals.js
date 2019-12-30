@@ -69,7 +69,7 @@ export default {
     { id: "/gK+dt57eZ+1/ZZhR24wtZI2izBnGg==", M: "牛", R: "Cow" },
     { id: "xX4j/RaIJmuQUX30/7He/5ZR8b+8Yw==", M: "ム", R: "Private" },
     { id: "ReYlIQo3NCgemcrkCSn+OK3JhJIizw==", M: "匕", R: "Spoon" },
-    { id: "InG9m834qZywDoMsHvehoiwe7hkG5A==", M: "夂", R: "Winter" },
+    { id: "InG9m834qZywDoMsHvehoiwe7hkG5A==", M: "夂", R: "Winter", MM: "It looks like the things you put on your shoes to walk on snow." },
     { id: "3atRQ+/yijbWAtbEtF65VZacCIqdbA==", M: "干", R: "Dry" },
     { id: "xoCZRiyRjvTXRN/sbZrdT0SvIZYmUg==", M: "广", R: "Canopy" },
     { id: "rEppyqDBz/ndb/ikmPGq7VlhwYleaA==", M: "扌", R: "Fingers" },

@@ -48,6 +48,7 @@ class Session extends React.Component {
   updateData(data, { callback, serverCallback } = {}) {
     this.setState(this.setState({ data }), () => {
       if (typeof callback === 'function') callback();
+      // TODO:
       /* 1. save session data to server */
       /* 2. on the callback, set lastUpdateLocal to `updatedSession.updatedAt` */
       /* 3. on the setState callback, call 'serverCallback' if given */
