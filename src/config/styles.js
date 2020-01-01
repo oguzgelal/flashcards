@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     `}
   }
 
+  // vh fix for ios
+  // TODO: is this a bad idea ?
+  .📦h_100vh { height: 100% !important; }
+
   .fc--tooltip {
     z-index: 999 !important;
     @media ${p => p.theme.mobile} {

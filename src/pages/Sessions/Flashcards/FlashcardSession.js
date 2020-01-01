@@ -4,15 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import { Pane } from 'evergreen-ui';
-
 import SideSheet from '../../../components/SideSheet';
+import SessionContents from '../../../components/Sessions/SessionContents';
 import FlashcardSettings from './FlashcardSettings';
 import { sessionProps } from '../../../containers/Sessions/Session';
 
 import SessionHeader from '../../../components/Sessions/SessionHeader';
-
-const Wrapper = styled(Pane)``;
 
 class FlashcardSession extends React.Component {
   constructor(props, context) {
@@ -26,7 +23,7 @@ class FlashcardSession extends React.Component {
   render() {
     return (
       <>
-        {/* session settings sidesheet */}
+        {/* settings sidesheet */}
         <SideSheet
           isOpen={this.props.showSettings}
           close={() => this.setState({ showSettings: false })}
@@ -34,15 +31,16 @@ class FlashcardSession extends React.Component {
           <FlashcardSettings />
         </SideSheet>
 
-        {/* session contents */}
-        <>
-          <SessionHeader
-            minimize={this.props.minimize}
-            terminate={this.props.terminate}
-          />
+        {/* header */}
+        <SessionHeader
+          minimize={this.props.minimize}
+          terminate={this.props.terminate}
+        />
 
-
-        </>
+        {/* contents */}
+        <SessionContents>
+          Yo!
+        </SessionContents>
       </>
     );
   }

@@ -13,6 +13,12 @@ export const ResponsivePage = styled(Pane)`
   padding-right: 0;
   background-color: inherit;
 
+  ${p => p.center && `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `}
+
   @media ${p => p.theme.mobile} {
     width: 100%;
     padding-left: ${p => p.theme.bodyPadding}px;
@@ -28,21 +34,29 @@ const Wrapper = styled(Pane)`
     min-height: calc(100% - ${p.theme.headerHeight}px);
   `}
 
+  ${p => p.center && `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `}
+
   ${p => p.scroll && `
     overflow: auto;
+
+    @media ${p => p.theme.mobile} {
+      -webkit-overflow-scrolling: touch;
+    }
+
   `}
 `;
 
 const Page = ({ children, full, center, responsiveWrapperProps, ...props } = {}) => {
 
-  const centerProps = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
   const renderChildren = full ? children : (
-    <ResponsivePage {...(responsiveWrapperProps || {})}>
+    <ResponsivePage
+      center={center}
+      {...(responsiveWrapperProps || {})}
+    >
       {children}
     </ResponsivePage>
   );
@@ -54,7 +68,7 @@ const Page = ({ children, full, center, responsiveWrapperProps, ...props } = {})
       background="tint2"
       borderLeft
       borderRight
-      {...(center ? centerProps : {})}
+      center={center}
       {...props}
     >
       {renderChildren}

@@ -15,6 +15,8 @@ const SessionLayout = props => (
         style: {
           paddingTop: 12,
           paddingBottom: 12,
+          display: 'flex',
+          flexFlow: 'column',
         }
       }}
     >

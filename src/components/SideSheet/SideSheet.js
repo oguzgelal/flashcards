@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import isNil from 'lodash/isNil';
 
-import { Icon, Portal, SideSheet, Pane, Heading, Paragraph } from 'evergreen-ui';
+import { Icon, Portal, Pane, SideSheet, Heading, Paragraph } from 'evergreen-ui';
 import { MinimalButton } from '../Button';
 
 import { isMobile, useIsDevice } from '../../utils/isDevice';
 
+const Body = styled(Pane)`
+  overflow-y: scroll;
+  padding: ${p => p.theme.bodyPadding}px;
+`;
+
 const Header = styled(Pane)`
-  z-index: 1;
   flex-shrink: 0;
+  z-index: 1;
   padding: ${p => p.theme.bodyPadding}px;
   display: flex;
 `;
@@ -18,6 +23,8 @@ const Header = styled(Pane)`
 const HeadingContainer = styled(Pane)`
   flex-shrink: 0;
   flex-grow: 1;
+  display: flex;
+  align-items: center;
 `;
 
 const CloseButtonContainer = styled(Pane)`
@@ -35,12 +42,6 @@ const MinimalButtonStyled = styled(MinimalButton)`
   padding: 8px;
   border-radius: 50%;
   height: unset;
-`;
-
-const Body = styled(Pane)`
-  flex: 1;
-  overflow-y: scroll;
-  padding: ${p => p.theme.bodyPadding}px;
 `;
 
 const SideSheetComponent = props => {
@@ -62,24 +63,25 @@ const SideSheetComponent = props => {
         preventBodyScrolling
         containerProps={{
           display: 'flex',
-          flex: '1',
           flexDirection: 'column',
-          zIndex: 999
+          zIndex: 999,
         }}
       >
 
         {/* header */}
         {!isNil(props.title) && (
           <Header elevation={0}>
+            {/* heading */}
             <HeadingContainer>
+              {/* heading title */}
               <Heading size={600}>{props.title}</Heading>
+              {/* heading description */}
               {props.desc && (
-                <Paragraph size={400}>
-                  {props.desc}
-                </Paragraph>
+                <Paragraph size={400}>{props.desc}</Paragraph>
               )}
             </HeadingContainer>
 
+            {/* mobile close button */}
             {mobile && (
               <CloseButtonContainer>
                 {closeButton}
@@ -88,15 +90,22 @@ const SideSheetComponent = props => {
           </Header>
         )}
 
+        {/* close button */}
         {isNil(props.title) && mobile && (
           <CloseButtonAbsoluteContainer>
             {closeButton}
           </CloseButtonAbsoluteContainer>
         )}
 
-        <Body background="tint2" {...(props.bodyProps || {})} style={props.bodyStyle}>
+        {/* sidesheet body */}
+        <Body
+          background="tint2"
+          {...(props.bodyProps || {})}
+          style={props.bodyStyle}
+        >
           {props.children}
         </Body>
+
       </SideSheet>
     </Portal>
   )
