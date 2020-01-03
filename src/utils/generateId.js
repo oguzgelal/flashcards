@@ -1,6 +1,6 @@
 import isNil from 'lodash/isNil';
 
-export const DEL = '_';
+export const DEL = '';
 
 export default ({ key, uniq, random } = {}) => {
 
@@ -11,7 +11,7 @@ export default ({ key, uniq, random } = {}) => {
   let useUniq = '';
   if (!isNil(uniq)) {
     if (Array.isArray(uniq)) useUniq = `${uniq.filter(i => !!i).join('.')}${DEL}`;
-    else useUniq = `${uniq}_`;
+    else useUniq = `${uniq}${DEL}`;
   }
 
   // add randomness

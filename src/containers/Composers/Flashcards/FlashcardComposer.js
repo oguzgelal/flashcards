@@ -8,7 +8,7 @@ import get from 'lodash/get';
 import { Icon } from 'evergreen-ui';
 import { Link } from 'react-router-dom';
 import setPropTypes from '../../../common/setPropTypes';
-import { flashcardPropTypes } from '../../../common/flashcardsPropTypes';
+import { sessionFlashcardPropTypes } from '../../../common/sessionFlashcardsPropTypes';
 import sessionFlashcards from '../../../models/SessionFlashcards';
 import * as sessionTypes from '../../../redux/modules/sessions/types';
 import * as sessionActions from '../../../redux/modules/sessions/actions';
@@ -95,7 +95,7 @@ class FlashcardComposer extends React.Component {
 
 FlashcardComposer.propTypes = {
   set: setPropTypes,
-  flashcard: flashcardPropTypes,
+  flashcard: sessionFlashcardPropTypes,
   loading: PropTypes.object,
   sessionActions: PropTypes.object,
   activeSession: PropTypes.string,

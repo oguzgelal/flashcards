@@ -6,6 +6,8 @@ import { Icon, Heading, Pane } from 'evergreen-ui';
 
 import Clickable from '../Clickable';
 
+const borderRadius = 4;
+
 const Wrapper = styled(Pane)`
   border-top: none;
 `;
@@ -18,6 +20,7 @@ const composerHeaderMobile = p => `
   border-right: none;
   top: -1px;
 `;
+
 const ComposerHeader = styled(Clickable)`
   overflow: hidden;
   display: flex;
@@ -26,12 +29,14 @@ const ComposerHeader = styled(Clickable)`
   background-color: white;
   z-index: 11;
   position: sticky;
-  top: 0px;
+  top: ${-1 * borderRadius}px;
   background-color: rgba(255, 255, 255, .98);
+  border-top-left-radius: ${borderRadius}px;
+  border-top-right-radius: ${borderRadius}px;
 
   ${p => !p.open && `
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: ${borderRadius}px;
+    border-bottom-right-radius: ${borderRadius}px;
   `}
 
   @media ${p => p.theme.mobile} {
@@ -46,16 +51,17 @@ const composerBodyMobile = p => `
   padding: ${p.theme.bodyPadding}px;
   padding-top: 0;
   border: none;
+  border-radius: 0;
 `;
 const ComposerBody = styled(Pane)`
   padding: 22px 42px;
   padding-bottom: 32px;
   padding-top: 12px;
   border-top: none;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: ${borderRadius}px;
+  border-bottom-left-radius: ${borderRadius}px;
   margin-top: -4px;
-  background-color: transparent;
+  background-color: white;
 
   @media ${p => p.theme.mobile} {
     ${p => composerBodyMobile(p)}
@@ -82,7 +88,7 @@ const ComposerGroup = props => {
         {!open && <Icon icon="caret-right" />}
       </ComposerHeader>
       {open && (
-        <ComposerBody forceMobile={props.forceMobile}>
+        <ComposerBody border forceMobile={props.forceMobile}>
           {props.children}
         </ComposerBody>
       )}

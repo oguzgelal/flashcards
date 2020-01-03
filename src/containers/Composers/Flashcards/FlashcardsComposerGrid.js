@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
-import flashcardsPropTypes from '../../../common/flashcardsPropTypes';
+import sessionFlashcardsPropTypes from '../../../common/sessionFlashcardsPropTypes';
 
 import Grid from '../../../components/Grid';
 import ComposerGroup from '../../../components/Composer/ComposerGroup';
@@ -43,7 +43,7 @@ class FlashcardsComposerGrid extends React.Component {
           gap={32}
           autoHeight
           columns={this.props.columns || [2, 2, 1]}
-          style={{ marginTop: 32 }}
+          style={{ paddingTop: 32 }}
         >
           {Object.keys(setFlashcardIds).map(flashcardId => {
             const flashcard = get(data, `common.flashcards['${flashcardId}']`);
@@ -64,7 +64,7 @@ class FlashcardsComposerGrid extends React.Component {
 
 FlashcardsComposerGrid.propTypes = {
   // ie. { [flashcoard_id]: flashcoard, ... }
-  flashcards: flashcardsPropTypes,
+  flashcards: sessionFlashcardsPropTypes,
   columns: PropTypes.array,
   forceMobile: PropTypes.bool,
 };

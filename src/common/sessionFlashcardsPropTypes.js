@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const flashcardPropTypes = PropTypes.exact({
+export const sessionFlashcardPropTypes = PropTypes.exact({
   id: PropTypes.string.isRequired,
   sid: PropTypes.string.isRequired, // set id
   front: PropTypes.string.isRequired,
@@ -9,5 +9,5 @@ export const flashcardPropTypes = PropTypes.exact({
 });
 
 export default PropTypes.objectOf(
-  flashcardPropTypes
+  sessionFlashcardPropTypes
 );

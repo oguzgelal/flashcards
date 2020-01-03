@@ -90,11 +90,15 @@ export default {
     { id: "Ct/wmUHjg4wTm2zDZUYVbd3h7i7CBQ==", K: "作", M: "Make", OY: "! さく, さ", KY: "つく", MM: "When you have to go to a keymaker, the situation usually SUCKS (さく) so you drink some SAKE (さく) to forget." },
     { id: "RD38rGiZ5+wbXTvWbX2ZuePvscfEJA==", K: "図", M: "Diagram", OY: "! ず, と", KY: "え, はか", MM: "Map ち(ず) TO (と) the treasure." },
     { id: "a12UjqfMq+3m0tNtFhmiYd77rTpCeg==", K: "形", M: "Shape, Form, Appearence", OY: "! けい, ぎょう", KY: "かた, かたち", MM: "You see FURry lantern (け)い. It has a weird SHAPE, so you pick it up and GO (ぎょう)." },
-    { id: "HRptWZZLDGgza1lcZul0zrjwxOb4fA==", K: "言", M: "Say", OY: "! げん, ごん", KY: "い, こと", MM: "SAY if you're not WELL (げん)ki" },
-    { id: "A+PceMFYNs0mhjWYNfAkbkzYEEaIYw==", K: "走", M: "Run", OY: "! そう", KY: "はし", MM: "Running is best SO (そう) EARLY (そう)" },
-    { id: "5D8KNuAdr8ScUESa3/4d0WQZyAJjvQ==", K: "近", M: "Near, Close", OY: "! きん, こん", KY: "ちか", MM: "This looks like KINg (きん) KONg (こん) on a building." },
+    { id: "HRptWZZLDGgza1lcZul0zrjwxOb4fA==", K: "言", M: "Say", OY: "! げん, ごん", KY: "い, こと", MM: "SAY that you love me, or I'll be GONe (ごん)" },
+    { id: "A+PceMFYNs0mhjWYNfAkbkzYEEaIYw==", K: "走", M: "Run", OY: "! そう", KY: "はし", MM: "Running early (そう)" },
+    { id: "5D8KNuAdr8ScUESa3/4d0WQZyAJjvQ==", K: "近", M: "Near, Close", OY: "! きん, こん", KY: "ちか", MM: "This looks like KINg (きん) KONg (こん) on a scooter." },
     { id: "2/8MxjPfS/6lsubLALHR+XX9vQB45Q==", K: "里", M: "Home Village, Village", OY: "り", KY: "! さと", MM: "Your home village is like your Castle (Şato - さと)" },
     { id: "6KkJ39+vi3Zdc1QPPI0CWdE3ml+SpA==", K: "学", M: "Study", OY: "! がく", KY: "まな", MM: "" },
+    { id: "imtTTqUNjUenFA5vEAEqm68VMoaM4A==", K: "金", M: "Gold", OY: "! きん", KY: "かね", MM: "KINgs (きん) has the most golds" },
+    { id: "VEvYP1/eDkHoYD0twdbTNyJjiUOPhw==", K: "雨", M: "Rain", OY: "う", KY: "! あめ, あま", MM: "It rains a lot in AMErica (あめ)" },
+    { id: "JulisVgAwWPF4hiAgokEoTG5EiObYw==", K: "青", M: "Blue", OY: "! せい, しょう", KY: "あお", MM: "You've been feling BLUE. You SHOUt (しょう) and SAY (せい) your problem." },
+    { id: "ejyW6Vpdwn5RDsoIXVAHmq1TcyYWkQ==", K: "斤", M: "Axe, Bread Load Counter", OY: "! きん", KY: "", MM: "Axe is just like a KNIfe (きん)" },
     // { id: "", K: "", M: "", OY: "", KY: "", MM: "" },
   ]
 }

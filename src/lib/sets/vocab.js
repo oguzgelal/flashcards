@@ -165,6 +165,12 @@ export default {
     { id: "hCLlS6Xlcs7MbTO4XWdigrLj7nUQZA==", V: "一生", M: "Whole life, A lifetime", RR: "いっしょう", MM: "If you want to spend a LIFETIME with a person, you SHOUld (しょう) treat them well." },
     { id: "2xJKnQ3ib8rs1jAsmTcZO5Lfdn+y9Q==", V: "生える", M: "To grow", RR: "はえる", MM: "え gives a verb a meaning of 'making it happen'. What happens when you make life happen? You GROW" },
     { id: "hcVmgk5IYuSloclm/hPX6xL60wm4Zw==", V: "生まれ", M: "Birth, Birthplace", RR: "うまれ", MM: "It's like the verb 'to be born - うまれる' but without the る it's your birth place (or birth)" },
+    { id: "Ay8wcX4ODo/2a4uOE5t/ALMpOE3njA==", V: "兄", M: "Older Brother", RR: "あに", MM: "To your older brother you say FU(きょう) ~ (あに)na koyayım..." },
+    { id: "z2bznKhJN84JaIAsa7pKlMg7mj48vw==", V: "皮", M: "Skin, Hide", RR: "かわ", MM: "Things are COVERed (かわ) with skin." },
+    { id: "+p2TdP+FbppkCL0tJO6UwS9OcI+hnQ==", V: "交ぜる", M: "To Mix", RR: "まぜる", MM: "In a MAZE (まぜる) you would mix up your direction." },
+    { id: "I92vVaoITa80k0Iz6ozEsAqTscdg7g==", V: "光", M: "Light, Sunlight", RR: "ひかり", MM: "Hiii!.. karı" },
+    { id: "gDLsyfjbmOyFktCQoPcan8E7e6sosA==", V: "光年", M: "Lightyear", RR: "こうねん", MM: "" },
+    { id: "tLJiBplxNzxjJh+YpiC7UFqMSrktow==", V: "月光", M: "Moonlight", RR: "げっこう", MM: "" },
     // { id: "", V: "", M: "", RR: "", MM: "" },
   ]
 }
