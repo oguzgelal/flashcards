@@ -1,40 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
-import isNil from 'lodash/isNil';
 import get from 'lodash/get';
-import Dotdotdot from 'react-dotdotdot';
 import { Link } from 'react-router-dom';
-import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
 import Badge, { Badges } from '../Badge';
 import Button from '../Button';
 import { STUDY } from '../../config/routes';
-
-const Wrapper = styled(Card)`
-  flex-shrink: 0;
-  width: 100%;
-  height: 100%;
-  padding: 22px;
-  display: flex;
-  flex-flow: column;
-  background-color: white;
-`;
-
-const HeadingWrapper = styled(Pane)`
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-`;
-
-const Title = styled(Heading)``;
-const Description = styled(Paragraph)`
-  margin-top: 8px;
-  line-height: 16px;
-`;
-
-const Grow = styled(Pane)`
-  flex-grow: 1;
-`;
+import SimpleCard from '../SimpleCard';
 
 const StudySet = props => {
 
@@ -46,39 +17,17 @@ const StudySet = props => {
   const setItemsCount = setItems.length;
 
   return (
-    <Wrapper border>
-
-      {/* heading */}
-      <HeadingWrapper>
-
-        {/* title */}
-        <Title>
-          <Dotdotdot clamp={1}>
-            {setTitle}
-          </Dotdotdot>
-        </Title>
-
-        {/* description */}
-        {!!setDesc && (
-          <Description color="muted" size={400}>
-            <Dotdotdot clamp={2}>
-              {setDesc}
-            </Dotdotdot>
-          </Description>
-        )}
-
-        {/* badges */}
+    <SimpleCard
+      title={setTitle}
+      desc={setDesc}
+      headerChildren={(
         <Badges marginTop={8}>
           <Badge color={!setItemsCount ? 'yellow' : 'blue'}>
             {!setItemsCount ? 'No' : setItemsCount} Item{setItemsCount === 1 ? '' : 's'}
           </Badge>
         </Badges>
-
-      </HeadingWrapper>
-
-      <Grow />
-
-      {/* study button */}
+      )}
+    >
       <Button
         is={Link}
         to={`/${STUDY}/${setTopicId}/${setId}`}
@@ -91,7 +40,7 @@ const StudySet = props => {
       >
         Study
       </Button>
-    </Wrapper>
+    </SimpleCard>
   )
 };
 
