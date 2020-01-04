@@ -50,7 +50,9 @@ const ComposerHeader = styled(Clickable)`
 const composerBodyMobile = p => `
   padding: ${p.theme.bodyPadding}px;
   padding-top: 0;
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-radius: 0;
 `;
 const ComposerBody = styled(Pane)`
