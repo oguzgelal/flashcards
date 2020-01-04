@@ -21,7 +21,7 @@ const StudySet = props => {
       title={setTitle}
       desc={setDesc}
       headerChildren={(
-        <Badges marginTop={8}>
+        <Badges>
           <Badge color={!setItemsCount ? 'yellow' : 'blue'}>
             {!setItemsCount ? 'No' : setItemsCount} Item{setItemsCount === 1 ? '' : 's'}
           </Badge>

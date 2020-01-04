@@ -5,7 +5,7 @@ import isNil from 'lodash/isNil';
 import Dotdotdot from 'react-dotdotdot';
 import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
 
-const verticalGap = 8;
+const verticalGap = 12;
 
 const Wrapper = styled(Card)`
   flex-shrink: 0;

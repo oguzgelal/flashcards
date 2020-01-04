@@ -43,7 +43,7 @@ Grid.propTypes = {
 
 Grid.defaultProps = {
   gap: 16,
-  itemHeight: 200,
+  itemHeight: 210,
   columns: [3, 2, 1],
 }
 
