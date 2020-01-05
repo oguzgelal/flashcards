@@ -49,7 +49,6 @@ const Row = styled(Pane)`
       color: ${p.theme.palette.neutral.dark};
       font-weight: 100;
       font-size: 8px;
-      filter: blur(0.2px) opacity(0.8);
     }
   `}
   ${p => p.header && `
@@ -72,6 +71,7 @@ const Filler = styled(Pane)`
   height: 8px;
   width: ${p => range(p.w[0], p.w[1])}%;
   background-color: ${p => p.theme.scales.neutral.N5};
+  opacity: 0.8;
   flex-shrink: 1;
 
   ${p => p.header && `
