@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 
-import { Icon, Pane, Card, Text, Heading } from 'evergreen-ui';
+import { Pane, Card } from 'evergreen-ui';
 import { range } from '../../../utils/random';
 import { ButtonGroup, buttonsPropType } from '../../Button';
 const Wrapper = styled(Pane)`
@@ -34,8 +34,14 @@ const Col = styled(Pane)`
     opacity: 0.8;
   `}
   ${p => p.c === 'blue' && `
-    background-color: ${p.theme.palette.blue.light};
     opacity: 0.6;
+    background: repeating-linear-gradient(
+      -45deg,
+      ${p.theme.scales.blue.B2},
+      ${p.theme.scales.blue.B2} 10px,
+      ${p.theme.scales.blue.B3} 10px,
+      ${p.theme.scales.blue.B3} 20px
+    );
   `}
 
 `;
@@ -83,12 +89,6 @@ const Filler = styled(Pane)`
 
 const TablePreview = props => {
 
-  const hidden = (
-    <Pane width="100%" style={{ display: 'flex', justifyContent: 'center' }}>
-      <Icon icon="eye-off" color="muted" size="10px" />
-    </Pane>
-  );
-
   const fakeCols = ({ header, contents = [], colors = [] } = {}) => (
     <>
       <Col style={{ flexGrow: 1, flexShrink: 1 }} borderRight>
@@ -103,7 +103,6 @@ const TablePreview = props => {
             c={colors[0]}
           >
             {contents[1] && <Filler w={[60, 90]} />}
-            {!contents[1] && hidden}
           </Col>
           <Col
             style={{ width: 40, flexShrink: 0 }}
@@ -112,7 +111,6 @@ const TablePreview = props => {
             c={colors[1]}
           >
             {contents[2] && <Filler w={[60, 90]} />}
-            {!contents[2] && hidden}
           </Col>
           <Col
             style={{ width: 40, flexShrink: 0 }}
@@ -120,7 +118,6 @@ const TablePreview = props => {
             c={colors[2]}
           >
             {contents[3] && <Filler w={[60, 90]} />}
-            {!contents[3] && hidden}
           </Col>
         </>
       )}

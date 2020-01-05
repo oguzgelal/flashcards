@@ -62,7 +62,7 @@ const Filler = styled(Pane)`
   height: 16px;
   opacity: 0.2;
   width: 90%;
-  margin-top: 4px;
+  margin-top: 2px;
 `;
 
 const FlashcardPreview = props => {
