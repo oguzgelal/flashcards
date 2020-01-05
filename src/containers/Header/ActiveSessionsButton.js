@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
-import { Icon, Pill } from 'evergreen-ui';
+import { Popover, Position, Icon, Pill, Menu } from 'evergreen-ui';
 
 import { MinimalButton } from '../../components/Button'
-import Tooltip from '../../components/Tooltip';
-
-
-import ActiveSessionsSidesheet from './ActiveSessionsSidesheet';
+import SessionLauncherSidesheet from './SessionLauncherSidesheet';
 
 const SessionCount = styled(Pill)`
   position: absolute;
@@ -34,25 +31,47 @@ class ActiveSessionsButton extends React.Component {
 
     return (
       <>
-
         {/* active sessions button */}
-        <Tooltip content={`${sessionCount === 0 ? 'No' : sessionCount} active session${sessionCount !== 1 ? 's' : ''}`}>
-          <MinimalButton
-            style={this.props.style}
-            onClick={() => this.setState({ sessionsOpen: true })}
-          >
-            <Icon icon="application" />
-            {sessionCount > 0 && (
-              <SessionCount color="red" isSolid>{sessionCount}</SessionCount>
+          <Popover
+            position={Position.BOTTOM_RIGHT}
+            content={({ close }) => (
+              <Menu>
+                <Menu.Group title={sessionCount === 0 ? "No Active Sessions" : "Sessions"}>
+                  {sessionCount > 0 && Object.values(sessions).map(s => (
+                    <Menu.Item icon="application" key={get(s, 'id')}>
+                      {get(s, 'title') || 'Untitled session'}
+                    </Menu.Item>
+                  ))}
+                </Menu.Group>
+                <Menu.Divider />
+                <Menu.Group>
+                  <Menu.Item
+                    icon="add"
+                    onSelect={() => {
+                      this.setState({ sessionsOpen: true })
+                      close();
+                    }}
+                  >
+                    New Session
+                  </Menu.Item>
+                </Menu.Group>
+              </Menu>
             )}
-          </MinimalButton>
-        </Tooltip>
+          >
+            <MinimalButton style={this.props.style}>
+              <Icon icon="application" />
+              {sessionCount > 0 && (
+                <SessionCount color="red" isSolid>
+                  {sessionCount}
+                </SessionCount>
+              )}
+            </MinimalButton>
+          </Popover>
 
-        {/* active session sidesheet */}
-        <ActiveSessionsSidesheet
-          isOpen={this.state.sessionsOpen}
-          close={() => this.setState({ sessionsOpen: false })}
-        />
+          <SessionLauncherSidesheet
+            isOpen={this.state.sessionsOpen}
+            close={() => this.setState({ sessionsOpen: false })}
+          />
       </>
     );
   }

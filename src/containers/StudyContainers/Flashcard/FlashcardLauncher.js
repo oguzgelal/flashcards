@@ -15,7 +15,7 @@ import FlashcardSettings, { flashcardSettingsPropTypes } from './FlashcardSettin
 import * as types from '../../../redux/modules/sessions/types';
 import * as sessionActions from '../../../redux/modules/sessions/actions';
 
-class FlashcardComposer extends React.Component {
+class FlashcardLauncher extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -86,7 +86,7 @@ class FlashcardComposer extends React.Component {
   }
 }
 
-FlashcardComposer.propTypes = {
+FlashcardLauncher.propTypes = {
   loading: PropTypes.bool,
   sessionActions: PropTypes.object,
   settings: flashcardSettingsPropTypes,
@@ -103,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FlashcardComposer);
+)(FlashcardLauncher);

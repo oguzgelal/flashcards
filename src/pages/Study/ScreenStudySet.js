@@ -8,9 +8,9 @@ import get from 'lodash/get';
 import setPropTypes from '../../common/setPropTypes';
 
 import Grid from '../../components/Grid/Grid';
-import SimpleCard from '../../components/SimpleCard';
-import { TablePreview } from '../../components/StudyComponents/Tables';
-import FlashcardComposer from '../../containers/StudyContainers/Flashcard/FlashcardComposer';
+import FlashcardLauncher from '../../containers/StudyContainers/Flashcard/FlashcardLauncher';
+import StudyTableLauncher from '../../containers/StudyContainers/StudyTable/StudyTableLauncher';
+import RevealTableLauncher from '../../containers/StudyContainers/RevealTable/RevealTableLauncher';
 
 class ScreenStudySet extends React.Component {
   constructor(props, context) {
@@ -27,26 +27,25 @@ class ScreenStudySet extends React.Component {
       <Grid autoHeight columns={[2, 2, 1]}>
 
         {/* flashcard */}
-        <FlashcardComposer
+        <FlashcardLauncher
           settings={{
             setId: get(this.props, 'set.id')
           }}
         />
 
         {/* study tables */}
-        <SimpleCard title="Study Table">
-          <TablePreview
-            buttons={[ { children: "Start" } ]}
-          />
-        </SimpleCard>
+        <StudyTableLauncher
+          settings={{
+            setId: get(this.props, 'set.id')
+          }}
+        />
 
         {/* reveal table */}
-        <SimpleCard title="Reveal Table">
-          <TablePreview
-            reveal
-            buttons={[ { children: "Start" } ]}
-          />
-        </SimpleCard>
+        <RevealTableLauncher
+          settings={{
+            setId: get(this.props, 'set.id')
+          }}
+        />
       </Grid>
     );
   }

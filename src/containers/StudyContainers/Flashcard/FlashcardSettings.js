@@ -35,17 +35,22 @@ class FlashcardSettings extends React.Component {
       const sets = get(tmpdata, 'sets');
       const currentSetId = get(this.state, 'settings.setId');
       const selectedSet = get(sets, currentSetId);
+      const selectedSetTitle = get(selectedSet, 'title');
 
       // set default title
       this.set({
         title: (
           get(this.props, 'initialSettings.title') ||
-          `${get(selectedSet, 'title') || 'Flashcard'} session`
+          `${selectedSetTitle ? `${selectedSetTitle} - ` : ''}Flashcard session`
         )
       })
     })
   }
 
+  // TODO: this component should not manage its own state.
+  // make this component controlled.
+  // TODO2: topic id should also be handled here
+  // TODO3: if topic and set id not set, other settings should be hidden
   set(vals = {}, callback) {
     this.setState({
       settings: {
@@ -75,20 +80,26 @@ class FlashcardSettings extends React.Component {
         {/* set */}
         <SelectField
           required
-          label="Select a set"
+          label="Set"
           disabled={hasSet}
           value={currentSetId}
           onChange={e => this.set({ setId: e.target.value })}
         >
+          <option value={null}>Select...</option>
           {Object.values(sets).map(s => (
-            <option value={s.id}>{s.title}</option>
+            <option
+              value={s.id}
+              selected={s.id === currentSetId}
+            >
+              {s.title}
+            </option>
           ))}
         </SelectField>
 
         {/* session name */}
         <TextInputField
           required
-          label="Session Name"
+          label="Title"
           value={get(this.state, 'settings.title')}
           onChange={e => this.set({ title: e.target.value })}
         />
