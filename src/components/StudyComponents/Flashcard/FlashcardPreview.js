@@ -56,6 +56,15 @@ const FooterWrapper = styled(Card)`
   background-color: white;
 `;
 
+const Filler = styled(Pane)`
+  border-radius: 2px;
+  background-color: ${p => p.theme.scales.neutral.N5};
+  height: 16px;
+  opacity: 0.2;
+  width: 90%;
+  margin-top: 4px;
+`;
+
 const FlashcardPreview = props => {
 
   const frontItem = get(props, 'frontItem');
@@ -67,6 +76,14 @@ const FlashcardPreview = props => {
 
       <CardWrapper hasButtons={!isNil(buttons)}>
         <FrontWrapper border hasButtons={!isNil(buttons)}>
+          {props.frontFiller && (
+            <FlashcardItem
+              title="Front"
+              value={<Filler />}
+              alignLeft
+              style={{ marginTop: 12 }}
+            />
+          )}
           {typeof frontItem !== 'string' && frontItem}
           {typeof frontItem === 'string' && (
             <FlashcardItem
@@ -77,6 +94,13 @@ const FlashcardPreview = props => {
           )}
         </FrontWrapper>
         <BackWrapper border hasButtons={!isNil(buttons)}>
+          {props.backFiller && (
+            <FlashcardItem
+              title="Back"
+              value={<Filler />}
+              alignLeft
+            />
+          )}
           {typeof backItem !== 'string' && frontItem}
           {typeof backItem === 'string' && (
             <FlashcardItem
@@ -106,7 +130,9 @@ const FlashcardPreview = props => {
 };
 
 FlashcardPreview.propTypes = {
+  frontFiller: PropTypes.bool,
   frontItem: PropTypes.any,
+  backFiller: PropTypes.bool,
   backItem: PropTypes.any,
   buttons: buttonsPropType,
 };

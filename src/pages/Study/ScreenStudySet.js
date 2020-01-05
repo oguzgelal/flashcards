@@ -13,10 +13,6 @@ import SimpleCard from '../../components/SimpleCard';
 import { FlashcardPreview } from '../../components/StudyComponents/Flashcard';
 import { TablePreview } from '../../components/StudyComponents/Tables';
 
-const Wrapper = styled.div`
-  background-color: inherit;
-`;
-
 class ScreenStudySet extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -28,34 +24,32 @@ class ScreenStudySet extends React.Component {
   render() {
     // const setFlashcards = get(this.props, 'set.flashcards') || {};
     return (
-      <Wrapper>
-        <Grid autoHeight columns={[2, 2, 1]}>
+      <Grid autoHeight columns={[2, 2, 1]}>
 
-          {/* flashcard */}
-          <SimpleCard title="Flashcards">
-            <FlashcardPreview
-              frontItem="こんにちは！"
-              backItem="Hello!"
-              buttons={[ { children: "Start " } ]}
-            />
-          </SimpleCard>
+        {/* flashcard */}
+        <SimpleCard title="Flashcards">
+          <FlashcardPreview
+            frontFiller
+            backFiller
+            buttons={[ { children: "Start " } ]}
+          />
+        </SimpleCard>
 
-          {/* study tables */}
-          <SimpleCard title="Study Table">
-            <TablePreview
-              buttons={[ { children: "Start" } ]}
-            />
-          </SimpleCard>
+        {/* study tables */}
+        <SimpleCard title="Study Table">
+          <TablePreview
+            buttons={[ { children: "Start" } ]}
+          />
+        </SimpleCard>
 
-          {/* reveal table */}
-          <SimpleCard title="Reveal Table">
-            <TablePreview
-              reveal
-              buttons={[ { children: "Start" } ]}
-            />
-          </SimpleCard>
-        </Grid>
-      </Wrapper>
+        {/* reveal table */}
+        <SimpleCard title="Reveal Table">
+          <TablePreview
+            reveal
+            buttons={[ { children: "Start" } ]}
+          />
+        </SimpleCard>
+      </Grid>
     );
   }
 }

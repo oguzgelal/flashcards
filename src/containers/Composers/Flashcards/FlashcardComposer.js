@@ -14,7 +14,7 @@ import * as sessionTypes from '../../../redux/modules/sessions/types';
 import * as sessionActions from '../../../redux/modules/sessions/actions';
 import navigate from '../../../utils/navigate';
 
-import { FlashcardPreview } from '../../../components/Flashcard';
+import { FlashcardPreview } from '../../../components/StudyComponents/Flashcard';
 import { SESSION } from '../../../config/routes';
 
 import data from '../../../lib/tmpdata';

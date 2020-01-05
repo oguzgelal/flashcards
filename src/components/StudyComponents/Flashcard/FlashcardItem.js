@@ -14,7 +14,7 @@ const Wrapper = styled(Text)`
   height: auto;
 `;
 
-const CardItemTitle = styled(Text).attrs({ size: 300 })``;
+const CardItemTitle = styled(Text).attrs({ size: 300 })`width: 100%;`;
 const CardItemTitleWrapper = styled(Pane)`
   width: 100%;
   flex-shrink: 0;
@@ -25,7 +25,7 @@ const CardItemTitleWrapper = styled(Pane)`
   opacity: 0.5;
 `;
 
-const CardItemValue = styled(Heading).attrs({ size: 600 })``;
+const CardItemValue = styled(Heading).attrs({ size: 600 })`width: 100%;`;
 const CardItemValueWrapper = styled(Pane)`
   width: 100%;
   flex-grow: 1;

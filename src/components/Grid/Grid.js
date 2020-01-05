@@ -7,12 +7,12 @@ const Wrapper = styled(Pane)`
   display: grid;
   grid-gap: ${p => p.gap}px;
   grid-auto-rows: ${p => p.autoHeight ? 'auto' : `${p.itemHeight}px`};
-  grid-template-columns: repeat(${p => p.colsDesktop}, 1fr);
+  grid-template-columns: repeat(${p => p.colsDesktop}, minmax(0, 1fr));
   @media ${p => p.theme.tablet} {
-    grid-template-columns: repeat(${p => p.colsTablet}, 1fr);
+    grid-template-columns: repeat(${p => p.colsTablet}, minmax(0, 1fr));
   }
   @media ${p => p.theme.mobile} {
-    grid-template-columns: repeat(${p => p.colsMobile}, 1fr);
+    grid-template-columns: repeat(${p => p.colsMobile}, minmax(0, 1fr));
   }
 `;
 

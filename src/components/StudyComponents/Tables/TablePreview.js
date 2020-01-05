@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 
 import { Icon, Pane, Card, Text, Heading } from 'evergreen-ui';
+import { range } from '../../../utils/random';
 import { ButtonGroup, buttonsPropType } from '../../Button';
 const Wrapper = styled(Pane)`
   display: flex;
@@ -25,20 +26,22 @@ const Col = styled(Pane)`
   padding: 0 12px;
 
   ${p => p.c === 'red' && `
-    background-color: ${p.theme.palette.red.lightest};
+    background-color: ${p.theme.palette.red.light};
+    opacity: 0.8;
   `}
   ${p => p.c === 'green' && `
-    background-color: ${p.theme.palette.green.lightest};
+    background-color: ${p.theme.palette.green.light};
+    opacity: 0.8;
   `}
   ${p => p.c === 'blue' && `
-    background-color: ${p.theme.palette.blue.lightest};
+    background-color: ${p.theme.palette.blue.light};
+    opacity: 0.6;
   `}
 
 `;
 const Row = styled(Pane)`
   height: 26px;
   display: flex;
-  align-items: center;
 
   ${p => !p.header && `
     background-color: ${p.theme.tablesCellBg};
@@ -64,46 +67,92 @@ const FooterWrapper = styled(Pane)`
   margin-top: -2px;
 `;
 
+const Filler = styled(Pane)`
+  border-radius: 2px;
+  height: 8px;
+  width: ${p => range(p.w[0], p.w[1])}%;
+  background-color: ${p => p.theme.scales.neutral.N5};
+  flex-shrink: 1;
+
+  ${p => p.header && `
+    width: 130px;
+    height: 10px;
+    opacity: 0.2;
+  `}
+`;
+
 const TablePreview = props => {
+
+  const hidden = (
+    <Pane width="100%" style={{ display: 'flex', justifyContent: 'center' }}>
+      <Icon icon="eye-off" color="muted" size="10px" />
+    </Pane>
+  );
+
   const fakeCols = ({ header, contents = [], colors = [] } = {}) => (
     <>
-      <Col flex={1} borderRight><Text size="400">{contents[0]}</Text></Col>
+      <Col style={{ flexGrow: 1, flexShrink: 1 }} borderRight>
+        {contents[0] && <Filler header={header} w={[40, 80]} />}
+      </Col>
       {!header && (
         <>
-          <Col height="100%" width={120} borderRight c={colors[0]}><Text>{contents[1]}</Text></Col>
-          <Col height="100%" width={60} borderRight c={colors[1]}><Text>{contents[2]}</Text></Col>
-          <Col height="100%" width={60} c={colors[2]}><Text>{contents[3]}</Text></Col>
+          <Col
+            style={{ width: 80, flexShrink: 0 }}
+            height="100%"
+            borderRight
+            c={colors[0]}
+          >
+            {contents[1] && <Filler w={[60, 90]} />}
+            {!contents[1] && hidden}
+          </Col>
+          <Col
+            style={{ width: 40, flexShrink: 0 }}
+            height="100%"
+            borderRight
+            c={colors[1]}
+          >
+            {contents[2] && <Filler w={[60, 90]} />}
+            {!contents[2] && hidden}
+          </Col>
+          <Col
+            style={{ width: 40, flexShrink: 0 }}
+            height="100%"
+            c={colors[2]}
+          >
+            {contents[3] && <Filler w={[60, 90]} />}
+            {!contents[3] && hidden}
+          </Col>
         </>
       )}
     </>
   )
   return (
     <Wrapper>
-      <BodyWrapper border>
-        <Row header borderBottom>
-          {fakeCols({ header: true, contents: ['Kanji 漢字'] })}
+      <BodyWrapper>
+        <Row header border>
+          {fakeCols({ header: true, contents: [true, false, false, false] })}
         </Row>
-        <Row borderBottom>
+        <Row border borderTop={false}>
           {fakeCols({
-            contents: ['花', 'Flower', 'か, け', 'はな'],
+            contents: [true, true, true, true],
             colors: props.reveal ? ['red', 'green', 'red'] : []
           })}
         </Row>
-        <Row borderBottom>
+        <Row border borderTop={false}>
           {fakeCols({
-            contents: ['麦', 'Wheat', 'ばく', 'むぎ'],
+            contents: [true, true, true, true],
             colors: props.reveal ? ['green', 'green', 'green'] : []
           })}
         </Row>
-        <Row borderBottom>
+        <Row border borderTop={false}>
           {fakeCols({
-            contents: ['世', 'World', props.reveal ? '...' : 'せい', props.reveal ? '...' : 'よ'],
+            contents: [true, true, !props.reveal, !props.reveal],
             colors: props.reveal ? ['green', 'blue', 'blue'] : []
           })}
         </Row>
-        <Row>
+        <Row border borderTop={false}>
           {fakeCols({
-            contents: ['雨', props.reveal ? '...' : 'Rain', props.reveal ? '...' : 'う', props.reveal ? '...' : 'あめ'],
+            contents: [true, !props.reveal, !props.reveal, !props.reveal],
             colors: props.reveal ? ['blue', 'blue', 'blue'] : []
           })}
         </Row>
