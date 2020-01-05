@@ -16,6 +16,7 @@ export default {
     "ZeAa+o5CZI9/6TP50Rk0Xgj0A7l2jA==": true,
   },
   data: [
+    { id: "309dnF0/f99kX2Fn/zTB3iFzfuAa3g==", K: "木", M: "Tree", OY: "! もく, ぼく", KY: "き, こ", MM: "I AM (僕の) a tree!" },
     { id: "D65sVM32EZZP5PjMQ22v69tWM6jbtg==", K: "一", M: "One", OY: "! いち, いつ", KY: "ひと", MM: "" },
     { id: "iHIMwgCDEtQY0olq5P5eSsSjZvEHxA==", K: "去", M: "Past", OY: "! きょ, こ", KY: "さ", MM: "When your past is dirty, it stinks (KOKUYOR - こ, きょ)" },
     { id: "rxtKUWidFVH9irX/9YjZVUTtvVFYdA==", K: "号", M: "Number", OY: "! ごう", KY: "-", MM: "This kanji consists of two numbers, 0 and 5 on top of each other. That's why reading starts with (ご): ごう. It's not just ご because then it would mean 5." },

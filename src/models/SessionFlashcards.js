@@ -5,8 +5,8 @@ export const SESSION_TYPE_FLASHCARD = 'flashcard';
 
 class SessionFlashcards extends Session {
 
-  generateOrigin({ id, set } = {}) {
-    const origin = { type: SESSION_TYPE_FLASHCARD, id, set };
+  generateOrigin({ set } = {}) {
+    const origin = { type: SESSION_TYPE_FLASHCARD, set };
     return this.validateOrigin(origin);
   };
 

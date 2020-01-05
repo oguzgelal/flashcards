@@ -8,7 +8,6 @@ class Session {
 
   validateOrigin(origin) {
     if (!origin) throw new Error('No origin provided')
-    if (!get(origin, 'id')) throw new Error('No identifier provided for the origin')
     if (!get(origin, 'type')) throw new Error('Origin type missing')
     return origin;
   }

@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
 import { SESSION_TYPE_FLASHCARD } from '../../models/SessionFlashcards';
-import FlashcardSession from './Flashcards/FlashcardSession';
+import FlashcardSession from '../../containers/StudyContainers/Flashcard/FlashcardSession';
 import Session from '../../containers/Sessions/Session';
 import SessionLayout from '../../components/Sessions/SessionLayout';
 

@@ -19,7 +19,7 @@ import { SESSION } from '../../../config/routes';
 
 import data from '../../../lib/tmpdata';
 
-class FlashcardComposer extends React.Component {
+class FlashcardActiveSession extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -81,7 +81,7 @@ class FlashcardComposer extends React.Component {
   }
 }
 
-FlashcardComposer.propTypes = {
+FlashcardActiveSession.propTypes = {
   set: setPropTypes,
   flashcard: sessionFlashcardPropTypes,
   loading: PropTypes.object,
@@ -100,4 +100,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FlashcardComposer);
+)(FlashcardActiveSession);

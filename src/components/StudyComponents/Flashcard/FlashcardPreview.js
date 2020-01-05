@@ -75,15 +75,9 @@ const FlashcardPreview = props => {
     <Wrapper>
 
       <CardWrapper hasButtons={!isNil(buttons)}>
+
+        {/* front card */}
         <FrontWrapper border hasButtons={!isNil(buttons)}>
-          {props.frontFiller && (
-            <FlashcardItem
-              title="Front"
-              value={<Filler />}
-              alignLeft
-              style={{ marginTop: 12 }}
-            />
-          )}
           {typeof frontItem !== 'string' && frontItem}
           {typeof frontItem === 'string' && (
             <FlashcardItem
@@ -92,16 +86,19 @@ const FlashcardPreview = props => {
               alignLeft
             />
           )}
-        </FrontWrapper>
-        <BackWrapper border hasButtons={!isNil(buttons)}>
-          {props.backFiller && (
+          {props.frontFiller && (
             <FlashcardItem
-              title="Back"
+              title="Front"
               value={<Filler />}
               alignLeft
+              style={{ marginTop: 12 }}
             />
           )}
-          {typeof backItem !== 'string' && frontItem}
+        </FrontWrapper>
+
+        {/* back card */}
+        <BackWrapper border hasButtons={!isNil(buttons)}>
+          {typeof backItem !== 'string' && backItem}
           {typeof backItem === 'string' && (
             <FlashcardItem
               title="Back"
@@ -109,9 +106,17 @@ const FlashcardPreview = props => {
               alignLeft
             />
           )}
+          {props.backFiller && (
+            <FlashcardItem
+              title="Back"
+              value={<Filler />}
+              alignLeft
+            />
+          )}
         </BackWrapper>
       </CardWrapper>
 
+      {/* cta's */}
       {!isNil(buttons) && (
         <FooterWrapper>
           <ButtonGroup

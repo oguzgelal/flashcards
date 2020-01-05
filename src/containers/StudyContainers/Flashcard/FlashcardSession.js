@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
 import SideSheet from '../../../components/SideSheet';
-import SessionContents from '../../../components/Sessions/SessionContents';
-import FlashcardSettings from './FlashcardSettings';
-import { sessionProps } from '../../../containers/Sessions/Session';
-
 import SessionHeader from '../../../components/Sessions/SessionHeader';
+import SessionContents from '../../../components/Sessions/SessionContents';
+import { sessionProps } from '../../Sessions/Session';
+
+import FlashcardSettings from './FlashcardSettings';
 
 class FlashcardSession extends React.Component {
   constructor(props, context) {

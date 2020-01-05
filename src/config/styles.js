@@ -14,10 +14,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: white;
 
     // disable accessibility mode until tab press
+    // box-shadow: none !important;
+    // TODO: find a better way to disable accessibility
     ${p => !p.accessibility && `
       * {
         &:focus {
-          box-shadow: none !important;
         }
       }
     `}

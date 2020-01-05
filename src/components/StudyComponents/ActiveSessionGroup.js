@@ -73,7 +73,7 @@ const ComposerBody = styled(Pane)`
   `}
 `;
 
-const ComposerGroup = props => {
+const ActiveSessionGroup = props => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -98,14 +98,14 @@ const ComposerGroup = props => {
   )
 };
 
-ComposerGroup.propTypes = {
+ActiveSessionGroup.propTypes = {
   icon: PropTypes.any,
   title: PropTypes.string,
   children: PropTypes.any,
   forceMobile: PropTypes.bool,
 };
 
-ComposerGroup.defaultProps = {
+ActiveSessionGroup.defaultProps = {
 }
 
-export default ComposerGroup;
+export default ActiveSessionGroup;

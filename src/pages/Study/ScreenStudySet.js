@@ -9,9 +9,8 @@ import setPropTypes from '../../common/setPropTypes';
 
 import Grid from '../../components/Grid/Grid';
 import SimpleCard from '../../components/SimpleCard';
-
-import { FlashcardPreview } from '../../components/StudyComponents/Flashcard';
 import { TablePreview } from '../../components/StudyComponents/Tables';
+import FlashcardComposer from '../../containers/StudyContainers/Flashcard/FlashcardComposer';
 
 class ScreenStudySet extends React.Component {
   constructor(props, context) {
@@ -22,18 +21,17 @@ class ScreenStudySet extends React.Component {
   }
 
   render() {
+
     // const setFlashcards = get(this.props, 'set.flashcards') || {};
     return (
       <Grid autoHeight columns={[2, 2, 1]}>
 
         {/* flashcard */}
-        <SimpleCard title="Flashcards">
-          <FlashcardPreview
-            frontFiller
-            backFiller
-            buttons={[ { children: "Start " } ]}
-          />
-        </SimpleCard>
+        <FlashcardComposer
+          settings={{
+            setId: get(this.props, 'set.id')
+          }}
+        />
 
         {/* study tables */}
         <SimpleCard title="Study Table">

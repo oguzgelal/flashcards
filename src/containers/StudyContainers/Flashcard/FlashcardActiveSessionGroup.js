@@ -8,13 +8,13 @@ import get from 'lodash/get';
 import sessionFlashcardsPropTypes from '../../../common/sessionFlashcardsPropTypes';
 
 import Grid from '../../../components/Grid';
-import ComposerGroup from '../../../components/Composer/ComposerGroup';
-import FlashcardComposer from './FlashcardComposer';
+import ActiveSessionGroup from '../../../components/StudyComponents/ActiveSessionGroup';
+import FlashcardActiveSession from './FlashcardActiveSession';
 import { SESSION_TYPE_FLASHCARD } from '../../../models/SessionFlashcards';
 
 import data from '../../../lib/tmpdata';
 
-class FlashcardsComposerGrid extends React.Component {
+class FlashcardActiveSessionGroup extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -35,7 +35,7 @@ class FlashcardsComposerGrid extends React.Component {
       .reduce((acc, s) => ({ ...acc, [get(s, 'origin.id')]: get(s, 'id') }), {});
 
     return (
-      <ComposerGroup
+      <ActiveSessionGroup
         title="Flashcards"
         forceMobile={this.props.forceMobile}
       >
@@ -48,7 +48,7 @@ class FlashcardsComposerGrid extends React.Component {
           {Object.keys(setFlashcardIds).map(flashcardId => {
             const flashcard = get(data, `common.flashcards['${flashcardId}']`);
             return (
-              <FlashcardComposer
+              <FlashcardActiveSession
                 key={flashcard.id}
                 set={get(sets, flashcard.sid)}
                 flashcard={flashcard}
@@ -57,12 +57,12 @@ class FlashcardsComposerGrid extends React.Component {
             )
           })}
         </Grid>
-      </ComposerGroup>
+      </ActiveSessionGroup>
     );
   }
 }
 
-FlashcardsComposerGrid.propTypes = {
+FlashcardActiveSessionGroup.propTypes = {
   // ie. { [flashcoard_id]: flashcoard, ... }
   flashcards: sessionFlashcardsPropTypes,
   columns: PropTypes.array,
@@ -80,4 +80,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FlashcardsComposerGrid);
+)(FlashcardActiveSessionGroup);
