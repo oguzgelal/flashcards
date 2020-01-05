@@ -1,23 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
-import isNil from 'lodash/isNil';
 import get from 'lodash/get';
-import Dotdotdot from 'react-dotdotdot';
-import { Heading, Paragraph, Pane, Card } from 'evergreen-ui';
 import Badge, { Badges } from '../Badge';
-
-const Wrapper = styled(Card)`
-  padding: 22px;
-  width: 100%;
-  height: auto;
-  background-color: white;
-`;
-
-const TitleWrapper = styled(Pane)``;
-const Title = styled(Heading)``;
-const Description = styled(Paragraph)``;
-const ContentsWrapper = styled(Pane)``;
+import SimpleCard from '../SimpleCard';
 
 const StudyTopic = ({ topic, children, ...props } = {}) => {
 
@@ -28,38 +13,21 @@ const StudyTopic = ({ topic, children, ...props } = {}) => {
   const topicSetsCount = topicSets.length;
 
   return (
-    <Wrapper border {...props}>
-      <TitleWrapper>
-
-        {/* title */}
-        <Title size={700}>
-          <Dotdotdot clamp={1}>
-            {topicTitle}
-          </Dotdotdot>
-        </Title>
-
-        {/* description */}
-        {!!topicDesc && (
-          <Description marginTop={4}>
-            <Dotdotdot clamp={2}>
-              {topicDesc}
-            </Dotdotdot>
-          </Description>
-        )}
-
-        {/* badge */}
-        <Badges marginTop={8}>
+    <SimpleCard
+      key={`topic-${topicId}`}
+      title={topicTitle}
+      titleProps={{ size: 700 }}
+      desc={topicDesc}
+      headerChildren={(
+        <Badges>
           <Badge color={!topicSetsCount ? 'yellow' : 'blue'}>
             {!topicSetsCount ? 'No' : topicSetsCount} Set{topicSetsCount === 1 ? '' : 's'}
           </Badge>
         </Badges>
-
-        {/* contents */}
-        <ContentsWrapper marginTop={22}>
-          {children}
-        </ContentsWrapper>
-      </TitleWrapper>
-    </Wrapper>
+      )}
+    >
+      {children}
+    </SimpleCard>
   )
 };
 

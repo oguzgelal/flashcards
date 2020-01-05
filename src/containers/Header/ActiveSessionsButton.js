@@ -36,7 +36,7 @@ class ActiveSessionsButton extends React.Component {
       <>
 
         {/* active sessions button */}
-        <Tooltip content={`${sessionCount} active session${sessionCount > 1 ? 's' : ''}`}>
+        <Tooltip content={`${sessionCount === 0 ? 'No' : sessionCount} active session${sessionCount !== 1 ? 's' : ''}`}>
           <MinimalButton
             style={this.props.style}
             onClick={() => this.setState({ sessionsOpen: true })}

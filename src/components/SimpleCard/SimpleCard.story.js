@@ -33,7 +33,7 @@ const render = ({ hasHeader, hasBody, ...p } = {}) => {
   }
 
   return (
-    <div style={{ width: 520 }}>
+    <div style={{ maxWidth: 520 }}>
       <SimpleCard
         {...(hasHeader ? heading : {})}
         {...(hasBody ? body : {})}

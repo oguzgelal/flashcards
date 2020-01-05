@@ -5,8 +5,6 @@ import isNil from 'lodash/isNil';
 import Dotdotdot from 'react-dotdotdot';
 import { Pane, Card, Heading, Paragraph } from 'evergreen-ui';
 
-const verticalGap = 12;
-
 const Wrapper = styled(Card)`
   flex-shrink: 0;
   width: 100%;
@@ -25,13 +23,13 @@ const HeadingWrapper = styled(Pane)`
 
 const Title = styled(Heading)``;
 const Description = styled(Paragraph)`
-  margin-top: ${verticalGap}px;
+  margin-top: 8px;
   line-height: 16px;
 `;
 
 const Grow = styled(Pane)`
-  flex-grow: 1;
-  min-height: ${verticalGap * 2}px;
+  ${p => p.pushBody && `flex-grow: 1;`}
+  min-height: 18px;
 `;
 
 const CardBody = styled(Pane)``;
@@ -83,7 +81,7 @@ const SimpleCard = (props = {}) => {
             {/* other heading contents */}
             {!isNil(props.headerChildren) && (
               <>
-                <div style={{ height: verticalGap }} />
+                <div style={{ height: 12 }} />
                 {props.headerChildren}
               </>
             )}
@@ -91,7 +89,7 @@ const SimpleCard = (props = {}) => {
           </HeadingWrapper>
 
           {/* if body and heading coexist, render the gap */}
-          {hasBody && <Grow />}
+          {hasBody && <Grow pushBody={props.pushBody} />}
 
         </>
       )}
@@ -125,11 +123,16 @@ SimpleCard.propTypes = {
 
   // body
   children: PropTypes.any,
+  pushBody: PropTypes.bool, // push body down to the bottom
 
   // applies to outer wrapper
   wrapperProps: PropTypes.object,
   className: PropTypes.string,
   style: PropTypes.object,
 };
+
+SimpleCard.defaultProps = {
+  pushBody: true,
+}
 
 export default SimpleCard;

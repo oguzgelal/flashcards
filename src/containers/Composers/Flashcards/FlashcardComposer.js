@@ -14,7 +14,7 @@ import * as sessionTypes from '../../../redux/modules/sessions/types';
 import * as sessionActions from '../../../redux/modules/sessions/actions';
 import navigate from '../../../utils/navigate';
 
-import { FlashcardItem, FlashcardPreview } from '../../../components/Flashcard';
+import { FlashcardPreview } from '../../../components/Flashcard';
 import { SESSION } from '../../../config/routes';
 
 import data from '../../../lib/tmpdata';
@@ -46,20 +46,8 @@ class FlashcardComposer extends React.Component {
     return (
       <FlashcardPreview
         key={`${setId}_${flashcardId}`}
-        frontItem={(
-          <FlashcardItem
-            alignLeft
-            title="Front"
-            value={flashcardFront}
-          />
-        )}
-        backItem={(
-          <FlashcardItem
-            alignLeft
-            title="Back"
-            value={flashcardBack}
-          />
-        )}
+        frontItem={flashcardFront}
+        backItem={flashcardBack}
         buttons={[
           {
             label: (isSessionActive ?

@@ -57,10 +57,18 @@ const theme = {
   headerHeight: 52,
   ...defaultTheme,
 
+  // flashcard
   flashcardBgFront: get(defaultTheme, 'palette.neutral.dark'),
   flashcardColorFront: get(defaultTheme, 'palette.neutral.lightest'),
   flashcardBgBack: get(defaultTheme, 'palette.neutral.lightest'),
   flashcardColorBack: get(defaultTheme, 'palette.neutral.dark'),
+
+  // tables
+  tablesHeaderCellBg: get(defaultTheme, 'palette.neutral.dark'),
+  tablesHeaderCellColor: get(defaultTheme, 'palette.neutral.lightest'),
+  tablesCellBg: get(defaultTheme, 'palette.neutral.lightest'),
+  tablesCellColor: get(defaultTheme, 'palette.neutral.dark'),
+
 };
 
 if (process.env.NODE_ENV !== 'production') {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import StudySet from './StudySet';
 import data from '../../lib/tmpdata';
@@ -8,7 +8,7 @@ import data from '../../lib/tmpdata';
 const story = storiesOf(`Core/StudySet`, module);
 
 const wrap = stuff => (
-  <div style={{ width: 320 }}>
+  <div style={{ maxWidth: 320 }}>
     <BrowserRouter>{stuff}</BrowserRouter>
   </div>
 );

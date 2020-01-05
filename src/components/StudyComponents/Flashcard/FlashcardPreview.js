@@ -5,7 +5,8 @@ import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 
 import { Pane, Card } from 'evergreen-ui';
-import { ButtonGroup, buttonsPropType } from '../Button';
+import { ButtonGroup, buttonsPropType } from '../../Button';
+import FlashcardItem from './FlashcardItem';
 
 const Wrapper = styled(Pane)`
   width: 100%;
@@ -23,7 +24,7 @@ const CardWrapper = styled(Pane)`
 
 const FrontWrapper = styled(Card)`
   width: 50%;
-  min-height: 140px;
+  min-height: 150px;
   padding-bottom: 22px;
   transform: rotate(-3deg);
   z-index: 3;
@@ -38,7 +39,7 @@ const FrontWrapper = styled(Card)`
 
 const BackWrapper = styled(Card)`
   width: 50%;
-  min-height: 140px;
+  min-height: 150px;
   padding-bottom: 22px;
   transform: rotate(5deg);
   background-color: ${p => p.theme.flashcardBgBack};
@@ -66,10 +67,24 @@ const FlashcardPreview = props => {
 
       <CardWrapper hasButtons={!isNil(buttons)}>
         <FrontWrapper border hasButtons={!isNil(buttons)}>
-          {frontItem}
+          {typeof frontItem !== 'string' && frontItem}
+          {typeof frontItem === 'string' && (
+            <FlashcardItem
+              title="Front"
+              value={frontItem}
+              alignLeft
+            />
+          )}
         </FrontWrapper>
         <BackWrapper border hasButtons={!isNil(buttons)}>
-          {backItem}
+          {typeof backItem !== 'string' && frontItem}
+          {typeof backItem === 'string' && (
+            <FlashcardItem
+              title="Back"
+              value={backItem}
+              alignLeft
+            />
+          )}
         </BackWrapper>
       </CardWrapper>
 
