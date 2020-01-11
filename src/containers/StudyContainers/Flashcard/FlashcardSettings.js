@@ -5,14 +5,16 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
-import { SelectField, TextInputField, SelectMenu } from 'evergreen-ui';
-import Button from '../../../components/Button';
+import { TextInputField} from '../../../components/input/TextInput';
+import SelectField from '../../../components/SelectField';
+import FormFieldHorizontal from '../../../components/input/FormFieldHorizontal';
 
 import tmpdata from '../../../lib/tmpdata';
 
-const Wrapper = styled.form`
-  > div {
-    margin-bottom: 12px !important;
+const Wrapper = styled.div`
+  > div,
+  > span > div {
+    margin-bottom: 14px !important;
   }
 `;
 
@@ -21,88 +23,108 @@ class FlashcardSettings extends React.Component {
     super(props, context);
 
     this.state = {
-      settings: {},
     };
 
-    this.set = this.set.bind(this);
+    this.getSelectedSet = this.getSelectedSet.bind(this);
+    this.getSelectedTopic = this.getSelectedTopic.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
   }
 
   // set defaults
   componentDidMount() {
-    // load initial settings into local state
-    this.set({ ...(get(this.props, 'initialSettings') || {}) }, () => {
-
-      const sets = get(tmpdata, 'sets');
-      const currentSetId = get(this.state, 'settings.setId');
-      const selectedSet = get(sets, currentSetId);
-      const selectedSetTitle = get(selectedSet, 'title');
-
-      // set default title
-      this.set({
-        title: (
-          get(this.props, 'initialSettings.title') ||
-          `${selectedSetTitle ? `${selectedSetTitle} - ` : ''}Flashcard session`
-        )
-      })
-    })
+    this.updateTitle();
   }
 
-  // TODO: this component should not manage its own state.
-  // make this component controlled.
-  // TODO2: topic id should also be handled here
-  // TODO3: if topic and set id not set, other settings should be hidden
-  set(vals = {}, callback) {
-    this.setState({
-      settings: {
-        ...(get(this.state, 'settings') || {}),
-        ...vals
-      }
-    }, callback)
+  updateTitle() {
+    // get selected items
+    const selectedSet = this.getSelectedSet();
+    const selectedTopic = this.getSelectedTopic();
+    // construct title
+    let title = 'Flashcards';
+    if (get(selectedSet, 'title')) title = `${get(selectedSet, 'title')} ${title}`;
+    if (get(selectedTopic, 'title')) title = `${get(selectedTopic, 'title')}: ${title}`;
+    // set default title
+    this.props.onChange({ title })
+  }
+
+  getSelectedSet() {
+    const sets = get(tmpdata, 'sets');
+    const currentSetId = get(this.props, 'settings.setId');
+    return get(sets, currentSetId);
+  }
+
+  getSelectedTopic() {
+    const topics = get(tmpdata, 'topics');
+    const currentTopicId = get(this.props, 'settings.topicId');
+    return get(topics, currentTopicId);
   }
 
   render() {
-
     const sets = get(tmpdata, 'sets');
-    const currentSetId = get(this.state, 'settings.setId');
+    const topics = get(tmpdata, 'topics');
+    const currentSetId = get(this.props, 'settings.setId');
+    const currentTopicId = get(this.props, 'settings.topicId');
     const selectedSet = get(sets, currentSetId);
+    const selectedTopic = get(topics, currentTopicId);
+    const hasTopic = !!selectedTopic;
     const hasSet = !!selectedSet;
 
     return (
-      <Wrapper
-        onSubmit={e => {
-          e.preventDefault();
-          this.props.onSubmit({
-            settings: this.state.settings,
-          })
-        }}
-      >
+      <Wrapper>
+
+        {/* topic */}
+        <FormFieldHorizontal labelWidth={50}>
+          <SelectField
+            required
+            label="Topic"
+            disabled={hasTopic}
+            value={currentTopicId}
+            onChange={e => this.props.onChange({ topicId: e.target.value }, this.updateTitle)}
+          >
+            <option value={null}>Select...</option>
+            {Object.values(topics).map(t => (
+              <option
+                value={t.id}
+                selected={t.id === currentTopicId}
+              >
+                {t.title}
+              </option>
+            ))}
+          </SelectField>
+        </FormFieldHorizontal>
 
         {/* set */}
-        <SelectField
-          required
-          label="Set"
-          disabled={hasSet}
-          value={currentSetId}
-          onChange={e => this.set({ setId: e.target.value })}
-        >
-          <option value={null}>Select...</option>
-          {Object.values(sets).map(s => (
-            <option
-              value={s.id}
-              selected={s.id === currentSetId}
-            >
-              {s.title}
-            </option>
-          ))}
-        </SelectField>
+        <FormFieldHorizontal labelWidth={50}>
+          <SelectField
+            required
+            label="Set"
+            disabled={!hasTopic || hasSet}
+            value={currentSetId}
+            onChange={e => this.props.onChange({ setId: e.target.value }, this.updateTitle)}
+          >
+            <option value={null}>Select...</option>
+            {Object.values(sets).map(s => (
+              <option
+                value={s.id}
+                selected={s.id === currentSetId}
+              >
+                {s.title}
+              </option>
+            ))}
+          </SelectField>
+        </FormFieldHorizontal>
 
         {/* session name */}
-        <TextInputField
-          required
-          label="Title"
-          value={get(this.state, 'settings.title')}
-          onChange={e => this.set({ title: e.target.value })}
-        />
+        <FormFieldHorizontal labelWidth={50}>
+          <TextInputField
+            required
+            disabled={!hasTopic || !hasSet}
+            label="Title"
+            value={get(this.props, 'settings.title')}
+            onChange={e => this.props.onChange({ title: e.target.value })}
+          />
+        </FormFieldHorizontal>
+
       </Wrapper>
     );
   }
@@ -110,14 +132,15 @@ class FlashcardSettings extends React.Component {
 
 export const flashcardSettingsPropTypes = {
   title: PropTypes.string,
+  topicId: PropTypes.string,
   setId: PropTypes.string,
   front: PropTypes.string,
   back: PropTypes.string,
 };
 
 FlashcardSettings.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  initialSettings: flashcardSettingsPropTypes,
+  settings: flashcardSettingsPropTypes,
+  onChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

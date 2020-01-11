@@ -26,10 +26,16 @@ class FlashcardLauncher extends React.Component {
     this.start = this.start.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      settings: this.props.settings || {}
+    })
+  }
+
   start(callback) {
     this.props.sessionActions.sessionStart({
       type: SESSION_TYPE_FLASHCARD,
-      settings: {}, // TODO: apply settings here
+      settings: this.state.settings, // TODO: apply settings here
       callback: () => {
         if (typeof callback === 'function') {
           callback();
@@ -58,9 +64,26 @@ class FlashcardLauncher extends React.Component {
             this.setState({ showSettings: false })
           })}
         >
-          <FlashcardSettings
-            initialSettings={this.props.settings}
-          />
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.start(() => {
+                this.setState({ showSettings: false })
+              })
+            }}
+          >
+            <FlashcardSettings
+              settings={this.state.settings}
+              onChange={(vals = {}, callback) => {
+                this.setState({
+                  settings: {
+                    ...(get(this.state, 'settings') || {}),
+                    ...vals
+                  }
+                }, callback);
+              }}
+            />
+          </form>
         </Dialog>
 
         {/* composer */}

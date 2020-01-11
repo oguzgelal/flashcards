@@ -39,7 +39,7 @@ class ActiveSessionsButton extends React.Component {
                 <Menu.Group title={sessionCount === 0 ? "No Active Sessions" : "Sessions"}>
                   {sessionCount > 0 && Object.values(sessions).map(s => (
                     <Menu.Item icon="application" key={get(s, 'id')}>
-                      {get(s, 'title') || 'Untitled session'}
+                      {get(s, 'settings.title') || 'Untitled session'}
                     </Menu.Item>
                   ))}
                 </Menu.Group>

@@ -29,13 +29,15 @@ class ScreenStudySet extends React.Component {
         {/* flashcard */}
         <FlashcardLauncher
           settings={{
-            setId: get(this.props, 'set.id')
+            topicId: get(this.props, 'set.topic'),
+            setId: get(this.props, 'set.id'),
           }}
         />
 
         {/* study tables */}
         <StudyTableLauncher
           settings={{
+            topicId: get(this.props, 'set.topic'),
             setId: get(this.props, 'set.id')
           }}
         />
@@ -43,6 +45,7 @@ class ScreenStudySet extends React.Component {
         {/* reveal table */}
         <RevealTableLauncher
           settings={{
+            topicId: get(this.props, 'set.topic'),
             setId: get(this.props, 'set.id')
           }}
         />
