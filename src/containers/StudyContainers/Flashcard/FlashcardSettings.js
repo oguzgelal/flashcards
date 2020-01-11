@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
+import { SelectField } from 'evergreen-ui';
 import { TextInputField} from '../../../components/input/TextInput';
-import SelectField from '../../../components/SelectField';
 import FormFieldHorizontal from '../../../components/input/FormFieldHorizontal';
 
 import tmpdata from '../../../lib/tmpdata';
