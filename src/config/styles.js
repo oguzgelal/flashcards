@@ -2,9 +2,19 @@ import { createGlobalStyle } from 'styled-components'
 import { defaultTheme } from 'evergreen-ui';
 import get from 'lodash/get';
 // eslint-disable-next-line
-const bpTheme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!@blueprintjs/core/lib/scss/variables.scss');
+const bp = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!@blueprintjs/core/lib/scss/variables.scss');
 
-console.log('bpTheme', bpTheme);
+// theme specific variables
+const t = {
+  appBg: {
+    light: get(bp, 'ptAppBackgroundColor'),
+    dark: get(bp, 'ptDarkAppBackgroundColor'),
+  },
+  borderColor: {
+    light: get(bp, 'lightGray3'),
+    dark: get(bp, 'lightGray1'),
+  }
+}
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -15,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: $pt-dark-app-background-color;
+    background-color: white;
 
     // disable accessibility mode until tab press
     // box-shadow: none !important;
@@ -50,7 +60,8 @@ export const sizeLaptop = 1440;
 export const sizeDesktop = 1440;
 
 const theme = {
-  bp: bpTheme,
+  t,
+  bp,
   bodyPadding: 22,
   bodyPaddingCover: `
     margin-left: -22px;

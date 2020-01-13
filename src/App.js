@@ -42,7 +42,6 @@ class App extends React.Component {
     api.init();
     history.listen(() => this.forceUpdate());
     this.props.authActions.setAuthObserver();
-    this.props.miscActions.setAccessibilityListener();
   }
 
   render() {

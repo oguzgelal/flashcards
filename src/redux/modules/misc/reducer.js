@@ -3,8 +3,13 @@ import * as types from './types';
 
 export default (state = initialState.misc, action = {}) => {
 
-  if (action.type === types.ENABLE_ACCESSIBILITY) {
-    return { ...state, accessibility: true }
+  if (action.type === types.TOGGLE_THEME) {
+    return {
+      ...state,
+      theme: state.theme === 'light' ?
+        'dark' :
+        'light'
+      }
   }
 
   return state;

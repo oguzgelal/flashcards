@@ -9,26 +9,27 @@ import { ResponsivePage } from '../../components/Page';
 import UserAvatar from './UserAvatar';
 import ActiveSessionsButton from './ActiveSessionsButton';
 
-const Wrapper = styled(Pane)`
+const Wrapper = styled.div`
   height: ${p => p.theme.headerHeight}px;
+  display: flex;
+  align-items: center;
+  border-bottom: ${p => `1px solid ${p.theme.t.borderColor.light}`};
 `;
 
-const Separator = styled(Pane)`
+const Separator = styled.div`
   width: 1px;
   height: 18px;
   margin-left: 32px;
   margin-right: 32px;
-  background-color: ${p => p.theme.colors.border.default};
-  @media ${p => p.theme.mobile} {
-    display: none;
-  }
+  background-color: ${p => p.theme.t.borderColor.light};
+  @media ${p => p.theme.mobile} { display: none; }
 `;
 
 const HeadingIcon = styled(Icon)`
   color: ${p => p.theme.colors.text.dark};
 `;
 
-const Grow = styled(Pane)`
+const Grow = styled.div`
   flex-grow: 1;
 `;
 
@@ -42,17 +43,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Wrapper
-        display="flex"
-        alignItems="center"
-        borderBottom
-        borderLeft
-        borderRight
-      >
+      <Wrapper>
         <ResponsivePage
-          display="flex"
-          alignItems="center"
-          style={{ paddingTop: 0, paddingBottom: 0 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            paddingTop: 0,
+            paddingBottom: 0
+          }}
         >
           <HeadingIcon icon="grid-view" marginRight={12} />
           <Heading size={600}>Flashcards</Heading>
