@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Page from '../../components/Page';
-import TextInput from '../../components/TextInput';
+import TextInput from '../../components/input/TextInput';
 import Button from '../../components/Button';
 import {
   Heading,

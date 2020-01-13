@@ -32,41 +32,42 @@ class ActiveSessionsButton extends React.Component {
     return (
       <>
         {/* active sessions button */}
-          <Popover
-            position={Position.BOTTOM_RIGHT}
-            content={({ close }) => (
-              <Menu>
-                <Menu.Group title={sessionCount === 0 ? "No Active Sessions" : "Sessions"}>
-                  {sessionCount > 0 && Object.values(sessions).map(s => (
-                    <Menu.Item icon="application" key={get(s, 'id')}>
-                      {get(s, 'settings.title') || 'Untitled session'}
-                    </Menu.Item>
-                  ))}
-                </Menu.Group>
-                <Menu.Divider />
-                <Menu.Group>
-                  <Menu.Item
-                    icon="add"
-                    onSelect={() => {
-                      this.setState({ sessionsOpen: true })
-                      close();
-                    }}
-                  >
-                    New Session
+        <Popover
+          width={80}
+          position={Position.BOTTOM_RIGHT}
+          content={({ close }) => (
+            <Menu>
+              <Menu.Group title={sessionCount === 0 ? "No Active Sessions" : "Sessions"}>
+                {sessionCount > 0 && Object.values(sessions).map(s => (
+                  <Menu.Item icon="application" key={get(s, 'id')}>
+                    {get(s, 'settings.title') || 'Untitled session'}
                   </Menu.Item>
-                </Menu.Group>
-              </Menu>
+                ))}
+              </Menu.Group>
+              <Menu.Divider />
+              <Menu.Group>
+                <Menu.Item
+                  icon="add"
+                  onSelect={() => {
+                    this.setState({ sessionsOpen: true })
+                    close();
+                  }}
+                >
+                  New Session
+                </Menu.Item>
+              </Menu.Group>
+            </Menu>
+          )}
+        >
+          <MinimalButton style={this.props.style}>
+            <Icon icon="application" />
+            {sessionCount > 0 && (
+              <SessionCount color="red" isSolid>
+                {sessionCount}
+              </SessionCount>
             )}
-          >
-            <MinimalButton style={this.props.style}>
-              <Icon icon="application" />
-              {sessionCount > 0 && (
-                <SessionCount color="red" isSolid>
-                  {sessionCount}
-                </SessionCount>
-              )}
-            </MinimalButton>
-          </Popover>
+          </MinimalButton>
+        </Popover>
 
           <SessionLauncherSidesheet
             isOpen={this.state.sessionsOpen}
