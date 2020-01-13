@@ -8,6 +8,9 @@ import isNil from 'lodash/isNil';
 import { Spinner } from 'evergreen-ui';
 import { Router, Route } from "react-router-dom";
 
+import 'normalize.css/normalize.css';
+import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+import '@blueprintjs/core/lib/css/blueprint.css';
 import 'animate.css/animate.min.css';
 
 import history from './config/history';
