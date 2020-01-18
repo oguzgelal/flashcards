@@ -45,6 +45,14 @@ class ActiveSessionsButton extends React.Component {
     const sessions = get(this.props, 'sessions') || {};
     const sessionCount = Object.keys(sessions).length;
 
+    // TODO: make connected dropdown containers using Select for:
+    // 1. Active sessions
+    // 2. Topics
+    // 3. Sets
+    // 4. Flashcards
+    // 5. ...Other components of the like
+    //
+    // TODO2: Use #1 here v
     return (
       <>
         <Select
