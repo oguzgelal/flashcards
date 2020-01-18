@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import { Button, Menu, Toaster } from '@blueprintjs/core';
 import { Select } from "@blueprintjs/select";
-
+import Device from '../../components/Device/Device';
 import SessionLauncherSidesheet from './SessionLauncherSidesheet';
 
 const ButtonStyled = styled(Button)`
@@ -14,8 +14,8 @@ const ButtonStyled = styled(Button)`
       &:after {
         content: '${p.sessionCount}';
         position: absolute;
-        top: -6px;
-        right: -6px;
+        top: -3px;
+        right: -3px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -51,8 +51,6 @@ class ActiveSessionsButton extends React.Component {
     // 3. Sets
     // 4. Flashcards
     // 5. ...Other components of the like
-    //
-    // TODO2: Use #1 here v
     return (
       <>
         <Select
@@ -94,44 +92,21 @@ class ActiveSessionsButton extends React.Component {
               />
             )
           }}
-          /*
-          itemListRenderer={({ items = [], itemsParentRef, query, renderItem }) => {
-            // filter
-            const itemsFiltered = items
-              .filter(session => {
-                if (!query) return true;
-                const sessionTitle = get(session, 'settings.title') || '';
-                const sessionTitleNormalized = sessionTitle.toLowerCase();
-                const queryNormalized = query.toLowerCase();
-                return sessionTitleNormalized.indexOf(queryNormalized) > 0;
-              });
-            // render
-            const renderedItems = itemsFiltered
-              .map(renderItem)
-              .filter(item => item != null);
-            return (
-              <Menu ulRef={itemsParentRef} style={{ maxWidth: 320 }}>
-                  <Menu.Divider title={sessionCount === 0 ? "No Active Sessions" : "Sessions"} />
-                  {itemsFiltered.length > 0 && renderedItems}
-                  {itemsFiltered.length === 0 && (
-                    <Menu.Item
-                      disabled={true}
-                      text="Nothing here."
-                    />
-                  )}
-
-              </Menu>
-            )
-          }}
-          */
         >
-          <ButtonStyled
-            icon="application"
-            sessionCount={sessionCount}
-            style={Object.assign({}, this.props.style, {
-              position: 'relative'
-            })}
-          />
+          <Device>
+            {({ mobile }) => (
+              <ButtonStyled
+                minimal
+                icon="application"
+                sessionCount={sessionCount}
+                style={Object.assign({}, this.props.style, {
+                  position: 'relative'
+                })}
+              >
+                  {!mobile && 'Sessions'}
+              </ButtonStyled>
+            )}
+          </Device>
         </Select>
 
         <SessionLauncherSidesheet

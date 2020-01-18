@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 
-import { MinimalButton } from '../../components/Button'
-import { Icon, Popover, Position, Menu } from 'evergreen-ui';
+import { Button, Menu } from '@blueprintjs/core';
+import { Select } from "@blueprintjs/select";
 
+import Device from '../../components/Device/Device';
 import { LOGOUT } from '../../redux/modules/auth/types';
 import * as authActions from '../../redux/modules/auth/actions';
 
@@ -22,29 +23,49 @@ class UserAvatar extends React.Component {
     const isLoggingOut = this.props.loading[LOGOUT];
 
     return (
-      <Popover
-        position={Position.BOTTOM_RIGHT}
-        content={
-          <Menu>
-            <Menu.Group>
-              <Menu.Item icon="settings">Settings</Menu.Item>
-              <Menu.Item
-                icon="log-out"
-                onSelect={() => {
-                  this.props.authActions.logout();
-                }}
-              >
-                {isLoggingOut && "Logging out..."}
-                {!isLoggingOut && "Logout"}
-              </Menu.Item>
-            </Menu.Group>
-          </Menu>
-        }
+      <Select
+        resetOnSelect
+        resetOnClose
+        filterable={false}
+        items={[
+          {
+            settings: true,
+            text: 'Settings',
+            icon: 'settings',
+            onClick: () => {}
+          },
+          {
+            logout: true,
+            text: isLoggingOut ? "Logging out..." : "Logout",
+            icon: 'log-out',
+            onClick: () => {
+              this.props.authActions.logout()
+            }
+          }
+        ]}
+        onItemSelect={(item, event) => item.onClick()}
+        itemRenderer={(item, { handleClick, modifiers }) => (
+          <Menu.Item
+            icon={item.icon}
+            text={item.text}
+            active={modifiers.active}
+            onClick={handleClick}
+          />
+        )}
       >
-        <MinimalButton style={this.props.style} iconAfter="caret-down">
-          <Icon icon="user" />
-        </MinimalButton>
-      </Popover>
+        <Device>
+          {({ mobile }) => (
+            <Button
+              minimal
+              style={this.props.style}
+              icon="user"
+              rightIcon="caret-down"
+            >
+              {!mobile && 'Profile'}
+            </Button>
+          )}
+        </Device>
+      </Select>
     );
   }
 }

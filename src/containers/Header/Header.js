@@ -7,7 +7,7 @@ import { Icon, H3, Navbar } from "@blueprintjs/core";
 import { ResponsivePage } from '../../components/Page';
 import UserAvatar from './UserAvatar';
 import ActiveSessionsButton from './ActiveSessionsButton';
-
+import Device from '../../components/Device/Device';
 const Grow = styled.div`
   flex-grow: 1;
 `;
@@ -22,32 +22,41 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Navbar>
-        <ResponsivePage
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            paddingTop: 0,
-            paddingBottom: 0
-          }}
-        >
-          <Navbar.Group>
-            <Navbar.Heading style={{ display: 'flex', alignItems: 'center' }}>
-              <Icon icon="grid-view" style={{ marginRight: 12 }} />
-              <H3 style={{ margin: 0 }}>Flashcards</H3>
-            </Navbar.Heading>
-            <Navbar.Divider />
-          </Navbar.Group>
+      <Device>
+        {({ mobile }) => (
+          <Navbar
+            style={{
+              paddingLeft: 0,
+              paddingRight: 0
+            }}
+          >
+            <ResponsivePage
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                paddingTop: 0,
+                paddingBottom: 0
+              }}
+            >
+              <Navbar.Group>
+                <Navbar.Heading style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon icon="grid-view" style={{ marginRight: mobile ? 8 : 12 }} />
+                  <H3 style={{ margin: 0 }}>Flashcards</H3>
+                </Navbar.Heading>
+                {!mobile && <Navbar.Divider />}
+              </Navbar.Group>
 
-          <Grow />
+              <Grow />
 
-          <Navbar.Group>
-            <ActiveSessionsButton style={{ marginLeft: 12 }} />
-            <UserAvatar style={{ marginLeft: 12 }} />
-          </Navbar.Group>
+              <Navbar.Group>
+                <ActiveSessionsButton style={{ marginLeft: mobile ? 8 : 12 }} />
+                <UserAvatar style={{ marginLeft: mobile ? 8 : 12 }} />
+              </Navbar.Group>
 
-        </ResponsivePage>
-      </Navbar>
+            </ResponsivePage>
+          </Navbar>
+        )}
+      </Device>
     );
   }
 }

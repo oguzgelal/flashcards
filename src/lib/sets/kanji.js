@@ -103,6 +103,16 @@ export default {
     { id: "aR6lhJ9ZM79a9EaDLQ8oi3Jq5lxoXw==", K: "化", M: "Change", OY: "か", KY: "ば", MM: "This looks like TL (ie. Turkish Liras). It's rude (kaba - かば) to ask someone to change TL's because its almost worthless." },
     { id: "4w/aRnrsOx/7jmYwd0MxQOwqwUFctg==", K: "地", M: "Earth, Ground", OY: "ち, じ", KY: "-", MM: "Just like how you find two cheese in the dirt (ie. つち), you find also one in the earth (ち), and it's cheesy (ちじ)" },
     { id: "6JqbixSzwBG6i6b7DGfARUGoSWql1w==", K: "両", M: "Both", OY: "りょう", KY: "-", MM: "" },
+    { id: "EM7D4ceq84zgA5kNEZdkT4pqvu3Z1g==", K: "全", M: "All, Whole", OY: "ぜん", KY: "すべ, まった", MM: "Kanji resembles the letter A. You're ZENgin (ぜん) when you have it all." },
+    { id: "0Buo5XMi1Qpl6fwqUtSr7DxQeu9XxQ==", K: "向", M: "Yonder, Facing", OY: "こう", KY: "む", MM: "This looks like 何 and 回. If you wONDER 何回 you need to COUnt (こう)" },
+    { id: "AAWYsI1fLrttHH0egkXm7i29qwFOaA==", K: "安", M: "Relax, Cheap", OY: "あん", KY: "やす", MM: "If you're a CHEAP bastard, you can only RELAX when you put a roof over a womans head, because her AN (あん) she can leave you otherwise." },
+    { id: "D03N96sNI5lu3Gjkk7L3sNhACBjPTg==", K: "州", M: "State, Province, County", OY: "しゅう", KY: "-", MM: "In some states, people can Shoot (しゅう) you." },
+    { id: "BD8fB83eCglbbSnX0PEPcFubpoEttw==", K: "曲", M: "Music", OY: "きょく", KY: "き", MM: "This looks like a guitar. Think of keys in music." },
+    { id: "mDyAY0MXqxm19ZN/Tmc1UxGvl98Cag==", K: "有", M: "Have", OY: "ゆう, う", KY: "あ", MM: "Narwhal and the moon is everything YUU (ゆう) HAVE" },
+    { id: "tIDMKIsHIslkvwx8v6e0luiiEyq5Mw==", K: "京", M: "Capital", OY: "きょう", KY: "みやこ", MM: "" },
+    { id: "mY8CehFhr1n9ivrlBKRQgZYQYqg3mg==", K: "国", M: "Country", OY: "こく", KY: "", MM: "" },
+    { id: "jmULoxYugNhDXRBit26j5yFzpiJNcQ==", K: "夜", M: "Night, Evening", OY: "や", KY: "よ, よる", MM: "Leader is under the roof in the winter. It's obviously YAtma vakti (や) çünkü çok YORUlmuş (よる)" },
+    { id: "O3O7E0LMK7iJ5Ggdmzr8lT55PMqpYw==", K: "明", M: "Bright", OY: "めい", KY: "あ, あか, あき", MM: "When do things start to get bright outside? I'd say when things start getting sunny, and that is the month of May (めい)." },
     // { id: "", K: "", M: "", OY: "", KY: "", MM: "" },
   ]
 }

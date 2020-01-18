@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
+import { Drawer } from '@blueprintjs/core';
 
 import Grid from '../../components/Grid';
-import Sidesheet from '../../components/SideSheet';
 import FlashcardLauncher from '../StudyContainers/Flashcard/FlashcardLauncher';
 import RevealTableLauncher from '../StudyContainers/RevealTable/RevealTableLauncher';
 import StudyTableLauncher from '../StudyContainers/StudyTable/StudyTableLauncher';
+
+const Body = styled.div`
+  height: 100%;
+  overflow: auto;
+  padding: 22px;
+  background-color: ${p => p.theme.t.appBg()};
+`;
 
 class SessionLauncherSidesheet extends React.Component {
   constructor(props, context) {
@@ -20,17 +27,22 @@ class SessionLauncherSidesheet extends React.Component {
 
   render() {
     return (
-      <Sidesheet
+      <Drawer
+        usePortal
         isOpen={this.props.isOpen}
-        close={this.props.close}
+        onClose={this.props.close}
         title="Start New Session"
+        icon="application"
+        size={Drawer.SIZE_SMALL}
       >
-        <Grid columns={[1, 1, 1]} autoHeight>
-          <FlashcardLauncher />
-          <StudyTableLauncher />
-          <RevealTableLauncher />
-        </Grid>
-      </Sidesheet>
+        <Body>
+          <Grid columns={[1, 1, 1]} autoHeight>
+            <FlashcardLauncher />
+            <StudyTableLauncher />
+            <RevealTableLauncher />
+          </Grid>
+        </Body>
+      </Drawer>
     );
   }
 }
