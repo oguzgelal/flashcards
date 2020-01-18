@@ -27,7 +27,7 @@ export const ResponsivePage = styled.div`
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background-color: ${p => p.theme.t.appBg.light};
+  background-color: ${p => p.theme.t.appBg()};
   width: 100%;
   height: 100%;
 

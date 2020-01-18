@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { Spinner } from 'evergreen-ui';
 import { Router, Route } from "react-router-dom";
+import { FocusStyleManager } from "@blueprintjs/core";
 
 import 'normalize.css/normalize.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -42,6 +43,7 @@ class App extends React.Component {
     api.init();
     history.listen(() => this.forceUpdate());
     this.props.authActions.setAuthObserver();
+    FocusStyleManager.onlyShowFocusOnTabs();
   }
 
   render() {

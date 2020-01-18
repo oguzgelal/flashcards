@@ -3,31 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
-import { Pane, Heading, Icon } from 'evergreen-ui';
-
+import { Icon, H3, Navbar } from "@blueprintjs/core";
 import { ResponsivePage } from '../../components/Page';
 import UserAvatar from './UserAvatar';
 import ActiveSessionsButton from './ActiveSessionsButton';
-
-const Wrapper = styled.div`
-  height: ${p => p.theme.headerHeight}px;
-  display: flex;
-  align-items: center;
-  border-bottom: ${p => `1px solid ${p.theme.t.borderColor.light}`};
-`;
-
-const Separator = styled.div`
-  width: 1px;
-  height: 18px;
-  margin-left: 32px;
-  margin-right: 32px;
-  background-color: ${p => p.theme.t.borderColor.light};
-  @media ${p => p.theme.mobile} { display: none; }
-`;
-
-const HeadingIcon = styled(Icon)`
-  color: ${p => p.theme.colors.text.dark};
-`;
 
 const Grow = styled.div`
   flex-grow: 1;
@@ -43,7 +22,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <Navbar>
         <ResponsivePage
           style={{
             display: 'flex',
@@ -52,14 +31,23 @@ class Header extends React.Component {
             paddingBottom: 0
           }}
         >
-          <HeadingIcon icon="grid-view" marginRight={12} />
-          <Heading size={600}>Flashcards</Heading>
-          <Separator />
+          <Navbar.Group>
+            <Navbar.Heading style={{ display: 'flex', alignItems: 'center' }}>
+              <Icon icon="grid-view" style={{ marginRight: 12 }} />
+              <H3 style={{ margin: 0 }}>Flashcards</H3>
+            </Navbar.Heading>
+            <Navbar.Divider />
+          </Navbar.Group>
+
           <Grow />
-          <ActiveSessionsButton style={{ marginLeft: 12 }} />
-          <UserAvatar style={{ marginLeft: 12 }} />
+
+          <Navbar.Group>
+            <ActiveSessionsButton style={{ marginLeft: 12 }} />
+            <UserAvatar style={{ marginLeft: 12 }} />
+          </Navbar.Group>
+
         </ResponsivePage>
-      </Wrapper>
+      </Navbar>
     );
   }
 }

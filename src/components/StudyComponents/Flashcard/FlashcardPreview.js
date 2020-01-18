@@ -28,8 +28,8 @@ const FrontWrapper = styled(Card)`
   padding-bottom: 22px;
   transform: rotate(-3deg);
   z-index: 3;
-  background-color: ${p => p.theme.flashcardBgFront};
-  * { color: ${p => p.theme.flashcardColorFront}; }
+  background-color: ${p => p.theme.t.flashcardBgFront()};
+  * { color: ${p => p.theme.t.flashcardColorFront()}; }
 
   ${p => p.hasButtons && `
     border-bottom-left-radius: 0;
@@ -42,8 +42,8 @@ const BackWrapper = styled(Card)`
   min-height: 150px;
   padding-bottom: 22px;
   transform: rotate(5deg);
-  background-color: ${p => p.theme.flashcardBgBack};
-  * { color: ${p => p.theme.flashcardColorBack}; }
+  background-color: ${p => p.theme.t.flashcardBgBack()};
+  * { color: ${p => p.theme.t.flashcardColorBack()}; }
 
   ${p => p.hasButtons && `
     border-bottom-right-radius: 0;
