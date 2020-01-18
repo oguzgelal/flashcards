@@ -100,6 +100,9 @@ export default {
     { id: "VEvYP1/eDkHoYD0twdbTNyJjiUOPhw==", K: "雨", M: "Rain", OY: "う", KY: "! あめ, あま", MM: "It rains a lot in AMErica (あめ)" },
     { id: "JulisVgAwWPF4hiAgokEoTG5EiObYw==", K: "青", M: "Blue", OY: "! せい, しょう", KY: "あお", MM: "You've been feling BLUE. You SHOUt (しょう) and SAY (せい) your problem." },
     { id: "ejyW6Vpdwn5RDsoIXVAHmq1TcyYWkQ==", K: "斤", M: "Axe, Bread Load Counter", OY: "! きん", KY: "", MM: "Axe is just like a KNIfe (きん)" },
+    { id: "aR6lhJ9ZM79a9EaDLQ8oi3Jq5lxoXw==", K: "化", M: "Change", OY: "か", KY: "ば", MM: "This looks like TL (ie. Turkish Liras). It's rude (kaba - かば) to ask someone to change TL's because its almost worthless." },
+    { id: "4w/aRnrsOx/7jmYwd0MxQOwqwUFctg==", K: "地", M: "Earth, Ground", OY: "ち, じ", KY: "-", MM: "Just like how you find two cheese in the dirt (ie. つち), you find also one in the earth (ち), and it's cheesy (ちじ)" },
+    { id: "6JqbixSzwBG6i6b7DGfARUGoSWql1w==", K: "両", M: "Both", OY: "りょう", KY: "-", MM: "" },
     // { id: "", K: "", M: "", OY: "", KY: "", MM: "" },
   ]
 }

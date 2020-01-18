@@ -159,6 +159,13 @@ export default {
     { id: "xPIVS+5ZXkSbnine2E+KJNJO/G+7+w==", R: "長", M: "This looks like a key having legs and walking. The key to walking LONG distances is to have legs" },
     { id: "qsUUFNYp7OCVEMYFQkpsiNMIX9ZZYg==", R: "食", M: "Eat" },
     { id: "T6FsgpDZkjsYUW1ILuW4iiPZBqvgbA==", R: "マ", M: "Mama" },
+    { id: "a/mNGW4JifmwyZqraFZ311ipdQkXoA==", R: "欠", M: "Lack" },
+    { id: "ypw8zJafSP/ggctgwGEmXTDl2Vlw1Q==", R: "占", M: "Fortune" },
+    { id: "bts2bKji7hezWfK1iyx5Gi7SAAitUw==", R: "犭", M: "Animal" },
+    { id: "wcsPy9hSyUZ6aQvziEldR7iCxUEXdA==", R: "首", M: "Neck" },
+    { id: "e+kcf0VE02i8yjOND1OruWSGX49sPg==", R: "舌", M: "Tongue" },
+    { id: "+FSwwCjvnzndnBIRCZzlqv9lpUKaeg==", R: "亡", M: "Death" },
+    { id: "8S+pRUCg6pYjRdpQ3cG6vxc0APGBkw==", R: "市", M: "City" },
     // { id: "", R: "", M: "" },
   ]
 }
