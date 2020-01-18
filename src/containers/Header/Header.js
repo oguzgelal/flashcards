@@ -3,32 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
-import { Pane, Heading, Icon } from 'evergreen-ui';
-
+import { Icon, H3, Navbar } from "@blueprintjs/core";
 import { ResponsivePage } from '../../components/Page';
 import UserAvatar from './UserAvatar';
 import ActiveSessionsButton from './ActiveSessionsButton';
 
-const Wrapper = styled(Pane)`
-  height: ${p => p.theme.headerHeight}px;
-`;
-
-const Separator = styled(Pane)`
-  width: 1px;
-  height: 18px;
-  margin-left: 32px;
-  margin-right: 32px;
-  background-color: ${p => p.theme.colors.border.default};
-  @media ${p => p.theme.mobile} {
-    display: none;
-  }
-`;
-
-const HeadingIcon = styled(Icon)`
-  color: ${p => p.theme.colors.text.dark};
-`;
-
-const Grow = styled(Pane)`
+const Grow = styled.div`
   flex-grow: 1;
 `;
 
@@ -42,26 +22,32 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Wrapper
-        display="flex"
-        alignItems="center"
-        borderBottom
-        borderLeft
-        borderRight
-      >
+      <Navbar>
         <ResponsivePage
-          display="flex"
-          alignItems="center"
-          style={{ paddingTop: 0, paddingBottom: 0 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            paddingTop: 0,
+            paddingBottom: 0
+          }}
         >
-          <HeadingIcon icon="grid-view" marginRight={12} />
-          <Heading size={600}>Flashcards</Heading>
-          <Separator />
+          <Navbar.Group>
+            <Navbar.Heading style={{ display: 'flex', alignItems: 'center' }}>
+              <Icon icon="grid-view" style={{ marginRight: 12 }} />
+              <H3 style={{ margin: 0 }}>Flashcards</H3>
+            </Navbar.Heading>
+            <Navbar.Divider />
+          </Navbar.Group>
+
           <Grow />
-          <ActiveSessionsButton style={{ marginLeft: 12 }} />
-          <UserAvatar style={{ marginLeft: 12 }} />
+
+          <Navbar.Group>
+            <ActiveSessionsButton style={{ marginLeft: 12 }} />
+            <UserAvatar style={{ marginLeft: 12 }} />
+          </Navbar.Group>
+
         </ResponsivePage>
-      </Wrapper>
+      </Navbar>
     );
   }
 }

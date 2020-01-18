@@ -1,1 +1,1 @@
-export const ENABLE_ACCESSIBILITY = 'fc/misc/ENABLE_ACCESSIBILITY';
+export const TOGGLE_THEME = 'fc/misc/TOGGLE_THEME';

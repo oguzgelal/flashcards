@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pane } from 'evergreen-ui'
 import styled from 'styled-components/macro';
 
-export const ResponsivePage = styled(Pane)`
+export const ResponsivePage = styled.div`
   width: 80%;
   min-height: 100%;
   max-width: 820px;
@@ -26,8 +25,11 @@ export const ResponsivePage = styled(Pane)`
   }
 `;
 
-const Wrapper = styled(Pane)`
+const Wrapper = styled.div`
   min-height: 100vh;
+  background-color: ${p => p.theme.t.appBg()};
+  width: 100%;
+  height: 100%;
 
   ${p => p.hasHeader && `
     height: calc(100% - ${p.theme.headerHeight}px);
@@ -53,24 +55,13 @@ const Wrapper = styled(Pane)`
 const Page = ({ children, full, center, responsiveWrapperProps, ...props } = {}) => {
 
   const renderChildren = full ? children : (
-    <ResponsivePage
-      center={center}
-      {...(responsiveWrapperProps || {})}
-    >
+    <ResponsivePage center={center} {...(responsiveWrapperProps || {})}>
       {children}
     </ResponsivePage>
   );
 
   return (
-    <Wrapper
-      width="100%"
-      height="100%"
-      background="tint2"
-      borderLeft
-      borderRight
-      center={center}
-      {...props}
-    >
+    <Wrapper center={center} {...props}>
       {renderChildren}
     </Wrapper>
   )

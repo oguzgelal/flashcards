@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 
 import { Pane, Card } from 'evergreen-ui';
+import { transparentize } from 'polished';
 import { range } from '../../../utils/random';
 import { ButtonGroup, buttonsPropType } from '../../Button';
 const Wrapper = styled(Pane)`
@@ -12,7 +13,7 @@ const Wrapper = styled(Pane)`
 
 const BodyWrapper = styled(Card)`
   flex-grow: 1;
-  background-color: ${p => p.theme.tablesCellBg};
+  background-color: ${p => p.theme.t.tablesCellBg()};
   min-height: 90px;
   overflow: hidden;
   transform: scale(0.98);
@@ -26,21 +27,20 @@ const Col = styled(Pane)`
   padding: 0 12px;
 
   ${p => p.c === 'red' && `
-    background-color: ${p.theme.palette.red.light};
-    opacity: 0.8;
+    background-color: ${transparentize(0.8, p.theme.bp.red5)};
   `}
   ${p => p.c === 'green' && `
-    background-color: ${p.theme.palette.green.light};
-    opacity: 0.8;
+    background-color: ${transparentize(0.8, p.theme.bp.green5)};
+    opacity: 0.5;
   `}
   ${p => p.c === 'blue' && `
-    opacity: 0.6;
+    opacity: 0.2;
     background: repeating-linear-gradient(
       -45deg,
-      ${p.theme.scales.blue.B2},
-      ${p.theme.scales.blue.B2} 10px,
-      ${p.theme.scales.blue.B3} 10px,
-      ${p.theme.scales.blue.B3} 20px
+      ${transparentize(0.7, p.theme.bp.blue5)},
+      ${transparentize(0.7, p.theme.bp.blue5)} 10px,
+      ${transparentize(0.9, p.theme.bp.blue5)} 10px,
+      ${transparentize(0.9, p.theme.bp.blue5)} 20px
     );
   `}
 
@@ -50,7 +50,7 @@ const Row = styled(Pane)`
   display: flex;
 
   ${p => !p.header && `
-    background-color: ${p.theme.tablesCellBg};
+    background-color: ${p.theme.t.tablesCellBg()};
     * {
       color: ${p.theme.palette.neutral.dark};
       font-weight: 100;
@@ -59,11 +59,11 @@ const Row = styled(Pane)`
   `}
   ${p => p.header && `
     height: 38px;
-    background-color: ${p.theme.tablesHeaderCellBg};
-    border-color: ${p.theme.tablesHeaderCellBg};
+    background-color: ${p.theme.t.tablesHeaderCellBg()};
+    border-color: ${p.theme.t.tablesHeaderCellBg()};
     * {
-      color: ${p.theme.tablesHeaderCellColor};
-      border-color: ${p.theme.tablesHeaderCellBg};
+      color: ${p.theme.t.tablesHeaderCellColor()};
+      border-color: ${p.theme.t.tablesHeaderCellBg()};
     }
   `}
 `;

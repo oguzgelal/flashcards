@@ -2,6 +2,27 @@ import { createGlobalStyle } from 'styled-components'
 import { defaultTheme } from 'evergreen-ui';
 import get from 'lodash/get';
 
+// eslint-disable-next-line
+const bp = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!@blueprintjs/core/lib/scss/variables.scss');
+
+// theme specific variables
+const t = {
+  appBg: () => get(bp, 'ptAppBackgroundColor'),
+  borderColor: () => get(bp, 'lightGray3'),
+
+  // flashcard
+  flashcardBgFront: () => get(bp, 'blue4'),
+  flashcardColorFront: () => get(bp, 'lightGray5'),
+  flashcardBgBack: () => get(bp, 'lightGray5'),
+  flashcardColorBack: () => get(bp, 'blue3'),
+
+  // tables
+  tablesHeaderCellBg: () => get(bp, 'blue4'),
+  tablesHeaderCellColor: () => get(bp, 'lightGray5'),
+  tablesCellBg: () => get(bp, 'lightGray5'),
+  tablesCellColor: () => get(bp, 'blue3'),
+}
+
 export const GlobalStyle = createGlobalStyle`
   html,
   body,
@@ -12,31 +33,6 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow: hidden;
     background-color: white;
-
-    // disable accessibility mode until tab press
-    // box-shadow: none !important;
-    // TODO: find a better way to disable accessibility
-    ${p => !p.accessibility && `
-      * {
-        &:focus {
-        }
-      }
-    `}
-  }
-
-  // vh fix for ios
-  // TODO: is this a bad idea ?
-  .📦h_100vh { height: 100% !important; }
-
-  .fc--tooltip {
-    z-index: 999 !important;
-    @media ${p => p.theme.mobile} {
-      display: none;
-    }
-  }
-
-  a {
-    text-decoration: none !important;
   }
 `;
 
@@ -46,6 +42,8 @@ export const sizeLaptop = 1440;
 export const sizeDesktop = 1440;
 
 const theme = {
+  t,
+  bp,
   bodyPadding: 22,
   bodyPaddingCover: `
     margin-left: -22px;
@@ -57,18 +55,6 @@ const theme = {
   desktop: `(max-width: ${sizeDesktop}px)`,
   headerHeight: 52,
   ...defaultTheme,
-
-  // flashcard
-  flashcardBgFront: get(defaultTheme, 'palette.neutral.dark'),
-  flashcardColorFront: get(defaultTheme, 'palette.neutral.lightest'),
-  flashcardBgBack: get(defaultTheme, 'palette.neutral.lightest'),
-  flashcardColorBack: get(defaultTheme, 'palette.neutral.dark'),
-
-  // tables
-  tablesHeaderCellBg: get(defaultTheme, 'palette.neutral.dark'),
-  tablesHeaderCellColor: get(defaultTheme, 'palette.neutral.lightest'),
-  tablesCellBg: get(defaultTheme, 'palette.neutral.lightest'),
-  tablesCellColor: get(defaultTheme, 'palette.neutral.dark'),
 
 };
 
