@@ -251,7 +251,7 @@ export default {
     { id: "y+/gNwQFXbr1u1ChnnZqZUm7Jum2nQ==", V: "図", M: "Diagram", RR: "ず", MM: "" },
     { id: "t1CQOiUFRNm1ELYetxjXNm/z7bK82w==", V: "弟", M: "Younger Brother", RR: "おとうと", MM: "You have an AUTHORITY (おとうと) over your younger brother" },
     { id: "UvTJyCNvj8m/uUtjhZoIt5VLL5h0XA==", V: "兄弟", M: "Brothers, Siblings", RR: "きょうだい", MM: "" },
-    { id: "kWVUFMT1zvK0TKDoDS0qBXiKtsy4Yg==", V: "作る", M: "To make, To build, To create", RR: "つくる", MM: "(さ)く -> (つ)く" },
+    { id: "kWVUFMT1zvK0TKDoDS0qBXiKtsy4Yg==", V: "作る", M: "To make, To build, To create", RR: "つくる", MM: "You're the key master, you can make keys: ie. TUZU KURU (つくる)" },
     { id: "hsDGeT/OvzrM0kp6lR/PKBIWSX/Uug==", V: "作文", M: "Composition, Writing, Essay", RR: "さくぶん", MM: "" },
     { id: "HKIqN+4XP6jCnjr8zM7S16N9HVb3zw==", V: "作用", M: "Action, Effect, Operation", RR: "さよう", MM: "" },
     { id: "p8VV0ndRRroEIRDnkjC2eAUog6qvBA==", V: "工作", M: "Construction, Handicraft", RR: "こうさく", MM: "" },
@@ -277,6 +277,8 @@ export default {
     { id: "VlElvDhspK58/+epaJzxM8NWUN6t4Q==", V: "〜形", M: "Form, Tense", RR: "けい", MM: "" },
     { id: "wjM5ZurrWZ0mCIYCfQbBz5b9SNirWQ==", V: "文学", M: "Literature", RR: "ぶんがく", MM: "" },
     { id: "HOPP9Zjjs0+fLmFevrDyaQBHyU/Bnw==", V: "〜斤", M: "Bread Loaf Counter", RR: "きん", MM: "" },
+    { id: "VFrlwq301Xoln3dhSALGP3RH0BzCuA==", V: "大文字", M: "Uppercase Letters", RR: "おおもじ", MM: "" },
+    { id: "ooZQ8E6EVlymKS3IVSLNtKzgfN/Jqw==", V: "耳打ち", M: "Whisper in ear", RR: "みみうち", MM: "" },
     // { id: "", V: "", M: "", RR: "", MM: "" },
   ]
 }
