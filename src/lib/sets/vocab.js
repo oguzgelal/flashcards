@@ -262,7 +262,7 @@ export default {
     { id: "XqjJ2WQSw3k7Zk1XXZPgvh/AE/fBGg==", V: "本社", M: "Headquarters, HQ", RR: "ほんしゃ", MM: "" },
     { id: "XAw3pypxtzS1hvGlamZwXoP1fKS79w==", V: "会社", M: "Company, The office", RR: "かいしゃ", MM: "" },
     { id: "MHw8zkfVGTTBuDki0ZAdxEcYzDGJFQ==", V: "言う", M: "To Say", RR: "いう", MM: "That's the い from といます (ie. I am)" },
-    { id: "WRkqTjjDQoB76KzKjavxM2UrvsjDUg==", V: "走る", M: "To run", RR: "はしる", MM: "" },
+    { id: "WRkqTjjDQoB76KzKjavxM2UrvsjDUg==", V: "走る", M: "To run", RR: "はしる", MM: "What do you run with? Your foot (あし)" },
     { id: "w4z+N61sy/jDQh9JOr6SXIpBRRfbyg==", V: "走行", M: "Traveling, Running, Moving", RR: "そうこう", MM: "When you travel to a cold place, it'll be SO (そう) COld (こう)" },
     { id: "/YRl9s38bEkQcn6arZ/RmCoXCeEYkg==", V: "近い", M: "Close, Near, Nearby", RR: "ちかい", MM: "Meeting (かい) with that chick (ち) nearby." },
     { id: "py70p4knrpu97UR95wgwr5WxOz676A==", V: "近日", M: "Soon, In a few days, Coming days", RR: "きんじつ", MM: "" },
