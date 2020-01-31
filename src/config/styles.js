@@ -8,7 +8,6 @@ const bp = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!@bluepr
 // theme specific variables
 const t = {
   appBg: () => get(bp, 'ptAppBackgroundColor'),
-  borderColor: () => get(bp, 'lightGray3'),
 
   // flashcard
   flashcardBgFront: () => get(bp, 'blue4'),

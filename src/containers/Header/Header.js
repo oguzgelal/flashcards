@@ -12,6 +12,10 @@ const Grow = styled.div`
   flex-grow: 1;
 `;
 
+const NavbarStyled = styled(Navbar)`
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
+`;
+
 class Header extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -24,7 +28,7 @@ class Header extends React.Component {
     return (
       <Device>
         {({ mobile }) => (
-          <Navbar
+          <NavbarStyled
             style={{
               paddingLeft: 0,
               paddingRight: 0
@@ -35,7 +39,8 @@ class Header extends React.Component {
                 display: 'flex',
                 alignItems: 'center',
                 paddingTop: 0,
-                paddingBottom: 0
+                paddingBottom: 0,
+                backgroundColor: 'transparent'
               }}
             >
               <Navbar.Group>
@@ -54,7 +59,7 @@ class Header extends React.Component {
               </Navbar.Group>
 
             </ResponsivePage>
-          </Navbar>
+          </NavbarStyled>
         )}
       </Device>
     );
