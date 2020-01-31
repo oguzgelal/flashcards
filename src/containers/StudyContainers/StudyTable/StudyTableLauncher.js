@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
+import { Card, H5 } from "@blueprintjs/core";
 
-import SimpleCard from '../../../components/SimpleCard';
 import TablePreview from '../../../components/StudyComponents/Tables/TablePreview';
 
 class StudyTableLauncher extends React.Component {
@@ -17,11 +17,12 @@ class StudyTableLauncher extends React.Component {
 
   render() {
     return (
-      <SimpleCard title="Study Table">
+      <Card interactive>
+        <H5>Study Table</H5>
         <TablePreview
           buttons={[ { children: "Start" } ]}
         />
-      </SimpleCard>
+      </Card>
     );
   }
 }

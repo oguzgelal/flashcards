@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
-
-import SimpleCard from '../../../components/SimpleCard';
+import { Card, H5 } from "@blueprintjs/core";
 import TablePreview from '../../../components/StudyComponents/Tables/TablePreview';
 
 class RevealTableLauncher extends React.Component {
@@ -17,12 +16,13 @@ class RevealTableLauncher extends React.Component {
 
   render() {
     return (
-      <SimpleCard title="Reveal Table">
+      <Card interactive>
+        <H5>Reveal Table</H5>
         <TablePreview
           reveal
           buttons={[ { children: "Start" } ]}
         />
-      </SimpleCard>
+      </Card>
     );
   }
 }

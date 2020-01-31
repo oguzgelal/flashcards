@@ -5,14 +5,15 @@ import styled from 'styled-components/macro';
 import { Pane, Card } from 'evergreen-ui';
 import { transparentize } from 'polished';
 import { range } from '../../../utils/random';
-import { ButtonGroup, buttonsPropType } from '../../Button';
-const Wrapper = styled(Pane)`
+
+const Wrapper = styled.div`
   display: flex;
   flex-flow: column;
 `;
 
-const BodyWrapper = styled(Card)`
+const BodyWrapper = styled.div`
   flex-grow: 1;
+  border-radius: 3px;
   background-color: ${p => p.theme.t.tablesCellBg()};
   min-height: 90px;
   overflow: hidden;
@@ -21,10 +22,13 @@ const BodyWrapper = styled(Card)`
   border-bottom-right-radius: 0;
 `;
 
-const Col = styled(Pane)`
+const Col = styled.div`
   display: flex;
   align-items: center;
   padding: 0 12px;
+  ${p => p.borderRight && `
+    border-right: 1px solid ${p.theme.colors.border.default};
+  `}
 
   ${p => p.c === 'red' && `
     background-color: ${transparentize(0.8, p.theme.bp.red5)};
@@ -45,9 +49,15 @@ const Col = styled(Pane)`
   `}
 
 `;
-const Row = styled(Pane)`
+const Row = styled.div`
   height: 26px;
   display: flex;
+  ${p => p.border && `
+    border: 1px solid ${p.theme.colors.border.default};
+  `}
+  ${p => p.borderTop === false && `
+    border-top: none;
+  `}
 
   ${p => !p.header && `
     background-color: ${p.theme.t.tablesCellBg()};
@@ -66,13 +76,13 @@ const Row = styled(Pane)`
       border-color: ${p.theme.t.tablesHeaderCellBg()};
     }
   `}
+  &:last-of-type {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
 `;
 
-const FooterWrapper = styled(Pane)`
-  margin-top: -2px;
-`;
-
-const Filler = styled(Pane)`
+const Filler = styled.div`
   border-radius: 2px;
   height: 8px;
   width: ${p => range(p.w[0], p.w[1])}%;
@@ -154,22 +164,11 @@ const TablePreview = props => {
           })}
         </Row>
       </BodyWrapper>
-      <FooterWrapper>
-        <ButtonGroup
-          buttons={props.buttons}
-          buttonStyles={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        />
-      </FooterWrapper>
     </Wrapper>
   )
 };
 
 TablePreview.propTypes = {
-  buttons: buttonsPropType,
   reveal: PropTypes.bool,
 };
 

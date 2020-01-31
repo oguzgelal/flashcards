@@ -5,11 +5,10 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { Alert, Text, Heading, Link, Icon } from 'evergreen-ui';
-import { Link as LinkRR } from 'react-router-dom';
-import Button from '../../components/Button';
+import { Button, Breadcrumbs, H1, Callout, Intent } from "@blueprintjs/core";
+
 import Page from '../../components/Page';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import navigate from './../../utils/navigate';
 
 import { STUDY } from '../../config/routes';
 
@@ -30,19 +29,16 @@ class Study extends React.Component {
 
   render404(cta, ctaLink) {
     return (
-      <Alert
-        intent="warning"
-        title="What you're looking for isn't here 😓"
-      >
+      <Callout intent={Intent.WARNING}>
+        <p>What you're looking for isn't here <span role="img" aria-label="sad emoji">😓</span></p>
         <Button
-          to={ctaLink}
-          is={LinkRR}
-          appearance="primary"
           marginTop={8}
+          intent={Intent.WARNING}
+          onClick={() => navigate(ctaLink)}
         >
           {cta}
         </Button>
-      </Alert>
+      </Callout>
     )
   }
 
@@ -62,6 +58,8 @@ class Study extends React.Component {
 
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
+    const topicDesc = get(topic, 'description');
+    const setDesc = get(set, 'description');
 
     return (
       <Page frame>
@@ -74,18 +72,17 @@ class Study extends React.Component {
 
           {/* breadcrumbs */}
           <Breadcrumbs
-            marginBottom={8}
             items={[
-              <Link is={LinkRR} to="/">Home</Link>,
-              isSetNil ? null : <Link is={LinkRR} to={`/${STUDY}/${topicId}`}>{topicTitle}</Link>,
+              { onClick: () => navigate('/'), text: 'Home' },
+              isSetNil ? null : { onClick: () => navigate(`/${STUDY}/${topicId}`), text: topicTitle },
             ].filter(i => !!i)}
           />
 
           {/* heading */}
-          <Heading size={900} marginBottom={22}>
+          <H1 style={{ marginBottom: 22 }}>
             {hasSet && setTitle}
             {!hasSet && isSetNil && topicTitle}
-          </Heading>
+          </H1>
 
           {/* set present, render set */}
           {hasSet && <ScreenStudySet set={set} />}

@@ -6,7 +6,8 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
 import { Dialog } from 'evergreen-ui';
-import SimpleCard from '../../../components/SimpleCard/SimpleCard';
+import { Card, H5 } from "@blueprintjs/core";
+
 import FlashcardPreview from '../../../components/StudyComponents/Flashcard/FlashcardPreview';
 import { SESSION_TYPE_FLASHCARD } from '../../../models/SessionFlashcards';
 
@@ -87,23 +88,19 @@ class FlashcardLauncher extends React.Component {
         </Dialog>
 
         {/* composer */}
-        <SimpleCard title="Flashcards">
-          <FlashcardPreview
-            frontFiller
-            backFiller
-            buttons={[
-              {
-                children: "Start",
-                disabled: startingSession,
-                onClick: () => {
-                  this.setState({
-                    showSettings: true,
-                  })
-                },
-              }
-            ]}
-          />
-        </SimpleCard>
+        <Card
+          interactive
+          style={{ opacity: startingSession ? 0.6 : 1 }}
+          onClick={() => {
+            if (startingSession) return;
+            this.setState({
+              showSettings: true,
+            })
+          }}
+        >
+          <H5>Flashcards</H5>
+          <FlashcardPreview />
+        </Card>
       </>
     );
   }

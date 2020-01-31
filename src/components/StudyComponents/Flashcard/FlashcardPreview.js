@@ -8,25 +8,27 @@ import { Pane, Card } from 'evergreen-ui';
 import { ButtonGroup, buttonsPropType } from '../../Button';
 import FlashcardItem from './FlashcardItem';
 
-const Wrapper = styled(Pane)`
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-flow: column;
   background-color: transparent;
 `;
 
-const CardWrapper = styled(Pane)`
+const CardWrapper = styled.div`
   display: flex;
   ${p => p.hasButtons && `
     border-bottom: none;
   `}
 `;
 
-const FrontWrapper = styled(Card)`
+const FrontWrapper = styled.div`
   width: 50%;
   min-height: 150px;
+  border-radius: 3px;
   padding-bottom: 22px;
   transform: rotate(-3deg);
+  border: 1px solid ${p => p.theme.colors.border.default};
   z-index: 3;
   background-color: ${p => p.theme.t.flashcardBgFront()};
   * { color: ${p => p.theme.t.flashcardColorFront()}; }
@@ -37,26 +39,18 @@ const FrontWrapper = styled(Card)`
   `}
 `;
 
-const BackWrapper = styled(Card)`
+const BackWrapper = styled.div`
   width: 50%;
   min-height: 150px;
   padding-bottom: 22px;
+  border-radius: 3px;
+  border: 1px solid ${p => p.theme.colors.border.default};
   transform: rotate(5deg);
   background-color: ${p => p.theme.t.flashcardBgBack()};
   * { color: ${p => p.theme.t.flashcardColorBack()}; }
-
-  ${p => p.hasButtons && `
-    border-bottom-right-radius: 0;
-  `}
 `;
 
-const FooterWrapper = styled(Card)`
-  margin-top: -12px;
-  z-index: 9;
-  background-color: white;
-`;
-
-const Filler = styled(Pane)`
+const Filler = styled.div`
   border-radius: 2px;
   background-color: ${p => p.theme.scales.neutral.N5};
   height: 16px;
@@ -67,68 +61,36 @@ const Filler = styled(Pane)`
 
 const FlashcardPreview = props => {
 
-  const frontItem = get(props, 'frontItem');
-  const backItem = get(props, 'backItem');
-  const buttons = get(props, 'buttons');
-
   return (
     <Wrapper>
 
-      <CardWrapper hasButtons={!isNil(buttons)}>
+      <CardWrapper>
 
         {/* front card */}
-        <FrontWrapper border hasButtons={!isNil(buttons)}>
-          {typeof frontItem !== 'string' && frontItem}
-          {typeof frontItem === 'string' && (
-            <FlashcardItem
-              title="Front"
-              value={frontItem}
-              alignLeft
-            />
-          )}
-          {props.frontFiller && (
-            <FlashcardItem
-              title="Front"
-              value={<Filler />}
-              alignLeft
-              style={{ marginTop: 12 }}
-            />
-          )}
+        <FrontWrapper>
+          <FlashcardItem
+            title="Front"
+            value={<Filler />}
+            alignLeft
+            style={{ marginTop: 12 }}
+          />
         </FrontWrapper>
 
         {/* back card */}
-        <BackWrapper border hasButtons={!isNil(buttons)}>
-          {typeof backItem !== 'string' && backItem}
-          {typeof backItem === 'string' && (
-            <FlashcardItem
-              title="Back"
-              value={backItem}
-              alignLeft
-            />
-          )}
-          {props.backFiller && (
-            <FlashcardItem
-              title="Back"
-              value={<Filler />}
-              alignLeft
-            />
-          )}
+        <BackWrapper>
+          <FlashcardItem
+            title="Back"
+            value={<Filler />}
+            alignLeft
+          />
         </BackWrapper>
       </CardWrapper>
 
-      {/* cta's */}
-      {!isNil(buttons) && (
+      {/* title 
         <FooterWrapper>
-          <ButtonGroup
-            buttons={buttons}
-            buttonStyles={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          />
+          Flashcards
         </FooterWrapper>
-      )}
+      */}
 
     </Wrapper>
   )
@@ -139,7 +101,7 @@ FlashcardPreview.propTypes = {
   frontItem: PropTypes.any,
   backFiller: PropTypes.bool,
   backItem: PropTypes.any,
-  buttons: buttonsPropType,
+  title: PropTypes.any,
 };
 
 FlashcardPreview.defaultProps = {
