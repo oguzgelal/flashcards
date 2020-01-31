@@ -1,0 +1,1 @@
+- Interactive cards are not accessible (can't tab into them)
