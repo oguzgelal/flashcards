@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
-
-import { Pane, Card } from 'evergreen-ui';
 import { transparentize } from 'polished';
 import { range } from '../../../utils/random';
 

@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { Button, Breadcrumbs, H1, Callout, Intent } from "@blueprintjs/core";
@@ -58,8 +55,6 @@ class Study extends React.Component {
 
     const topicTitle = get(topic, 'title');
     const setTitle = get(set, 'title');
-    const topicDesc = get(topic, 'description');
-    const setDesc = get(set, 'description');
 
     return (
       <Page frame>

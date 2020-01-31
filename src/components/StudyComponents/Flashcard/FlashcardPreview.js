@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
-import get from 'lodash/get';
-import isNil from 'lodash/isNil';
-
-import { Pane, Card } from 'evergreen-ui';
-import { ButtonGroup, buttonsPropType } from '../../Button';
 import FlashcardItem from './FlashcardItem';
 
 const Wrapper = styled.div`
