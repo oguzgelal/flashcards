@@ -1,7 +1,7 @@
 export default {
   id: "kanji",
   title: "Kanji 漢字",
-  description: "Study set that includes cards to / from kanji characters, their on'yomi and kun'yomi readings, and meanings. Mnemonics for some of them are also  included as hints.",
+  description: "Study set that includes cards to / from kanji characters, their on'yomi and kun'yomi readings, and meanings.",
   topic: "japanese",
   flashcards: {
     "RI1l+KhkjzALidLZpsxIc8QU4T4HCQ==": true,

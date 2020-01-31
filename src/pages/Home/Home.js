@@ -43,7 +43,7 @@ class Login extends React.Component {
               topic={topic}
               marginTop={22}
             >
-              <Grid>
+              <Grid autoHeight>
                 {topicSets.map(topicSetId => (
                   <StudySet
                     key={`study_set_${topicId}_${topicSetId}`}

@@ -14,7 +14,7 @@ const ScreenStudyTopic = props => {
   const topicId = get(props, 'topic.id');
 
   return (
-    <Grid>
+    <Grid autoHeight>
       {topicSets.map(topicSetId => (
         <StudySet
           key={`study_set_${topicId}_${topicSetId}`}

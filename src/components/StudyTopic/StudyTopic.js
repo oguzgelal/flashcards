@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Badge, { Badges } from '../Badge';
-import SimpleCard from '../SimpleCard';
+import { Tag, Card, H3, Intent } from "@blueprintjs/core";
 
 const StudyTopic = ({ topic, children, ...props } = {}) => {
 
@@ -13,22 +12,19 @@ const StudyTopic = ({ topic, children, ...props } = {}) => {
   const topicSetsCount = topicSets.length;
 
   return (
-    <SimpleCard
-      key={`topic-${topicId}`}
-      title={topicTitle}
-      titleProps={{ size: 700 }}
-      desc={topicDesc}
-      headerChildren={(
-        <Badges>
-          <Badge color={!topicSetsCount ? 'yellow' : 'blue'}>
-            {!topicSetsCount ? 'No' : topicSetsCount} Set{topicSetsCount === 1 ? '' : 's'}
-          </Badge>
-        </Badges>
-      )}
-    >
-      {children}
-    </SimpleCard>
-  )
+    <Card key={`topic-${topicId}`}>
+      <H3>{topicTitle}</H3>
+      <p>{topicDesc}</p>
+      <p>
+        <Tag intent={Intent.PRIMARY}>
+          {!topicSetsCount ? 'No' : topicSetsCount} Set{topicSetsCount === 1 ? '' : 's'}
+        </Tag>
+      </p>
+      <p style={{ marginTop: 22 }}>
+        {children}
+      </p>
+    </Card>
+  );
 };
 
 StudyTopic.propTypes = {

@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import { Link } from 'react-router-dom';
-import Badge, { Badges } from '../Badge';
-import Button from '../Button';
 import { STUDY } from '../../config/routes';
-import SimpleCard from '../SimpleCard';
+import navigate from './../../utils/navigate';
+import { Tag, Card, H5, Intent, Button } from "@blueprintjs/core";
+
+const CardBody = styled.div`
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+`;
 
 const StudySet = props => {
 
@@ -17,30 +23,20 @@ const StudySet = props => {
   const setItemsCount = setItems.length;
 
   return (
-    <SimpleCard
-      title={setTitle}
-      desc={setDesc}
-      headerChildren={(
-        <Badges>
-          <Badge color={!setItemsCount ? 'yellow' : 'blue'}>
-            {!setItemsCount ? 'No' : setItemsCount} Item{setItemsCount === 1 ? '' : 's'}
-          </Badge>
-        </Badges>
-      )}
+    <Card
+      interactive
+      onClick={() => {
+        navigate(`/${STUDY}/${setTopicId}/${setId}`)
+      }}
     >
-      <Button
-        is={Link}
-        to={`/${STUDY}/${setTopicId}/${setId}`}
-        intent="primary"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        appearance="primary"
-        disabled={setItemsCount === 0}
-      >
-        Study
-      </Button>
-    </SimpleCard>
+      <H5>{setTitle}</H5>
+      <p>{setDesc}</p>
+      <p>
+        <Tag intent={Intent.PRIMARY}>
+          {!setItemsCount ? 'No' : setItemsCount} Item{setItemsCount === 1 ? '' : 's'}
+        </Tag>
+      </p>
+    </Card>
   )
 };
 
