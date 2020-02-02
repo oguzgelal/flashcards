@@ -294,6 +294,16 @@ export default {
     { id: "WWxVbq6ERxditDT//Nbl4BqQjKjOeA==", V: "平安", M: "Peace", RR: "へいあん", MM: "" },
     { id: "/bWI5m7m6lmceicEOAfLMqdVb64Inw==", V: "州", M: "State, Province", RR: "しゅう", MM: "" },
     { id: "rzwVEFUl1HZL6A/UFXvQYQam/qWsJQ==", V: "九州", M: "Kyuushuu", RR: "きゅうしゅう", MM: "" },
+    { id: "KtnbA2O7XiImnGerOa8kXiUs81BUAA==", V: "全て", M: "All, Entire", RR: "すべて", MM: "SUE BEth for ALL she has." },
+    { id: "Rz5avnOWaICbeJBjwdQxSdl1YHqQhg==", V: "全力", M: "Full Effort", RR: "ぜんりょく", MM: "" },
+    { id: "4YbMythgh+0ogIQKPPLZyv3Oq/ki8A==", V: "全日本", M: "All Japan", RR: "ぜんにほん", MM: "" },
+    { id: "Os3untg1j83dwnWmIvVfkBNkDy82EQ==", V: "安全", M: "Safety", RR: "あんぜん", MM: "" },
+    { id: "z9dDSVOfMvFd3V9u45bNMHNQM4U9qw==", V: "方向", M: "Direction", RR: "ほうこう", MM: "" },
+    { id: "j4wRm2LNFpb8t4OpKtJ+ipDYQRz06g==", V: "本州", M: "Honshu", RR: "ほんしゅう", MM: "" },
+    { id: "WsXx4TQmjprRDRPr79WgHUHSQgWc4w==", V: "曲", M: "Tune, Song, Melody", RR: "きょく", MM: "" },
+    { id: "4nySayMFHqGgpeDR/QDOh9dTBuVxdQ==", V: "名曲", M: "Famous Music", RR: "めいきょく", MM: "" },
+    { id: "0B6eOI5S1l+WlmJMFUs3dlaUxoVodA==", V: "有る", M: "To Have, To Exist", RR: "ある", MM: "Think of ARE. You would use this when saying something like 'There ARE (ある) ...' " },
+    { id: "VPvuKa+v5PtxcvR5/1kVzEy8tvtR3Q==", V: "有名", M: "Famous", RR: "ゆうめい", MM: "" },
     // { id: "", V: "", M: "", RR: "", MM: "" },
   ]
 }
