@@ -59,7 +59,7 @@ export default {
     { id: "Nuew7ZZt89joXHaSFQRbTSWhJ+uaKA==", K: "写", M: "Copy", OY: "! しゃ", KY: "うつ", MM: "Looks like numbers. What do you do with numbers? you COPY them to your phone. But if you COPY the answers in an exam - SHAME (しゃ) on you." },
     { id: "iJVa9Gcbl7WZPdLHaT9m+6ia1vTbKg==", K: "兄", M: "Older Brother", OY: "! きょう", KY: "あに", MM: "You'd say fucKYOU! to your annoying older brother." },
     { id: "6JO44EZUCQj50oryth/VlrWpc6xxgw==", K: "皮", M: "Skin", OY: "! ひ", KY: "かわ", MM: "Skin protects you from heat and sunlight." },
-    { id: "f97KfmEUdaVmCApgBv/LxOPeL2+QCQ==", K: "交", M: "Mix, Mingle", OY: "! こう", KY: "まじ, ま, か", MM: "" },
+    { id: "f97KfmEUdaVmCApgBv/LxOPeL2+QCQ==", K: "交", M: "Mix, Mingle", OY: "! こう", KY: "まじ, ま, か", MM: "To mix something into something (KOYMAK - こう)" },
     { id: "ET5ffPflU8mEMwYmfY5zEQDYkzYfLg==", K: "光", M: "Sunrise, Light", OY: "! こう", KY: "ひかり, ひか", MM: "" },
     { id: "1B19RcwgUpYX4DN9JGP4qGxXSWS9Eg==", K: "回", M: "Times, Revolve", OY: "! かい", KY: "まわ", MM: "TIME Slips away (KAYıp gidiyor - かい)" },
     { id: "L9nMjaXwpW7TNkNc1rF2Cvo2T3oezQ==", K: "多", M: "Many, Much, Lots of", OY: "! た", KY: "おお", MM: "TAmam (た) yeter." },
