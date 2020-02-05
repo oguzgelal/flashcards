@@ -5,6 +5,8 @@ import styled from 'styled-components/macro';
 import get from 'lodash/get';
 
 import { SelectField } from 'evergreen-ui';
+import { Select } from "@blueprintjs/select";
+import { Button, Menu, HTMLSelect, FormGroup } from "@blueprintjs/core";
 import { TextInputField} from '../../../components/input/TextInput';
 import FormFieldHorizontal from '../../../components/input/FormFieldHorizontal';
 
@@ -72,25 +74,52 @@ class FlashcardSettings extends React.Component {
       <Wrapper>
 
         {/* topic */}
-        <FormFieldHorizontal labelWidth={50}>
-          <SelectField
-            required
-            label="Topic"
-            disabled={hasTopic}
-            value={currentTopicId}
-            onChange={e => this.props.onChange({ topicId: e.target.value }, this.updateTitle)}
+        <FormGroup inline label="Topic">
+          <Select
+            resetOnSelect
+            resetOnClose
+            filterable={false}
+            items={Object.values(topics)}
+            onItemSelect={(item, event) => {}}
+            itemRenderer={(item, { handleClick, modifiers }) => {
+              return (
+                <Menu.Item
+                  multiline
+                  key={get(item, 'id')}
+                  icon="application"
+                  text={get(item, 'title')}
+                  onClick={() => {}}
+                />
+              )
+            }}
           >
-            <option value={null}>Select...</option>
-            {Object.values(topics).map(t => (
-              <option
-                value={t.id}
-                selected={t.id === currentTopicId}
-              >
-                {t.title}
-              </option>
-            ))}
-          </SelectField>
-        </FormFieldHorizontal>
+            <Button fill>
+              {get(topics, `${currentTopicId}.title`)}
+            </Button>
+          </Select>
+        </FormGroup>
+
+        {/*
+          <FormFieldHorizontal labelWidth={50}>
+            <SelectField
+              required
+              label="Topic"
+              disabled={hasTopic}
+              value={currentTopicId}
+              onChange={e => this.props.onChange({ topicId: e.target.value }, this.updateTitle)}
+            >
+              <option value={null}>Select...</option>
+              {Object.values(topics).map(t => (
+                <option
+                  value={t.id}
+                  selected={t.id === currentTopicId}
+                >
+                  {t.title}
+                </option>
+              ))}
+            </SelectField>
+          </FormFieldHorizontal>
+        */}
 
         {/* set */}
         <FormFieldHorizontal labelWidth={50}>

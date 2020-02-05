@@ -304,6 +304,16 @@ export default {
     { id: "4nySayMFHqGgpeDR/QDOh9dTBuVxdQ==", V: "名曲", M: "Famous Music", RR: "めいきょく", MM: "" },
     { id: "0B6eOI5S1l+WlmJMFUs3dlaUxoVodA==", V: "有る", M: "To Have, To Exist", RR: "ある", MM: "Think of ARE. You would use this when saying something like 'There ARE (ある) ...' " },
     { id: "VPvuKa+v5PtxcvR5/1kVzEy8tvtR3Q==", V: "有名", M: "Famous", RR: "ゆうめい", MM: "" },
+    { id: "oNRTJKCQoEfZ1rpXZn3nJDYQZjDSuQ==", V: "次", M: "Next", RR: "つぎ", MM: "You're searching for ice store to store but all you can find is TWO GIlettes (つぎ)" },
+    { id: "ORcHBjSgSm6yal5X12rfddOvie5COQ==", V: "次回", M: "Next Time", RR: "じかい", MM: "" },
+    { id: "r/RcUF+LTC883yIYb5NZgqYYcq8LJA==", V: "目次", M: "Table of Contents", RR: "もくじ", MM: "When someone EYEs you it means they're MOCKing you (もく)" },
+    { id: "0Udo66RrQRsd4AjoaOmYiQAnhVAbSQ==", V: "年次", M: "Annual, Yearly", RR: "ねんじ", MM: "" },
+    { id: "VLhU74PIWGBklVJYCL3ngzTAFh27ag==", V: "死ぬ", M: "To Die", RR: "しぬ", MM: "" },
+    { id: "M0Kb4OM/4/N4aFVlQsr4J23lidV0vQ==", V: "死体", M: "Dead Body, Corpse", RR: "したい", MM: "" },
+    { id: "zt3lGMsDewEEi0tlMnVLQt66uitA3g==", V: "死亡", M: "Mortality, Death", RR: "しぼう", MM: "" },
+    { id: "Jt058TyVFKJo8huxlh0mux8gKl2KgA==", V: "羊", M: "Sheep", RR: "ひつじ", MM: "Sheep fighting with Jesus. It HITS Jesus (ひつじ)" },
+    { id: "wmhTT/F01BxKSzd8C5CrjhuVdnk3Xw==", V: "羊毛", M: "Wool", RR: "ようもう", MM: "" },
+    { id: "ARXXdCnzz5GkUigSIm3yl4RtgWLe0w==", V: "血", M: "Blood", RR: "ち", MM: "When you see blood, you get CHIlled (ち)" },
     // { id: "", V: "", M: "", RR: "", MM: "" },
   ]
 }
