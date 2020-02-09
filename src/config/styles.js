@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     background-color: white;
   }
+  // apply padding to overlays for mobile displays
+  .bp3-dialog-container {
+    padding: 22px;
+  }
 `;
 
 export const sizeMobile = 700;

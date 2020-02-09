@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import styled from 'styled-components/macro';
 import get from "lodash/get";
 
 import { Dialog, Classes, Card, H5, Button } from "@blueprintjs/core";
@@ -12,6 +13,10 @@ import { SESSION_TYPE_FLASHCARD } from "../../../models/SessionFlashcards";
 
 import * as types from "../../../redux/modules/sessions/types";
 import * as sessionActions from "../../../redux/modules/sessions/actions";
+
+const DialogStyled = styled(Dialog)`
+  background-color: ${p => p.theme.t.appBg()};
+`;
 
 class FlashcardLauncher extends React.Component {
   constructor(props, context) {
@@ -51,7 +56,7 @@ class FlashcardLauncher extends React.Component {
     return (
       <>
         {/* settings dialog */}
-        <Dialog
+        <DialogStyled
           title="Flashcard Session"
           isOpen={this.state.showSettings}
           onClose={() => this.setState({ showSettings: false })}
@@ -66,17 +71,14 @@ class FlashcardLauncher extends React.Component {
           >
             <div className={Classes.DIALOG_BODY}>
               <FlashcardSettings
-                settings={this.state.settings}
+                {...(this.state.settings || {})}
                 onChange={(vals = {}, callback) => {
-                  this.setState(
-                    {
-                      settings: {
-                        ...(get(this.state, "settings") || {}),
-                        ...vals
-                      }
-                    },
-                    callback
-                  );
+                  this.setState({
+                    settings: {
+                      ...(this.state.settings || {}),
+                      ...vals
+                    }
+                  }, callback);
                 }}
               />
             </div>
@@ -89,7 +91,7 @@ class FlashcardLauncher extends React.Component {
               </div>
             </div>
           </form>
-        </Dialog>
+        </DialogStyled>
 
         {/* composer */}
         <Card
