@@ -5,9 +5,8 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { Spinner } from 'evergreen-ui';
 import { Router, Route } from "react-router-dom";
-import { FocusStyleManager } from "@blueprintjs/core";
+import { Spinner, FocusStyleManager } from "@blueprintjs/core";
 
 import 'normalize.css/normalize.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';

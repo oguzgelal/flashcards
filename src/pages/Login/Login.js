@@ -1,20 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button, InputGroup, Intent, H2 } from '@blueprintjs/core';
 import Page from '../../components/Page';
-import TextInput from '../../components/input/TextInput';
-import Button from '../../components/Button';
-import {
-  Heading,
-  Pane,
-  Card,
-  majorScale,
-  minorScale
-} from 'evergreen-ui';
-
 import { LOGIN } from '../../redux/modules/auth/types';
 import * as authActions from '../../redux/modules/auth/actions';
+
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  background-color: white;
+  border: 1px solid ${p => p.theme.colors.border.default};
+  border-radius: 4px;
+  padding: 22px;
+`;
+
+const Heading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+`;
 
 class Login extends React.Component {
   constructor(props, context) {
@@ -33,28 +44,16 @@ class Login extends React.Component {
     return (
       <Page hasHeader={false} frame center>
 
-        <Card
-          width="100%"
-          maxWidth="420px"
-          margin="auto"
-          display="flex"
-          flexFlow="column"
-          background="tint1"
-          border
-          padding={minorScale(3)}
-        >
-          <Pane
+        <Wrapper>
+          <Heading
             display="flex"
             alignItems="center"
             justifyContent="center"
           >
-            <Heading
-              size="700"
-              marginBottom={minorScale(4)}
-            >
+            <H2>
               こんにちは！
-            </Heading>
-          </Pane>
+            </H2>
+          </Heading>
 
           <form
             onSubmit={e => {
@@ -66,35 +65,28 @@ class Login extends React.Component {
             }}
           >
 
-            <TextInput
-              width="100%"
+            <InputGroup
               type="email"
               placeholder="Email"
-              marginBottom={minorScale(2)}
-              height={majorScale(4)}
               value={this.state.email}
+              style={{ marginBottom: 4 }}
               onChange={e => this.setState({ email: e.target.value })}
             />
 
-            <TextInput
-              width="100%"
+            <InputGroup
               type="password"
               placeholder="Password"
-              marginBottom={minorScale(4)}
-              height={majorScale(4)}
               value={this.state.password}
+              style={{ marginBottom: 8 }}
               onChange={e => this.setState({ password: e.target.value })}
             />
 
             <Button
+              large
+              fill
               type="submit"
-              width="100%"
-              appearance="primary"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              height={majorScale(4)}
-              isLoading={loggingIn}
+              intent={Intent.PRIMARY}
+              loading={loggingIn}
               disabled={(
                 loggingIn ||
                 !this.state.email ||
@@ -107,7 +99,7 @@ class Login extends React.Component {
 
           </form>
 
-        </Card>
+        </Wrapper>
       </Page>
     );
   }

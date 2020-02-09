@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
-import { Pane } from 'evergreen-ui';
 
-const Wrapper = styled(Pane)`
+const Wrapper = styled.div`
   display: grid;
   grid-gap: ${p => p.gap}px;
   grid-auto-rows: ${p => p.autoHeight ? 'auto' : `${p.itemHeight}px`};
